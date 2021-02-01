@@ -1,7 +1,13 @@
+/* Font for the sidebar along with the sidebar toggler button */
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+/* Font for the search bar */
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:700');
+
 body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 p {
@@ -22,11 +28,11 @@ a:focus {
 
 .navbar {
     padding: 15px 10px;
-    background: #fff;
+    background: #5E72E4;
     border: none;
     border-radius: 0;
     margin-bottom: 40px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
 }
 
 .navbar-btn {
@@ -59,22 +65,24 @@ span {
 }
 
 #sidebar {
-    min-width: 280px;
-    max-width: 280px;
+    min-width: 250px;
+    max-width: 250px;
     background: #7386D5;
     color: #fff;
     transition: all 0.3s;
 }
 
+/* The side bar style when it is in active state */
 #sidebar.active {
     min-width: 110px;
     max-width: 110px;
     text-align: center;
 }
-/* 
+
+/* To hide the side navigation link names when the side bar is collapsed */
 #sidebar.active ul li a span{
     display: none;
-} */
+}
 
 #sidebar.active .sidebar-header h3,
 #sidebar.active .CTAs{
@@ -92,7 +100,7 @@ span {
 #sidebar.active ul li a {
     padding: 20px 10px;
     text-align: center;
-    font-size: 0.85em;
+    font-size: 1.8em;
 }
 
 #sidebar.active ul li a i {
@@ -196,7 +204,6 @@ a.article:hover {
 
 #content {
     width: 100%;
-    padding: 20px;
     min-height: 100vh;
     transition: all 0.3s;
 }
@@ -250,4 +257,81 @@ a.article:hover {
     #sidebarCollapse span {
         display: none;
     }
+}
+
+/* Header */
+.header{
+    height: 420px;
+    background-color: #5E72E4;;
+}
+
+/* The circle Avatar */
+.avatar {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  /* Search Bar */
+.searchbar{
+    margin-bottom: auto;
+    margin-top: auto;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 30px;
+    padding: 10px;
+    }
+
+.search_input{
+    color: white;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    caret-color:transparent;
+    line-height: 30px;
+    transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_input{
+    padding: 0 10px;
+    width: 450px;
+    caret-color:red;
+    transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_icon{
+    background: white;
+    color: #e74c3c;
+}
+
+.search_icon{
+    height: 30px;
+    width: 30px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color:#5E72E4;
+    text-decoration:none;
+}
+
+/* Notification bell icon */
+.fa-bell{
+    color: white;
+}
+
+/* White text */
+.white-text{
+    color:white;
+}
+
+/* filter button */
+.btn-neutral{
+    color: #5e72e4;
+    border-color: #fff;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgb(50 50 93 / 11%), 0 1px 3px rgb(0 0 0 / 8%);
 }
