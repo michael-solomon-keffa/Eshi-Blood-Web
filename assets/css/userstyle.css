@@ -10,14 +10,6 @@ body {
     overflow-x: hidden;
 }
 
-p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.1em;
-    font-weight: 300;
-    line-height: 1.7em;
-    color: #999;
-}
-
 a,
 a:hover,
 a:focus {
@@ -75,17 +67,6 @@ span {
     background: #7386D5;
     color: #fff;
     transition: all 0.3s;
-}
-
-.main {
-    margin-left: 250px;
-    width: 100%;
-    min-height: 100vh;
-    transition: all 0.3s;
-}
-
-#sidebarCollapse:hover .main{
-    margin-left: 110px;
 }
 
 /* The side bar style when it is in active state */
@@ -217,11 +198,17 @@ a.article:hover {
 
 /* Content Style */
 
-#content {
+.main {
+    margin-left: 250px;
     width: 100%;
     min-height: 100vh;
     transition: all 0.3s;
 }
+
+#sidebarCollapse:hover .main{
+    margin-left: 110px;
+}
+
 
 /* Media Queries */
 
@@ -276,7 +263,8 @@ a.article:hover {
 
 /* Header */
 .header{
-    height: 420px;
+    height: 500px;
+    width: 100%;
     background-color: #5E72E4;;
 }
 
@@ -349,4 +337,47 @@ a.article:hover {
     border-color: #fff;
     background-color: #fff;
     box-shadow: 0 4px 6px rgb(50 50 93 / 11%), 0 1px 3px rgb(0 0 0 / 8%);
+}
+
+
+.card-wrapper{
+    height: 500px;
+    width: 300px;
+    perspective: 1000px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.content{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8;
+    transform-style: preserve-3d;
+}
+
+.card-wrapper:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.card-wrapper:hover .content{
+    transform: rotateY(180deg);
+    transition: 1s;
+}
+
+.face-front, .face-back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    color: black;
+}
+
+.face-back{
+    transform: rotateY(180deg);
+}
+
+/* Breadcrumb */
+.breadcrumbwidth{
+    width: 200
 }
