@@ -25,3 +25,18 @@
     background-color: red;
 }
 
+.fa-check{
+    color: green;
+}
+.fa-times{
+    color: red;
+}
+
+@media screen and (max-width: 600px){
+    body{
+        font-size: 0.8rem;
+    }
+    .table td{
+        padding: .5rem;
+    }
+}
