@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <title>Add Request</title>
+    <title>Post Request - Eshi Blood</title>
 
     <!-- Bootstrap CSS CDN -->
     <link
@@ -14,10 +14,12 @@
       integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="./assets/css/jquery.datetimepicker.css" />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./assets/css/styles.css" />
 
     <!-- Font Awesome JS -->
+
     <script
       defer
       src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
@@ -43,53 +45,36 @@
 
         <ul class="list-unstyled components">
           <li>
-            <a href="#">
+            <a href="dashboard.html">
               <i class="fas fa-chart-line"></i>
               <span>&nbsp;Dashboard</span>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="appointment-admin.html">
               <i class="fas fa-calendar-check"></i>
               <span>&nbsp;Appointment</span>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="add-request.html">
               <i class="fas fa-image"></i>
               <span>&nbsp;Make Request</span>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="user.html">
               <i class="fas fa-users"></i>
               <span>&nbsp;Users</span>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="event-admin.html">
               <i class="fas fa-paper-plane"></i>
               <span>&nbsp;Events</span>
             </a>
           </li>
         </ul>
-        <!-- <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="fas fa-home"></i>
-                        Home
-                    </a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Home 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 3</a>
-                        </li>
-                    </ul>
-                </li> -->
         <ul class="list-unstyled CTAs">
           <li>
             <a
@@ -109,7 +94,7 @@
       </nav>
 
       <!-- Page Content  -->
-      <div id="content">
+      <div id="content" class="main">
         <div class="header">
           <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
@@ -161,10 +146,18 @@
           </nav>
           <div class="row align-items-center py-4">
             <div class="col-lg-6 col-7">
-              <h4 class="pl-5 white-text">Dashboard</h4>
-            </div>
-            <div class="col-lg-5 col-5 text-right">
-              <a href="" class="btn btn-sm btn-neutral">Filter</a>
+              <div class="ml-5">
+                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                  <li class="breadcrumb-item">
+                    <a href="#"><i class="fas fa-home"></i></a>
+                  </li>
+                  <li class="breadcrumb-item"><a href="#">Dashboards</a></li>
+                  <li class="breadcrumb-item"><a href="#">Requst</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">
+                    Add Request
+                  </li>
+                </ol>
+              </div>
             </div>
           </div>
           <!-- Card Stats -->
@@ -204,6 +197,7 @@
                       <h5 class="card-title text-uppercase text-muted mb-0">
                         Donations
                       </h5>
+
                       <span class="h2 font-weight-bold mb-0">100k</span>
                     </div>
                     <div class="col-auto">
@@ -285,7 +279,7 @@
               >
                 <div class="card">
                   <div class="card-header">
-                    <h3>Add Request</h3>
+                    <h3>Post Request</h3>
                   </div>
                   <div class="card-body">
                     <form action="">
@@ -293,9 +287,7 @@
                       <div class="row">
                         <div class="col-xl-6 col-lg-6 col-md-6">
                           <div class="form-group">
-                            <label class="form-control-label" for="blood-type"
-                              >Blood Type</label
-                            >
+                            
                             <select id="inputState" class="form-control">
                               <option selected disabled>
                                 Choose Blood Type...
@@ -313,9 +305,6 @@
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6">
                           <div class="form-group">
-                            <label class="form-control-label" for="units-needed"
-                              >Units Needed</label
-                            >
                             <input
                               type="number"
                               id="units"
@@ -328,11 +317,6 @@
                       <div class="row">
                         <div class="col-xl-6 col-lg-6 col-md-6">
                           <div class="form-group">
-                            <label
-                              class="form-control-label"
-                              for="donation-reason"
-                              >Request Reason</label
-                            >
                             <select id="inputState" class="form-control">
                               <option selected disabled>Request Reasons</option>
                               <option value="surgery">Surgery</option>
@@ -346,9 +330,6 @@
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6">
                           <div class="form-group">
-                            <label class="form-control-label" for="location"
-                              >Hospital Name / Location</label
-                            >
                             <input
                               type="text"
                               id="location"
@@ -404,6 +385,13 @@
       integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
       crossorigin="anonymous"
     ></script>
+    <script src="./assets/js/jquery.datetimepicker.js"></script>
+
+    <script type="text/javascript">
+      $(".form_datetime").datetimepicker({
+        format: "dd MM yyyy - hh:ii",
+      });
+    </script>
 
     <script type="text/javascript">
       $(document).ready(function () {

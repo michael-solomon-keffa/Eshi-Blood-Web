@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <title>Edit Request - Eshi Blood</title>
+    <title>Post Event - Eshi Blood</title>
 
     <!-- Bootstrap CSS CDN -->
     <link
@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="./assets/css/jquery.datetimepicker.css" />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./assets/css/styles.css" />
-    <link rel="stylesheet" href="./assets/css/request.css" />
 
     <!-- Font Awesome JS -->
 
@@ -146,18 +145,16 @@
             </div>
           </nav>
           <div class="row align-items-center py-4">
-            <div class="  ">
+            <div class="col-lg-6 col-7">
               <div class="ml-5">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                   <li class="breadcrumb-item">
                     <a href="#"><i class="fas fa-home"></i></a>
                   </li>
                   <li class="breadcrumb-item"><a href="#">Dashboards</a></li>
-                  <li class="breadcrumb-item">
-                    <a href="#">Requests</a>
-                  </li>
+                  <li class="breadcrumb-item"><a href="#">Events</a></li>
                   <li class="breadcrumb-item active" aria-current="page">
-                    Edit Request
+                    Add Event
                   </li>
                 </ol>
               </div>
@@ -277,10 +274,12 @@
           </div>
           <div class="container-fluid mt-4">
             <div class="row">
-              <div class="col-xl-8 col-lg-8 col-md-6 col-sm-12">
+              <div
+                class="col-xl-12 col-lg-12 col-md-12 col-sm-12 edit-form-container"
+              >
                 <div class="card">
                   <div class="card-header">
-                    <h3>Edit Request</h3>
+                    <h3>Post Event</h3>
                   </div>
                   <div class="card-body">
                     <form action="">
@@ -288,58 +287,91 @@
                       <div class="row">
                         <div class="col-xl-6 col-lg-6 col-md-6">
                           <div class="form-group">
-                            
-                            <select id="inputState" class="form-control">
-                              <option selected disabled>
-                                Choose Blood Type...
-                              </option>
-                              <option value="A+">A+</option>
-                              <option value="O+">O+</option>
-                              <option value="B+">B+</option>
-                              <option value="AB+">AB+</option>
-                              <option value="A-">A-</option>
-                              <option value="O-">O-</option>
-                              <option value="B-">B-</option>
-                              <option value="AB-">AB-</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6">
-                          <div class="form-group">
                             <input
-                              type="number"
-                              id="units"
+                              type="text"
+                              id="event_title"
                               class="form-control"
-                              placeholder="Units Needed"
+                              placeholder="Event Title"
                             />
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-xl-6 col-lg-6 col-md-6">
-                          <div class="form-group">
-                            <select id="inputState" class="form-control">
-                              <option selected disabled>Request Reasons</option>
-                              <option value="surgery">Surgery</option>
-                              <option value="accident">Accident</option>
-                              <option value="chronic disease">
-                                Chronic Disease
-                              </option>
-                              <option value="other">Other</option>
-                            </select>
                           </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6">
                           <div class="form-group">
                             <input
                               type="text"
-                              id="location"
+                              id="event_location"
                               class="form-control"
-                              placeholder="Location"
+                              placeholder="Event Location"
                             />
                           </div>
                         </div>
                       </div>
+                      <h6 class="text-muted mb-4">About the organizer</h6>
+                      <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6">
+                          <div class="form-group">
+                            <input
+                              type="text"
+                              id="organizer_number"
+                              class="form-control"
+                              placeholder="Phone Number"
+                            />
+                          </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6">
+                          <div class="form-group">
+                            <input
+                              type="text"
+                              id="organizer_goal"
+                              class="form-control"
+                              placeholder="Organizer Goal (in Blood Kits)"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6">
+                          <div class="form-group">
+                            <input
+                              type="text"
+                              id="organizer_address"
+                              class="form-control"
+                              placeholder="Organizer Address "
+                            />
+                          </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6">
+                          <div class="form-group">
+                            <input
+                              type="text"
+                              id="organizer_name"
+                              class="form-control"
+                              placeholder="Organizer Name"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <h6 class="text-muted mb-4">Duration</h6>
+
+                      <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6">
+                          <div
+                            class="input-append date form_datetime"
+                            id="startDate"
+                          >
+                            <input size="16" type="text" value="" readonly />
+                            <span class="add-on"><i class="icon-th"></i></span>
+                          </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6">
+                          <div class="input-append date form_datetime">
+                            <input size="16" type="text" value="" readonly />
+                            <span class="add-on"><i class="icon-th"></i></span>
+                          </div>
+                        </div>
+                      </div>
+
                       <div class="row">
                         <div class="container-fluid col-lg-12 col-xl-12">
                           <textarea
@@ -354,55 +386,11 @@
                       <div class="row form-group mt-3">
                         <div class="col-sm-10">
                           <button type="submit" class="btn btn-primary">
-                            Send Request
+                            Post Event
                           </button>
                         </div>
                       </div>
                     </form>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                <div class="">
-                  <div class="card card-profile rainbow">
-                    <div class="row mx-auto">
-                      <div class="col-md-3 order-md-2">
-                        <div class="card-profile-image">
-                          <a href="">
-                            <img
-                              src="https://images.unsplash.com/photo-1505499663565-1ec2a8397f5b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=140&h=140&q=80"
-                              class="rounded-circle"
-                              alt=""
-                            />
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="card-body m-2">
-                      <div class="row">
-                        <div class="col-md-12 col-lg-6 col-sm-12">
-                          <div class="heading text-center">22</div>
-                          <div class="description text-center">Accepted</div>
-                        </div>
-                        <div class="col-md-12 col-lg-6 col-sm-12">
-                          <div class="heading text-center">22</div>
-                          <div class="description text-center">Blood Kits</div>
-                        </div>
-                        
-                      </div>
-                      <div class="text-center">
-                        <h5 class="h3">
-                          Request Center <span class="font-weight-light">27</span>
-                        </h5>
-                        <div class="h5 font-weight-300">
-                          <i class="ni location_pin mr-2"></i>Location
-                        </div>
-                        <div class="h5 mt-2">
-                          <i class="ni business_briefcase-24 mr-2"></i>
-                          Phone Number
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -430,6 +418,18 @@
       integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
       crossorigin="anonymous"
     ></script>
+    <script src="./assets/js/jquery.datetimepicker.js"></script>
+
+    <script type="text/javascript">
+      $("#startDate").datetimepicker({
+        timepicke:true,
+        datepicker:true,
+        format: " Y-m-d h:i",
+        value: new Date(),
+        yearStart : 2020,
+        
+      });
+    </script>
 
     <script type="text/javascript">
       $(document).ready(function () {
