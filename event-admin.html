@@ -5,32 +5,32 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <title>Collapsible sidebar using Bootstrap 4</title>
+    <link rel="icon" href="./assets/images/eshi_logo.png">
+    <title>Event Admin - Eshi Blood</title>
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
         integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/event-admin.css">
 
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
-        integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
-        crossorigin="anonymous"></script>
+        integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous">
+    </script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
-        integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
-        crossorigin="anonymous"></script>
+        integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous">
+    </script>
     <link href="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/event-admin.css">
 
     <script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
     <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.js"></script>
     <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table-locale-all.min.js"></script>
-    <script
-        src="https://unpkg.com/bootstrap-table@1.18.2/dist/extensions/export/bootstrap-table-export.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/extensions/export/bootstrap-table-export.min.js">
+    </script>
     <script>
-
         init({
             title: 'Welcome Examples',
             desc: 'Examples with checkbox, sort, pagination, export, detailView and other added features.',
@@ -44,7 +44,6 @@
                 'extensions/export/bootstrap-table-export.min.js'
             ]
         })
-
     </script>
 </head>
 
@@ -55,7 +54,7 @@
         <nav id="sidebar">
             <div class="sidebar-header">
                 <h3><i class="fas fa-tint"></i> Eshi Blood</h3>
-                <strong><i class="fas fa-2x fa-tint"></i></strong>
+                <strong><i class="fas fa-tint"></i></strong>
             </div>
 
             <ul class="list-unstyled components">
@@ -90,41 +89,15 @@
                     </a>
                 </li>
             </ul>
-            <!-- <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="fas fa-home"></i>
-                        Home
-                    </a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Home 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 3</a>
-                        </li>
-                    </ul>
-                </li> -->
-            <ul class="list-unstyled CTAs">
-                <li>
-                    <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
-                </li>
-                <li>
-                    <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
-                </li>
-            </ul>
         </nav>
 
         <!-- Page Content  -->
-        <div id="content">
+        <div id="content" class="main">
             <div class="header">
                 <nav class="navbar navbar-expand-lg">
                     <div class="container-fluid">
                         <button type="button" id="sidebarCollapse" class="btn btn-info">
-                            <i class="fas fa-align-left"></i>
-                            <span>Toggle Sidebar</span>
+                            <i class="fas fa-align-justify"></i>
                         </button>
                         <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button"
                             data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -260,7 +233,7 @@
                     <div class="fixed-table-header" style="margin-right: 0px;">
                     </div>
                     <div class="fixed-table-body">
-                        <div class="fixed-table-loading table table-bordered table-hover fixed-table-border"
+                        <div class="fixed-table-loading table table-hover"
                             style="top: 98.6px; width: 704px;">
 
                         </div>
@@ -276,7 +249,7 @@
                             style="margin-top: 97.6px;">
                             <thead class="">
                                 <tr>
-                                    
+
                                     <th class="bs-checkbox "
                                         style="text-align: center; vertical-align: middle; width: 36px; " rowspan="2"
                                         data-field="state">
@@ -315,12 +288,12 @@
                                         <div class="th-inner ">Place</div>
                                         <div class="fht-cell"></div>
                                     </th>
-                                    
+
                                     <th style="text-align: center; " data-field="operate">
                                         <div class="th-inner ">Status</div>
                                         <div class="fht-cell"></div>
                                     </th>
-                                    
+
                                     <th style="text-align: center; " data-field="operate">
                                         <div class="th-inner ">Action</div>
                                         <div class="fht-cell"></div>
@@ -330,7 +303,7 @@
                             <tbody>
                                 <!-- use userid to make the event based tasks easier -->
                                 <tr id="userId" class="active" data-index="0" data-has-detail-view="true">
-                                   
+
                                     <td class="bs-checkbox "
                                         style="text-align: center; vertical-align: middle; width: 36px; "><label>
                                             <input data-index="0" name="btSelectItem" type="checkbox" value="0">
@@ -343,7 +316,8 @@
                                     <td class="endDateText" style="text-align: center; ">Feb 4 2021</td>
                                     <td class="timeText" style="text-align: center; ">3:24 AM</td>
                                     <td>
-                                        <span class="statusColor rejected"></span><span class="statusText">Rejected</span>
+                                        <span class="statusColor rejected"></span><span
+                                            class="statusText">Rejected</span>
                                     </td>
                                     <td style="text-align: center; ">
                                         <a class="accept" href="javascript:void(0)" title="accept"><i
@@ -353,7 +327,7 @@
                                     </td>
                                 </tr>
                                 <tr id="userId" class="active" data-index="0" data-has-detail-view="true">
-                                   
+
                                     <td class="bs-checkbox "
                                         style="text-align: center; vertical-align: middle; width: 36px; "><label>
                                             <input data-index="0" name="btSelectItem" type="checkbox" value="0">
@@ -376,7 +350,7 @@
                                     </td>
                                 </tr>
                                 <tr id="userId" class="active" data-index="0" data-has-detail-view="true">
-                                   
+
                                     <td class="bs-checkbox "
                                         style="text-align: center; vertical-align: middle; width: 36px; "><label>
                                             <input data-index="0" name="btSelectItem" type="checkbox" value="0">
@@ -389,7 +363,8 @@
                                     <td class="endDateText" style="text-align: center; ">Feb 4 2021</td>
                                     <td class="timeText" style="text-align: center; ">3:24 AM</td>
                                     <td>
-                                        <span class="statusColor accepted"></span><span class="statusText">accepted</span>
+                                        <span class="statusColor accepted"></span><span
+                                            class="statusText">accepted</span>
                                     </td>
                                     <td style="text-align: center; ">
                                         <a class="accept" href="javascript:void(0)" title="accept"><i
@@ -398,102 +373,61 @@
                                                 class="fa fa-times"></i></a>
                                     </td>
                                 </tr>
-                               
+
 
                             </tbody>
                         </table>
                         <div class="fixed-table-border" style="width: 704px; height: 0px;"></div>
                     </div>
-                    <!-- <div class="fixed-table-footer" style="margin-right: 0px;">
-                    <table class="table table-bordered table-hover" style="width: 704px;">
-                        <thead>
-                            <tr>
-                                <th class="detail">
-                                    <div class="th-inner"></div>
-                                    <div class="fht-cell" style="width: 38.4px;"></div>
-                                </th>
-                                <th style="text-align: center; vertical-align: middle; ">
-                                    <div class="th-inner"></div>
-                                    <div class="fht-cell" style="width: 36.8px;"></div>
-                                </th>
-                                <th style="text-align: center; vertical-align: middle; ">
-                                    <div class="th-inner">Total</div>
-                                    <div class="fht-cell" style="width: 131.2px;"></div>
-                                </th>
-                                <th style="text-align: center; ">
-                                    <div class="th-inner">10</div>
-                                    <div class="fht-cell" style="width: 167.2px;"></div>
-                                </th>
-                                <th style="text-align: center; ">
-                                    <div class="th-inner">$45</div>
-                                    <div class="fht-cell" style="width: 158.4px;"></div>
-                                </th>
-                                <th style="text-align: center; ">
-                                    <div class="th-inner"></div>
-                                    <div class="fht-cell" style="width: 166.4px;"></div>
-                                </th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div> -->
                 </div>
-
-
-
-                <!-- Footer -->
-                <!-- <footer class="footer pt-0 pr-5" style="position: absolute; bottom: 0; right: 0; left: 0; padding-left: 300px;">
-                <div class="row align-items-center justify-content-lg-between">
-                <div class="col-lg-6">
-                    <div class="copyright text-center  text-lg-left  text-muted">
-                    &copy; 2020 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Creative Tim</a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                    <li class="nav-item">
-                        <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md" class="nav-link" target="_blank">MIT License</a>
-                    </li>
-                    </ul>
-                </div>
-                </div>
-            </footer> -->
             </div>
-        </div>
 
 
-        <!-- jQuery CDN - Slim version (=without AJAX) -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-        <!-- Popper.JS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
-            integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
-            crossorigin="anonymous"></script>
-        <!-- Bootstrap JS -->
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
-            integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
-            crossorigin="anonymous"></script>
+            <!-- jQuery CDN - Slim version (=without AJAX) -->
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                crossorigin="anonymous">
+            </script>
+            <!-- Popper.JS -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+                integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+                crossorigin="anonymous">
+            </script>
+            <!-- Bootstrap JS -->
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+                integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+                crossorigin="anonymous">
+            </script>
 
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('#sidebarCollapse').on('click', function () {
-                    $('#sidebar').toggleClass('active');
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#sidebarCollapse').on('click', function () {
+                        $('#sidebar').toggleClass('active');
+                    });
                 });
-            });
-        </script>
 
-        <!-- Optional JS -->
-        <script src="assets/vendor/chart.js/dist/Chart.min.js"></script>
-        <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
+                const sidebar = document.getElementById('sidebar')
+                const main = document.querySelector('.main')
+                document.getElementById('sidebarCollapse').addEventListener('click', () => {
+                    if (!sidebar.classList.contains('active')) {
+                        main.style.marginLeft = '110px'
+                    } else {
+                        main.style.marginLeft = '250px'
+                    }
+
+                    if (innerWidth < 768) {
+                        if (sidebar.classList.contains('active')) {
+                            main.style.marginLeft = "0px"
+                        } else {
+                            main.style.marginLeft = "110px"
+                        }
+                    }
+                });
+            </script>
+
+            <!-- Optional JS -->
+            <script src="assets/vendor/chart.js/dist/Chart.min.js"></script>
+            <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
 </body>
 
 </html>
