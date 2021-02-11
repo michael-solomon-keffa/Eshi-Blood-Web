@@ -5,23 +5,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <title>Collapsible sidebar using Bootstrap 4</title>
+    <link rel="icon" href="./assets/images/eshi_logo.png">
+    <title>Event Admin - Eshi Blood</title>
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
         integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 
     <!-- Custom CSS -->
-
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/event-admin.css">
 
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
-        integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
-        crossorigin="anonymous"></script>
+        integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous">
+    </script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
-        integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
-        crossorigin="anonymous"></script>
+        integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous">
+    </script>
     <link href="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/request-admin.css">
@@ -29,10 +30,9 @@
     <script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
     <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.js"></script>
     <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table-locale-all.min.js"></script>
-    <script
-        src="https://unpkg.com/bootstrap-table@1.18.2/dist/extensions/export/bootstrap-table-export.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/extensions/export/bootstrap-table-export.min.js">
+    </script>
     <script>
-
         init({
             title: 'Welcome Examples',
             desc: 'Examples with checkbox, sort, pagination, export, detailView and other added features.',
@@ -46,7 +46,6 @@
                 'extensions/export/bootstrap-table-export.min.js'
             ]
         })
-
     </script>
 </head>
 
@@ -57,7 +56,7 @@
         <nav id="sidebar">
             <div class="sidebar-header">
                 <h3><i class="fas fa-tint"></i> Eshi Blood</h3>
-                <strong><i class="fas fa-2x fa-tint"></i></strong>
+                <strong><i class="fas fa-tint"></i></strong>
             </div>
 
             <ul class="list-unstyled components">
@@ -92,25 +91,15 @@
                     </a>
                 </li>
             </ul>
-
-            <ul class="list-unstyled CTAs">
-                <li>
-                    <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
-                </li>
-                <li>
-                    <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
-                </li>
-            </ul>
         </nav>
 
         <!-- Page Content  -->
-        <div id="content">
+        <div id="content" class="main">
             <div class="header">
                 <nav class="navbar navbar-expand-lg">
                     <div class="container-fluid">
                         <button type="button" id="sidebarCollapse" class="btn btn-info">
-                            <i class="fas fa-align-left"></i>
-                            <span>Toggle Sidebar</span>
+                            <i class="fas fa-align-justify"></i>
                         </button>
                         <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button"
                             data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -249,6 +238,13 @@
                     </div>
                 </div>
 
+                <div class="fixed-table-container fixed-height has-footer"
+                    style="height: 433.8px; padding-bottom: 148.2px;">
+                    <div class="fixed-table-header" style="margin-right: 0px;">
+                    </div>
+                    <div class="fixed-table-body">
+                        <div class="fixed-table-loading table table-hover"
+                            style="top: 98.6px; width: 704px;">
 
 
 
@@ -558,17 +554,19 @@
             integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
             crossorigin="anonymous"></script>
 
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('#sidebarCollapse').on('click', function () {
-                    $('#sidebar').toggleClass('active');
+                    if (innerWidth < 768) {
+                        if (sidebar.classList.contains('active')) {
+                            main.style.marginLeft = "0px"
+                        } else {
+                            main.style.marginLeft = "110px"
+                        }
+                    }
                 });
-            });
-        </script>
+            </script>
 
-        <!-- Optional JS -->
-        <script src="assets/vendor/chart.js/dist/Chart.min.js"></script>
-        <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
+            <!-- Optional JS -->
+            <script src="assets/vendor/chart.js/dist/Chart.min.js"></script>
+            <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
 </body>
 
 </html>

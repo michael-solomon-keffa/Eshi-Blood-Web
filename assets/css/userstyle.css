@@ -35,16 +35,15 @@
 }
 
 /* Breadcrumb */
-.breadcrumbwidth{
+/* .breadcrumbwidth{
     /* width: 200 */
-}
 
-@media screen and (max-width:768px){
+    
+@media only screen and (max-width: 692px){
     #sidebar{
-        display: none;
+        margin-left:0px;
     }
     .main{
-        position: absolute;
-        margin-left: 0;
+        margin-left:0px;
     }
 }

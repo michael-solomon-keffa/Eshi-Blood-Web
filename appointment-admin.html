@@ -13,14 +13,14 @@
         integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./assets/css/styles.css">
-
+    <link rel="icon" href="./assets/images/eshi_logo.png">
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
-        integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
-        crossorigin="anonymous"></script>
+        integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous">
+    </script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
-        integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
-        crossorigin="anonymous"></script>
+        integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous">
+    </script>
     <link href="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/appointment.css">
@@ -28,10 +28,9 @@
     <script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
     <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.js"></script>
     <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table-locale-all.min.js"></script>
-    <script
-        src="https://unpkg.com/bootstrap-table@1.18.2/dist/extensions/export/bootstrap-table-export.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/extensions/export/bootstrap-table-export.min.js">
+    </script>
     <script>
-
         init({
             title: 'Welcome Examples',
             desc: 'Examples with checkbox, sort, pagination, export, detailView and other added features.',
@@ -45,7 +44,6 @@
                 'extensions/export/bootstrap-table-export.min.js'
             ]
         })
-
     </script>
 </head>
 
@@ -56,7 +54,7 @@
         <nav id="sidebar">
             <div class="sidebar-header">
                 <h3><i class="fas fa-tint"></i> Eshi Blood</h3>
-                <strong><i class="fas fa-2x fa-tint"></i></strong>
+                <strong><i class="fas fa-tint"></i></strong>
             </div>
 
             <ul class="list-unstyled components">
@@ -106,9 +104,8 @@
             <div class="header">
                 <nav class="navbar navbar-expand-lg">
                     <div class="container-fluid">
-                        <button type="button" id="sidebarCollapse" class="btn btn-info">
-                            <i class="fas fa-align-left"></i>
-                            <span>Toggle Sidebar</span>
+                        <button type="button" id="sidebarCollapse" class="btn btn-info ml-2">
+                            <i class="fas fa-align-justify"></i>
                         </button>
                         <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button"
                             data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -244,7 +241,7 @@
                     <div class="fixed-table-header" style="margin-right: 0px;">
                     </div>
                     <div class="fixed-table-body">
-                       
+
 
                         <table id="table" data-toolbar="#toolbar" data-search="true" data-show-refresh="true"
                             data-show-toggle="true" data-show-fullscreen="true" data-show-columns="true"
@@ -258,7 +255,7 @@
                             style="margin-top: 97.6px;">
                             <thead class="">
                                 <tr>
-                                    
+
                                     <th class="bs-checkbox "
                                         style="text-align: center; vertical-align: middle; width: 36px; " rowspan="2"
                                         data-field="state">
@@ -298,7 +295,7 @@
                             <tbody>
                                 <!-- use userid to make the event based tasks easier -->
                                 <tr id="userId" class="active" data-index="0" data-has-detail-view="true">
-                                   
+
                                     <td class="bs-checkbox "
                                         style="text-align: center; vertical-align: middle; width: 36px; "><label>
                                             <input data-index="0" name="btSelectItem" type="checkbox" value="0">
@@ -308,7 +305,8 @@
                                     <td class="dateText" style="text-align: center; ">Feb 1 2021</td>
                                     <td class="timeText" style="text-align: center; ">3:24 AM</td>
                                     <td>
-                                        <span class="statusColor rejected"></span><span class="statusText">Rejected</span>
+                                        <span class="statusColor rejected"></span><span
+                                            class="statusText">Rejected</span>
                                     </td>
                                     <td style="text-align: center; ">
                                         <a class="accept" href="javascript:void(0)" title="accept"><i
@@ -318,7 +316,7 @@
                                     </td>
                                 </tr>
                                 <tr id="userId" class="active" data-index="0" data-has-detail-view="true">
-                                   
+
                                     <td class="bs-checkbox "
                                         style="text-align: center; vertical-align: middle; width: 36px; "><label>
                                             <input data-index="0" name="btSelectItem" type="checkbox" value="0">
@@ -328,7 +326,8 @@
                                     <td class="dateText" style="text-align: center; ">Feb 1 2021</td>
                                     <td class="timeText" style="text-align: center; ">3:24 AM</td>
                                     <td>
-                                        <span class="statusColor accepted"></span><span class="statusText">Accepted</span>
+                                        <span class="statusColor accepted"></span><span
+                                            class="statusText">Accepted</span>
                                     </td>
                                     <td style="text-align: center; ">
                                         <a class="accept" href="javascript:void(0)" title="accept"><i
@@ -338,7 +337,7 @@
                                     </td>
                                 </tr>
                                 <tr id="userId" class="active" data-index="0" data-has-detail-view="true">
-                                   
+
                                     <td class="bs-checkbox "
                                         style="text-align: center; vertical-align: middle; width: 36px; "><label>
                                             <input data-index="0" name="btSelectItem" type="checkbox" value="0">
@@ -348,7 +347,8 @@
                                     <td class="dateText" style="text-align: center; ">Feb 1 2021</td>
                                     <td class="timeText" style="text-align: center; ">3:24 AM</td>
                                     <td>
-                                        <span class="statusColor pending"></span><span class="statusText">Pending...</span>
+                                        <span class="statusColor pending"></span><span
+                                            class="statusText">Pending...</span>
                                     </td>
                                     <td style="text-align: center; ">
                                         <a class="accept" href="javascript:void(0)" title="accept"><i
@@ -357,7 +357,7 @@
                                                 class="fa fa-times"></i></a>
                                     </td>
                                 </tr>
-                               
+
 
                             </tbody>
                         </table>
@@ -431,22 +431,41 @@
 
         <!-- jQuery CDN - Slim version (=without AJAX) -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+        </script>
         <!-- Popper.JS -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
-            integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
-            crossorigin="anonymous"></script>
+            integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous">
+        </script>
         <!-- Bootstrap JS -->
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
-            integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
-            crossorigin="anonymous"></script>
+            integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous">
+        </script>
 
         <script type="text/javascript">
             $(document).ready(function () {
                 $('#sidebarCollapse').on('click', function () {
                     $('#sidebar').toggleClass('active');
                 });
+            });
+
+            const sidebar = document.getElementById('sidebar')
+            const main = document.querySelector('.main')
+            document.getElementById('sidebarCollapse').addEventListener('click', () => {
+                if (!sidebar.classList.contains('active')) {
+                    main.style.marginLeft = '110px'
+                } else {
+                    main.style.marginLeft = '250px'
+                }
+
+
+                if (innerWidth < 768) {
+                if (sidebar.classList.contains('active')) {
+                    main.style.marginLeft = "0px"
+                }else{
+                    main.style.marginLeft = "110px"
+                }  
+            }
             });
         </script>
 
