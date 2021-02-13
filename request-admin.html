@@ -5,32 +5,37 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <title>Admin Request - Eshi Blood</title>
+    <link rel="icon" href="./assets/images/eshi_logo.png">
+    <title>Event Admin - Eshi Blood</title>
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
         integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 
     <!-- Custom CSS -->
-    <link rel="icon" href="./assets/images/eshi_logo.png">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/event-admin.css">
 
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
         integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous">
-    </script>
+        </script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
         integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous">
-    </script>
+        </script>
     <link href="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/request-admin.css">
+    <!-- <link rel="stylesheet" href="assets/css/request-admin.css"> -->
 
-    <script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
-    <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.js"></script>
-    <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table-locale-all.min.js"></script>
-    <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/extensions/export/bootstrap-table-export.min.js">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
     </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
     <script>
         init({
             title: 'Welcome Examples',
@@ -253,482 +258,187 @@
                 <div class="tab-content" id="nav-tabContent">
                     <div style="width: 75%; margin:auto" id="makeRequest" class="tab-pane fade show active"
                         role="tabpanel" aria-labelledby="makeRequest">
-                        <!-- make request form  -->
-                        <!-- <div class="col-md-12">
-                            <div class="mt-4">
-                                <div class="row">
-                                    <div class="col-md-12 col-sm-12 edit-form-container">
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <h3>Submit Request</h3>
-                                            </div>
-                                            <div class="card-body">
-                                                <form action="">
-                                                    <h6 class="text-muted mb-4">Basic Information</h6>
-                                                    <div class="row">
-                                                        <div class="col-xl-6 col-lg-6 col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label" for="blood-type">Blood
-                                                                    Type</label>
-                                                                <select id="inputState" class="form-control">
-                                                                    <option selected disabled>
-                                                                        Choose Blood Type...
-                                                                    </option>
-                                                                    <option value="A+">A+</option>
-                                                                    <option value="O+">O+</option>
-                                                                    <option value="B+">B+</option>
-                                                                    <option value="AB+">AB+</option>
-                                                                    <option value="A-">A-</option>
-                                                                    <option value="O-">O-</option>
-                                                                    <option value="B-">B-</option>
-                                                                    <option value="AB-">AB-</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xl-6 col-lg-6 col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label"
-                                                                    for="units-needed">Units
-                                                                    Needed</label>
-                                                                <input type="number" id="units" class="form-control"
-                                                                    placeholder="Units Needed" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-xl-6 col-lg-6 col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label"
-                                                                    for="donation-reason">Request
-                                                                    Reason</label>
-                                                                <select id="inputState" class="form-control">
 
-                                                                    <option value="surgery">Surgery</option>
-                                                                    <option value="accident">Accident</option>
-                                                                    <option value="chronic disease">
-                                                                        Chronic Disease
-                                                                    </option>
-                                                                    <option value="other">Other</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xl-6 col-lg-6 col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label"
-                                                                    for="location">Hospital Name /
-                                                                    Location</label>
-                                                                <input type="text" id="location" class="form-control"
-                                                                    placeholder="Location" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="container-fluid col-lg-12 col-xl-12">
-                                                            <textarea rows="10" Abiss 2, [01.02.21 15:42]
-                                                                class="form-control" id=""
-                                                                placeholder="Additional Information"
-                                                                name="additional_info"></textarea>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row form-group mt-3">
-                                                        <div class="col-sm-10">
-                                                            <button type="submit" class="btn btn-primary">
-                                                                Submit Request
-                                                            </button>
+                        <div class="container-fluid mt-4">
+                            <div class="row">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 edit-form-container">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3>Post Request</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <form action="">
+                                                <h6 class="text-muted mb-4">Basic Information</h6>
+                                                <div class="row">
+                                                    <div class="col-xl-6 col-lg-6 col-md-6">
+                                                        <div class="form-group">
+
+                                                            <select id="inputState" class="form-control">
+                                                                <option selected disabled>
+                                                                    Choose Blood Type...
+                                                                </option>
+                                                                <option value="A+">A+</option>
+                                                                <option value="O+">O+</option>
+                                                                <option value="B+">B+</option>
+                                                                <option value="AB+">AB+</option>
+                                                                <option value="A-">A-</option>
+                                                                <option value="O-">O-</option>
+                                                                <option value="B-">B-</option>
+                                                                <option value="AB-">AB-</option>
+                                                            </select>
                                                         </div>
                                                     </div>
-                                                </form>
-                                            </div>
+                                                    <div class="col-xl-6 col-lg-6 col-md-6">
+                                                        <div class="form-group">
+                                                            <input type="number" id="units" class="form-control"
+                                                                placeholder="Units Needed" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-6 col-lg-6 col-md-6">
+                                                        <div class="form-group">
+                                                            <select id="inputState" class="form-control">
+                                                                <option selected disabled>Request Reasons</option>
+                                                                <option value="surgery">Surgery</option>
+                                                                <option value="accident">Accident</option>
+                                                                <option value="chronic disease">
+                                                                    Chronic Disease
+                                                                </option>
+                                                                <option value="other">Other</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-6 col-lg-6 col-md-6">
+                                                        <div class="form-group">
+                                                            <input type="text" id="location" class="form-control"
+                                                                placeholder="Location" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="container-fluid col-lg-12 col-xl-12">
+                                                        <textarea rows="10" class="form-control" id=""
+                                                            placeholder="Additional Information"
+                                                            name="additional_info"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="row form-group mt-3">
+                                                    <div class="col-sm-10">
+                                                        <button type="submit" class="btn btn-primary">
+                                                            Send Request
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div> -->
-                        <div class="container-fluid mt-4">
-                            <div class="row">
-                              <div
-                                class="col-xl-12 col-lg-12 col-md-12 col-sm-12 edit-form-container"
-                              >
-                                <div class="card">
-                                  <div class="card-header">
-                                    <h3>Post Request</h3>
-                                  </div>
-                                  <div class="card-body">
-                                    <form action="">
-                                      <h6 class="text-muted mb-4">Basic Information</h6>
-                                      <div class="row">
-                                        <div class="col-xl-6 col-lg-6 col-md-6">
-                                          <div class="form-group">
-                                            
-                                            <select id="inputState" class="form-control">
-                                              <option selected disabled>
-                                                Choose Blood Type...
-                                              </option>
-                                              <option value="A+">A+</option>
-                                              <option value="O+">O+</option>
-                                              <option value="B+">B+</option>
-                                              <option value="AB+">AB+</option>
-                                              <option value="A-">A-</option>
-                                              <option value="O-">O-</option>
-                                              <option value="B-">B-</option>
-                                              <option value="AB-">AB-</option>
-                                            </select>
-                                          </div>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6">
-                                          <div class="form-group">
-                                            <input
-                                              type="number"
-                                              id="units"
-                                              class="form-control"
-                                              placeholder="Units Needed"
-                                            />
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="row">
-                                        <div class="col-xl-6 col-lg-6 col-md-6">
-                                          <div class="form-group">
-                                            <select id="inputState" class="form-control">
-                                              <option selected disabled>Request Reasons</option>
-                                              <option value="surgery">Surgery</option>
-                                              <option value="accident">Accident</option>
-                                              <option value="chronic disease">
-                                                Chronic Disease
-                                              </option>
-                                              <option value="other">Other</option>
-                                            </select>
-                                          </div>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6">
-                                          <div class="form-group">
-                                            <input
-                                              type="text"
-                                              id="location"
-                                              class="form-control"
-                                              placeholder="Location"
-                                            />
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="row">
-                                        <div class="container-fluid col-lg-12 col-xl-12">
-                                          <textarea
-                                            rows="10"
-                                            class="form-control"
-                                            id=""
-                                            placeholder="Additional Information"
-                                            name="additional_info"
-                                          ></textarea>
-                                        </div>
-                                      </div>
-                                      <div class="row form-group mt-3">
-                                        <div class="col-sm-10">
-                                          <button type="submit" class="btn btn-primary">
-                                            Send Request
-                                          </button>
-                                        </div>
-                                      </div>
-                                    </form>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                        </div>
                     </div>
 
                     <div id="viewRequests" class="tab-pane fade " role="tabpanel" aria-labelledby="makeRequest">
-                        <div class="fixed-table-container fixed-height has-footer"
-                            style="height: 433.8px; padding-bottom: 148.2px;">
-                            <div class="fixed-table-header" style="margin-right: 0px;">
-                            </div>
-                            <div class="fixed-table-body">
-                                <div class="fixed-table-loading table table-bordered table-hover fixed-table-border"
-                                    style="top: 98.6px; width: 704px;">
-
-                                </div>
-                                <table id="table" data-toolbar="#toolbar" data-search="true" data-show-refresh="true"
-                                    data-show-toggle="true" data-show-fullscreen="true" data-show-columns="true"
-                                    data-show-columns-toggle-all="true" data-detail-view="true" data-show-export="true"
-                                    data-click-to-select="true" data-detail-formatter="detailFormatter"
-                                    data-minimum-count-columns="2" data-show-pagination-switch="true"
-                                    data-pagination="true" data-id-field="id" data-page-list="[10, 25, 50, 100, all]"
-                                    data-show-footer="true" data-side-pagination="server"
-                                    data-url="https://examples.wenzhixin.net.cn/examples/bootstrap_table/data"
-                                    data-response-handler="responseHandler" class="table table-bordered table-hover"
-                                    style="margin-top: 97.6px;">
-                                    <thead class="">
-                                        <tr>
-
-                                            <th class="bs-checkbox "
-                                                style="text-align: center; vertical-align: middle; width: 36px; "
-                                                rowspan="2" data-field="state">
-                                                <div class="th-inner "><label><input name="btSelectAll"
-                                                            type="checkbox"><span></span></label></div>
-                                                <div class="fht-cell"></div>
-                                            </th>
-                                            <th style="text-align: center; vertical-align: middle; " rowspan="2"
-                                                data-field="id">
-                                                <div class="th-inner sortable both">ID</div>
-                                                <div class="fht-cell"></div>
-                                            </th>
-                                            <th style="text-align: center; " colspan="9">
-                                                <div class="th-inner ">Request Detail</div>
-                                                <div class="fht-cell"></div>
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th style="text-align: center; " data-field="name" data-not-first-th="">
-                                                <div class="th-inner sortable both">Date</div>
-                                                <div class="fht-cell"></div>
-                                            </th>
-                                            <th style="text-align: center; " data-field="price">
-                                                <div class="th-inner sortable both">Time</div>
-                                                <div class="fht-cell"></div>
-                                            </th>
-                                            <th style="text-align: center; " data-field="price">
-                                                <div class="th-inner sortable both">
-                                                    Type
-                                                </div>
-                                                <div class="fht-cell"></div>
-                                            </th>
-                                            <th style="text-align: center; " data-field="price">
-                                                <div class="th-inner sortable both">Reason</div>
-                                                <div class="fht-cell"></div>
-                                            </th>
-                                            <th style="text-align: center; " data-field="price">
-                                                <div class="th-inner sortable both">Units</div>
-                                                <div class="fht-cell"></div>
-                                            </th>
-                                            <th style="text-align: center; " data-field="price">
-                                                <div class="th-inner sortable both">Location</div>
-                                                <div class="fht-cell"></div>
-                                            </th>
-                                            <th style="text-align: center; " data-field="price">
-                                                <div class="th-inner sortable both">Additional<br>Info</div>
-                                                <div class="fht-cell"></div>
-                                            </th>
-                                            <th style="text-align: center; " data-field="operate">
-                                                <div class="th-inner ">Status</div>
-                                                <div class="fht-cell"></div>
-                                            </th>
-                                            <th style="text-align: center; " data-field="operate">
-                                                <div class="th-inner ">State</div>
-                                                <div class="fht-cell"></div>
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <!-- use userid to make the event based tasks easier -->
-                                        <!-- ROW 1 -->
-                                        <tr id="userId" class="active" data-index="0" data-has-detail-view="true">
-
-                                            <td class="bs-checkbox "
-                                                style="text-align: center; vertical-align: middle; width: 36px; ">
-                                                <label>
-                                                    <input data-index="0" name="btSelectItem" type="checkbox" value="0">
-                                                    <span></span>
-                                                </label>
-                                            </td>
-                                            <td class="userIdText" style="text-align: center;">@userId2123</td>
-                                            <td class="dateText" style="text-align: center;">14/03/21</td>
-                                            <td class="bloodTypeText" style="text-align: center;">3:12 AM</td>
-                                            <td class="bloodTypeText" style="text-align: center;">A+</td>
-                                            <td class="reasonText" style="text-align: center;">Surgery</td>
-                                            <td class="unitsText" style="text-align: center;">2</td>
-                                            <td class="locationText" style="text-align: center;">Yekatit 12</td>
-                                            <td class="infoText" style="text-align: center;">
-                                                <a class="infoLink" href="" data-toggle="modal"
-                                                    data-target="#infoModal">lorem
-                                                    ipsu...</a>
-                                                <div class="modal fade" id="infoModal" tabindex="-1" role="dialog"
-                                                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLongTitle">
-                                                                    Additional
-                                                                    information</h5>
-                                                                <button type="button" class="close" data-dismiss="modal"
-                                                                    aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                                At magnam adipisci laudantium amet, numquam unde
-                                                                aspernatur,
-                                                                autem ea porro doloribus tempore, itaque obcaecati
-                                                                delectus
-                                                                quisquam perspiciatis hic iusto labore illo?
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-dismiss="modal">Close</button>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </td>
-
-                                            <td class="status" style="padding: 2px;">
-                                                <span class="statusColor rejected"></span><span
-                                                    class="statusText">Rejected</span>
-                                            </td>
-                                            <td style="text-align: center; ">
-                                                <a class="accept" href="javascript:void(0)" title="accept"><i
-                                                        class="fa fa-check"></i></a> &nbsp;&nbsp;&nbsp;&nbsp;
-                                                <a class="Reject" href="javascript:void(0)" title="Reject"><i
-                                                        class="fa fa-times"></i></a>
-                                            </td>
-                                        </tr>
-                                        <!-- ROW 2 -->
-                                        <tr id="userId" class="active" data-index="0" data-has-detail-view="true">
-
-                                            <td class="bs-checkbox "
-                                                style="text-align: center; vertical-align: middle; width: 36px; ">
-                                                <label>
-                                                    <input data-index="0" name="btSelectItem" type="checkbox" value="0">
-                                                    <span></span>
-                                                </label>
-                                            </td>
-                                            <td class="userIdText" style="text-align: center;">@userId2123</td>
-                                            <td class="dateText" style="text-align: center;">14/03/21</td>
-                                            <td class="bloodTypeText" style="text-align: center;">6:20 AM</td>
-                                            <td class="bloodTypeText" style="text-align: center;">AB</td>
-                                            <td class="reasonText" style="text-align: center;">Accident</td>
-                                            <td class="unitsText" style="text-align: center;">3</td>
-                                            <td class="locationText" style="text-align: center;">Korean Hospital</td>
-                                            <td class="infoText" style="text-align: center;">
-                                                <a class="infoLink" href="" data-toggle="modal"
-                                                    data-target="#infoModal">lorem
-                                                    ipsu...</a>
-                                                <div class="modal fade" id="infoModal" tabindex="-1" role="dialog"
-                                                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLongTitle">
-                                                                    Additional
-                                                                    information</h5>
-                                                                <button type="button" class="close" data-dismiss="modal"
-                                                                    aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                                At magnam adipisci laudantium amet, numquam unde
-                                                                aspernatur,
-                                                                autem ea porro doloribus tempore, itaque obcaecati
-                                                                delectus
-                                                                quisquam perspiciatis hic iusto labore illo?
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-dismiss="modal">Close</button>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </td>
-
-                                            <td>
-                                                <span class="statusColor rejected"></span><span
-                                                    class="statusText">Rejected</span>
-                                            </td>
-                                            <td style="text-align: center; ">
-                                                <a class="accept" href="javascript:void(0)" title="accept"><i
-                                                        class="fa fa-check"></i></a> &nbsp;&nbsp;&nbsp;&nbsp;
-                                                <a class="Reject" href="javascript:void(0)" title="Reject"><i
-                                                        class="fa fa-times"></i></a>
-                                            </td>
-                                        </tr>
-                                        <!-- ROW 3 -->
-                                        <tr id="userId" class="active" data-index="0" data-has-detail-view="true">
-
-                                            <td class="bs-checkbox "
-                                                style="text-align: center; vertical-align: middle; width: 36px; ">
-                                                <label>
-                                                    <input data-index="0" name="btSelectItem" type="checkbox" value="0">
-                                                    <span></span>
-                                                </label>
-                                            </td>
-                                            <td class="userIdText" style="text-align: center;">@userId2123</td>
-                                            <td class="dateText" style="text-align: center;">14/03/21</td>
-                                            <td class="bloodTypeText" style="text-align: center;">4:12 AM</td>
-                                            <td class="bloodTypeText" style="text-align: center;">AB-</td>
-                                            <td class="reasonText" style="text-align: center;">Chronic Disease</td>
-                                            <td class="unitsText" style="text-align: center;">1</td>
-                                            <td class="locationText" style="text-align: center;">Tikur Anbessa</td>
-                                            <td class="infoText" style="text-align: center;">
-                                                <a class="infoLink" href="" data-toggle="modal"
-                                                    data-target="#infoModal">lorem
-                                                    ipsu...</a>
-                                                <div class="modal fade" id="infoModal" tabindex="-1" role="dialog"
-                                                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLongTitle">
-                                                                    Additional
-                                                                    information</h5>
-                                                                <button type="button" class="close" data-dismiss="modal"
-                                                                    aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                                At magnam adipisci laudantium amet, numquam unde
-                                                                aspernatur,
-                                                                autem ea porro doloribus tempore, itaque obcaecati
-                                                                delectus
-                                                                quisquam perspiciatis hic iusto labore illo?
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-dismiss="modal">Close</button>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </td>
-
-                                            <td>
-                                                <span class="statusColor rejected"></span><span
-                                                    class="statusText">Rejected</span>
-                                            </td>
-                                            <td style="text-align: center; ">
-                                                <a class="accept" href="javascript:void(0)" title="accept"><i
-                                                        class="fa fa-check"></i></a> &nbsp;&nbsp;&nbsp;&nbsp;
-                                                <a class="Reject" href="javascript:void(0)" title="Reject"><i
-                                                        class="fa fa-times"></i></a>
-                                            </td>
-                                        </tr>
 
 
+                        <script>
 
-                                    </tbody>
-                                </table>
-                                <div class="fixed-table-border" style="width: 704px; height: 0px;"></div>
-                            </div>
+                            let dataSet = [
+                                // requestId    date    time    type    reason  units   location    additional_info status  action
+                                ["req123","ui0908"   , "2/4/3",  "3:56", "A+",   "surgery", "2" ,  "mexico" , "lorem ips.." , "pending", "",],
+                                ["req123","ui0908"   , "2/4/3",  "3:56", "A+",   "surgery", "2" ,  "mexico" , "lorem ips.." , "pending", "",],
+                                ["req123","ui0908"   , "2/4/3",  "3:56", "A+",   "surgery", "2" ,  "mexico" , "lorem ips.." , "pending", "",],
+                                ["req123","ui0908"   , "2/4/3",  "3:56", "A+",   "surgery", "2" ,  "mexico" , "lorem ips.." , "pending", "",],
+                                ["req123","ui0908"   , "2/4/3",  "3:56", "A+",   "surgery", "2" ,  "mexico" , "lorem ips.." , "pending", "",],
+                                ["req123","ui0908"   , "2/4/3",  "3:56", "A+",   "surgery", "2" ,  "mexico" , "lorem ips.." , "pending", "",],
+                                ["req123","ui0908"   , "2/4/3",  "3:56", "A+",   "surgery", "2" ,  "mexico" , "lorem ips.." , "pending", "",],
+                                ["req123","ui0908"   , "2/4/3",  "3:56", "A+",   "surgery", "2" ,  "mexico" , "lorem ips.." , "pending", "",],
+                                ["req123","ui0908"   , "2/4/3",  "3:56", "A+",   "surgery", "2" ,  "mexico" , "lorem ips.." , "pending", "",],
+                                ["req123","ui0908"   , "2/4/3",  "3:56", "A+",   "surgery", "2" ,  "mexico" , "lorem ips.." , "pending", "",],
+                                ["req123","ui0908"   , "2/4/3",  "3:56", "A+",   "surgery", "2" ,  "mexico" , "lorem ips.." , "pending", "",],
+                                ["req123","ui0908"   , "2/4/3",  "3:56", "A+",   "surgery", "2" ,  "mexico" , "lorem ips.." , "pending", "",],
+                                ["req123","ui0908"   , "2/4/3",  "3:56", "A+",   "surgery", "2" ,  "mexico" , "lorem ips.." , "pending", "",],
+                                ["req123","ui0908"   , "2/4/3",  "3:56", "A+",   "surgery", "2" ,  "mexico" , "lorem ips.." , "pending", "",],
+                                ["req123","ui0908"   , "2/4/3",  "3:56", "A+",   "surgery", "2" ,  "mexico" , "lorem ips.." , "pending", "",],
 
-                        </div>
+                            ]
+                            function reject(e) {
+                                // traverse to the eventid element in the dom
+                                let requestId = e.target.parentElement.parentElement.parentElement.children[0].innerText
+                                // let userId = e.target.parentElement.parentElement.parentElement.children[1].innerText
+                                console.log(requestId)
+                            }
+                            function accept(e) {
+                                // traverse to the eventid element in the dom
+                                let requestId = e.target.parentElement.parentElement.parentElement.children[0].innerText
+                                // let userId = e.target.parentElement.parentElement.parentElement.children[1].innerText
+                                console.log(requestId)
+                            }
+                            function edit(e) {
+                                // traverse to the eventid element in the dom
+                                let requestId = e.target.parentElement.parentElement.parentElement.children[0].innerText
+                                // let userId = e.target.parentElement.parentElement.parentElement.children[1].innerText
+                                console.log(requestId)
+                            }
 
+                            $(document).ready(function () {
+                                $('#example').DataTable({
+                                    data: dataSet,
+                                    columns: [
+                                        { title: "requestId" },
+                                        { title: "userId" },
+                                        { title: "date" },
+                                        { title: "time" },
+                                        { title: "type" },
+                                        { title: "reason" },
+                                        { title: "units" },
+                                        { title: "location" },
+                                        { title: "additional info" },
+                                        { title: "status" },
+                                        {
+                                            title: "Action",
+                                            "mRender": function (data, type, row) {
+                                                // return `<button >${data}</button>`; 
+                                                // TODO   fas fa-edit
+                                                return `<a onClick="accept(event)" class="Accept"  title="Accept">
+                                                                        <i class="fa fa-check"></i>
+                                                                    </a> 
+                                                                    <a onClick="reject(event)"  class="Reject"  title="Reject">
+                                                                        <i class="fa fa-times"></i>
+                                                                    </a>
+                                                                    <a onClick="edit(event)" class="Accept" style="color:purple;" title="Accept">
+                                                                        <i class="fa fa-edit"></i>
+                                                                    </a>  `
+                                            }
+                                        }
+                                    ]
+                                });
+                            });
 
+                        </script>
+                        <!-- TODO ********************************************** -->
 
+                        <!-- <style>
+                                table{
+                                    margin: 0 auto;
+                                    width: 150%;
+                                    clear: both;
+                                    border-collapse: collapse;
+                                    table-layout: fixed; 
+                                    word-wrap:break-word; 
+                                    }
+                            </style> -->
+                        <table id="example" class="display" style="width: 100%;"></table>
 
                     </div>
+
+
+
+
                 </div>
             </div>
         </div>
+    </div>
 
     </div>
 
@@ -745,15 +455,15 @@
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
+        </script>
     <!-- Popper.JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
         integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous">
-    </script>
+        </script>
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
         integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous">
-    </script>
+        </script>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -781,9 +491,32 @@
         });
     </script>
 
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+    <script>
+        if (innerWidth < 768) {
+            if (sidebar.classList.contains('active')) {
+                main.style.marginLeft = "0px"
+            } else {
+                main.style.marginLeft = "110px"
+            }
+        };
+    </script>
+
     <!-- Optional JS -->
-    <script src="assets/vendor/chart.js/dist/Chart.min.js"></script>
-    <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
+
 </body>
 
 </html>
