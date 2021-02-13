@@ -69,13 +69,12 @@
     </nav>
 
     <!-- Page Content  -->
-    <div id="content" class="main">
-      <div class="header">
-        <nav class="navbar navbar-expand-lg">
+    <div id="content">
+      <div class="header" id="header">
+        <nav class="navbar navbar-expand-lg" id="navbar">
           <div class="container-fluid">
             <button type="button" id="sidebarCollapse" class="btn btn-info ml-2">
               <i class="fas fa-align-justify"></i>
-              <span>Toggle Sidebar</span>
             </button>
             <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
               data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -273,20 +272,36 @@
                     </div>
                     <h6 class="text-muted mb-4">Duration</h6>
 
+                    <!--Grid row-->
                     <div class="row">
-                      <div class="col-xl-6 col-lg-6 col-md-6">
-                        <div class="input-append date form_datetime" id="startDate">
-                          <input size="16" type="text" value="" readonly />
-                          <span class="add-on"><i class="icon-th"></i></span>
+
+                      <!--Grid column-->
+                      <div class="col-md-6 mb-4">
+
+                        <div class="md-form">
+                          <!--The "from" Date Picker -->
+                          <input placeholder="Selected starting date" type="text" id="startingDate"
+                            class="form-control datepicker">
                         </div>
+
                       </div>
-                      <div class="col-xl-6 col-lg-6 col-md-6">
-                        <div class="input-append date form_datetime">
-                          <input size="16" type="text" value="" readonly />
-                          <span class="add-on"><i class="icon-th"></i></span>
+                      <!--Grid column-->
+
+                      <!--Grid column-->
+                      <div class="col-md-6 mb-4">
+
+                        <div class="md-form">
+                          <!--The "to" Date Picker -->
+                          <input placeholder="Selected ending date" type="text" id="endingDate"
+                            class="form-control datepicker">
                         </div>
+
                       </div>
+                      <!--Grid column-->
+
                     </div>
+                    <!--Grid row-->
+
 
                     <div class="row">
                       <div class="container-fluid col-lg-12 col-xl-12">
@@ -326,45 +341,45 @@
   <script src="./assets/js/jquery.datetimepicker.js"></script>
 
   <script type="text/javascript">
-    $("#startDate").datetimepicker({
-      timepicke: true,
-      datepicker: true,
-      format: " Y-m-d h:i",
-      value: new Date(),
-      yearStart: 2020,
-
-    });
-  </script>
-
-  <script type="text/javascript">
     $(document).ready(function () {
       $("#sidebarCollapse").on("click", function () {
         $("#sidebar").toggleClass("active");
       });
     });
-
+  
     const sidebar = document.getElementById('sidebar')
-    const main = document.querySelector('.main')
+    const content = document.getElementById('content')
+    const header = document.getElementById('header')
+    const navBar = document.getElementById('navbar')
     document.getElementById('sidebarCollapse').addEventListener('click', () => {
       if (!sidebar.classList.contains('active')) {
-        main.style.marginLeft = '110px'
+        sidebar.style.left = '0px'
+        content.classList.add('changeOpacityBackground');
+        header.classList.add('changeOpacityBackground');
+        navBar.classList.add('changeOpacityBackground');
       } else {
-        main.style.marginLeft = '250px'
-      }
-
-      if (innerWidth < 768) {
-        if (sidebar.classList.contains('active')) {
-          main.style.marginLeft = "0px"
-        } else {
-          main.style.marginLeft = "110px"
-        }
+        sidebar.style.left = '-250px'
       }
     });
+
+    content.addEventListener('mouseup', () => {
+      if (!sidebar.classList.contains('active')) {
+
+      } else {
+        sidebar.style.left = '-250px'
+        sidebar.classList.remove('active');
+        content.classList.remove('changeOpacityBackground');
+        header.classList.remove('changeOpacityBackground');
+        navBar.classList.remove('changeOpacityBackground');
+      }
+    })
   </script>
 
   <!-- Optional JS -->
   <script src="assets/vendor/chart.js/dist/Chart.min.js"></script>
   <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
+
+
 </body>
 
 </html>

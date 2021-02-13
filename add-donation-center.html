@@ -6,16 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Add Center - Eshi Blood</title>
-  
+
   <!-- Bootstrap CSS CDN -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
     integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous" />
   <link rel="stylesheet" href="./assets/css/jquery.datetimepicker.css" />
-  
+
   <!-- Custom CSS -->
   <link rel="stylesheet" href="./assets/css/styles.css" />
   <link rel="icon" href="./assets/images/eshi_logo.png">
-  
+
   <!-- Font Awesome JS -->
   <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
     integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous">
@@ -69,9 +69,9 @@
     </nav>
 
     <!-- Page Content  -->
-    <div id="content" class="main">
-      <div class="header">
-        <nav class="navbar navbar-expand-lg">
+    <div id="content">
+      <div class="header" id="header">
+        <nav class="navbar navbar-expand-lg" id="navbar">
           <div class="container-fluid">
             <button type="button" id="sidebarCollapse" class="btn btn-info ml-2">
               <i class="fas fa-align-justify"></i>
@@ -306,29 +306,40 @@
         $("#sidebar").toggleClass("active");
       });
     });
-
-    const sidebar = document.getElementById('sidebar')
-    const main = document.querySelector('.main')
-    document.getElementById('sidebarCollapse').addEventListener('click', () => {
-      if (!sidebar.classList.contains('active')) {
-        main.style.marginLeft = '110px'
-      } else {
-        main.style.marginLeft = '250px'
-      }
-
-      if (innerWidth < 768) {
-        if (sidebar.classList.contains('active')) {
-          main.style.marginLeft = "0px"
-        } else {
-          main.style.marginLeft = "110px"
-        }
-      }
-    });
   </script>
-
   <!-- Optional JS -->
   <script src="assets/vendor/chart.js/dist/Chart.min.js"></script>
   <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
+
+  <script>
+    const sidebar = document.getElementById('sidebar')
+    const content = document.getElementById('content')
+    const header = document.getElementById('header')
+    const navBar = document.getElementById('navbar')
+    document.getElementById('sidebarCollapse').addEventListener('click', () => {
+      if (!sidebar.classList.contains('active')) {
+        sidebar.style.left = '0px'
+        content.classList.add('changeOpacityBackground');
+        header.classList.add('changeOpacityBackground');
+        navBar.classList.add('changeOpacityBackground');
+      } else {
+        sidebar.style.left = '-250px'
+      }
+    });
+
+    content.addEventListener('mouseup', () => {
+      if (!sidebar.classList.contains('active')) {
+
+      } else {
+        sidebar.style.left = '-250px'
+        sidebar.classList.remove('active');
+        content.classList.remove('changeOpacityBackground');
+        header.classList.remove('changeOpacityBackground');
+        navBar.classList.remove('changeOpacityBackground');
+      }
+    })
+  </script>
+
 </body>
 
 </html>

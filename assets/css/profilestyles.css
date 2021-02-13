@@ -2,7 +2,7 @@ body {
     overflow-x: hidden;
 }
 
-.header {
+.header-banner {
     background-image: url('https://images.unsplash.com/photo-1593642634524-b40b5baae6bb?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=889&q=80');
 }
 
@@ -13,28 +13,6 @@ body {
     line-height: 66px;
 }
 
-.btn {
-    font-size: .875rem;
-    font-weight: 600;
-    line-height: 1.5;
-
-    display: inline-block;
-
-    padding: .625rem 1.25rem;
-
-    cursor: pointer;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-    text-align: center;
-    vertical-align: middle;
-
-    color: #525f7f;
-    border: 1px solid transparent;
-    border-radius: .25rem;
-    background-color: transparent;
-}
 
 .btn:hover {
     text-decoration: none;
@@ -105,7 +83,7 @@ body {
     flex-direction: column;
 
     min-width: 0;
-
+    height: 500px;
     word-wrap: break-word;
 
     border: 1px solid rgba(0, 0, 0, .05);
@@ -207,7 +185,7 @@ body {
     position: relative;
     z-index: 0;
     width: 400px;
-    height: 85vh;
+    height: 80vh;
     border-radius: 10px;
     overflow: hidden;
     padding: 2rem;
