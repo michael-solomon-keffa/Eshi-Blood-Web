@@ -5,6 +5,11 @@ export class DonorController {
     //return new Donor();
   }
 
+  // adding to db
+  save(donor){
+    return db.donors.add(donor);
+  }
+
   // stastical functions
   async getAdminDonorPageStat() {
     const totalDonorsCount = await db.donors.count();

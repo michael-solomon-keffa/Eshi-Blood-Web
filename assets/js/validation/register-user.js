@@ -1,8 +1,12 @@
+import { db } from "../database/db.js";
+import {DonorController} from "../controllers/donor-controller.js";
+import { Donor } from "../models/Donor.js";
+
 function isValidUser() {
   $(".error").remove();
   let error = false;
 
-  const fullName = $("#fullname").val();
+  const fullName = $("#name").val();
   const email = $("#email").val();
   const phoneNumber = $("#phoneNumber").val();
   const bloodType = $("#bloodType").val();
@@ -15,7 +19,7 @@ function isValidUser() {
   // length greater than zero
   if (fullName.length < 1) {
     error = false;
-    $("#fullname").after(
+    $("#name").after(
       '<div style="color: red;" class="error">Please provide your full name.</div>'
     );
   }
@@ -25,12 +29,12 @@ function isValidUser() {
       '<span style="color: red;" class="error">Please provide your email.</span>'
     );
   }
-  if (bloodType.length < 1) {
-    error = false;
-    $("#bloodType").after(
-      '<span style="color: red;" class="error">Please provide your blood type.</span>'
-    );
-  }
+  // if (bloodType.length < 1) {
+  //   error = false;
+  //   $("#bloodType").after(
+  //     '<span style="color: red;" class="error">Please provide your blood type.</span>'
+  //   );
+  // }
   if (phoneNumber.length < 8) {
     error = false;
     $("#phoneNumber").after(
@@ -65,19 +69,19 @@ function isValidUser() {
   // firstName validation
   if (!isNaN(fullName)) {
     error = false;
-    $("#fullName").after(
+    $("#name").after(
       '<span style="color: red;" class="error">Please provide correct Full name.(Do not Use numbers)</span>'
     );
   }
   if (fullName.length < 8) {
     error = false;
-    $("#fullName").after(
+    $("#name").after(
       '<span style="color: red;" class="error">Full Name must have more than 8 characters.</span>'
     );
   }
 
   // email validation
-  if ($("#email").val().length < 1) {
+  if ($("#email").val().length < 1 ) {
     $("#email").after(
       '<span style="color: red;" class="error">Please provide email.</span>'
     );
@@ -94,35 +98,28 @@ function isValidUser() {
   }
 
   // phone number
-  if (!isNaN(phoneNumber)) {
+  if (isNaN(phoneNumber)) {
     error = false;
     $("#phoneNumber").after(
       '<span style="color: red;" class="error">Please provide correct phone number.(Use numbers)</span>'
     );
   }
 
-  if (error) {
-    response.add;
-  }
   return error;
 }
 
 function registerUser(e) {
   e.preventDefault();
-  //let form = document.getElementById("register-form");
-  // if (isValidUser()) {
-  //   $("#register-form").on("submit", function (event) {
-  //     event.preventDefault();
-  //     e = $(this).serialize();
-  //     console.log(typeof e);
-  //   });
-  // }
+
   const data = new FormData(e.target);
 
   if (isValidUser()) {
     const response = Object.fromEntries(data.entries());
-
-    console.log({ response });
+    const donor = new Donor();
+    donor.save(response).then(()=>{
+      console.log("donor added")
+    })
+    console.log(response);
   }
 }
 
