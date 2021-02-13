@@ -59,31 +59,31 @@
 
             <ul class="list-unstyled components">
                 <li>
-                    <a href="#">
+                    <a href="dashboard.html">
                         <i class="fas fa-chart-line"></i>
                         <span>&nbsp;Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="appointment-admin.html">
                         <i class="fas fa-calendar-check"></i>
                         <span>&nbsp;Appointment</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="request-admin.html">
                         <i class="fas fa-image"></i>
                         <span>&nbsp;Make Request</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="user.html">
                         <i class="fas fa-users"></i>
                         <span>&nbsp;Users</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="event-admin.html">
                         <i class="fas fa-paper-plane"></i>
                         <span>&nbsp;Events</span>
                     </a>
@@ -92,9 +92,9 @@
         </nav>
 
         <!-- Page Content  -->
-        <div id="content" class="main">
-            <div class="header">
-                <nav class="navbar navbar-expand-lg">
+        <div id="content">
+            <div class="header" id="header">
+                <nav class="navbar navbar-expand-lg" id="header">
                     <div class="container-fluid">
                         <button type="button" id="sidebarCollapse" class="btn btn-info">
                             <i class="fas fa-align-justify"></i>
@@ -233,8 +233,7 @@
                     <div class="fixed-table-header" style="margin-right: 0px;">
                     </div>
                     <div class="fixed-table-body">
-                        <div class="fixed-table-loading table table-hover"
-                            style="top: 98.6px; width: 704px;">
+                        <div class="fixed-table-loading table table-hover" style="top: 98.6px; width: 704px;">
 
                         </div>
                         <table id="table" data-toolbar="#toolbar" data-search="true" data-show-refresh="true"
@@ -381,53 +380,60 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous">
+    </script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous">
+    </script>
 
-            <!-- jQuery CDN - Slim version (=without AJAX) -->
-            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-                crossorigin="anonymous">
-            </script>
-            <!-- Popper.JS -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
-                integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
-                crossorigin="anonymous">
-            </script>
-            <!-- Bootstrap JS -->
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
-                integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
-                crossorigin="anonymous">
-            </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
 
-            <script type="text/javascript">
-                $(document).ready(function () {
-                    $('#sidebarCollapse').on('click', function () {
-                        $('#sidebar').toggleClass('active');
-                    });
-                });
+        const sidebar = document.getElementById('sidebar')
+        const content = document.getElementById('content')
+        const header = document.getElementById('header')
+        const navBar = document.getElementById('navbar')
+        document.getElementById('sidebarCollapse').addEventListener('click', () => {
+            if (!sidebar.classList.contains('active')) {
+                sidebar.style.left = '0px'
+                content.classList.add('changeOpacityBackground');
+                header.classList.add('changeOpacityBackground');
+                navBar.classList.add('changeOpacityBackground');
+            } else {
+                sidebar.style.left = '-250px'
+            }
+        });
 
-                const sidebar = document.getElementById('sidebar')
-                const main = document.querySelector('.main')
-                document.getElementById('sidebarCollapse').addEventListener('click', () => {
-                    if (!sidebar.classList.contains('active')) {
-                        main.style.marginLeft = '110px'
-                    } else {
-                        main.style.marginLeft = '250px'
-                    }
+        content.addEventListener('mouseup', () => {
+            if (!sidebar.classList.contains('active')) {
 
-                    if (innerWidth < 768) {
-                        if (sidebar.classList.contains('active')) {
-                            main.style.marginLeft = "0px"
-                        } else {
-                            main.style.marginLeft = "110px"
-                        }
-                    }
-                });
-            </script>
+            } else {
+                sidebar.style.left = '-250px'
+                sidebar.classList.remove('active');
+                content.classList.remove('changeOpacityBackground');
+                header.classList.remove('changeOpacityBackground');
+                navBar.classList.remove('changeOpacityBackground');
+            }
+        })
+    </script>
 
-            <!-- Optional JS -->
-            <script src="assets/vendor/chart.js/dist/Chart.min.js"></script>
-            <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
+    <!-- Optional JS -->
+    <script src="assets/vendor/chart.js/dist/Chart.min.js"></script>
+    <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
 </body>
 
 </html>

@@ -2,6 +2,7 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 /* Font for the search bar */
 @import url("https://fonts.googleapis.com/css?family=Inconsolata:700");
+
 @media (min-width: 1200px) {
   .order-xl-2 {
     order: 2;
@@ -18,92 +19,6 @@ body {
   font-size: 44px;
   color: #fff;
   line-height: 66px;
-}
-
-.btn {
-  font-size: 0.875rem;
-  font-weight: 600;
-  line-height: 1.5;
-
-  display: inline-block;
-
-  padding: 0.625rem 1.25rem;
-
-  cursor: pointer;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  text-align: center;
-  vertical-align: middle;
-
-  color: #525f7f;
-  border: 1px solid transparent;
-  border-radius: 0.25rem;
-  background-color: transparent;
-}
-
-.btn:hover {
-  text-decoration: none;
-
-  color: #525f7f;
-}
-
-.btn:focus,
-.btn.focus {
-  outline: 0;
-  box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
-}
-
-.btn.disabled,
-.btn:disabled {
-  opacity: 0.65;
-  box-shadow: none;
-}
-
-.btn-neutral {
-  color: #212529;
-  border-color: #fff;
-  background-color: #fff;
-  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-}
-
-.btn-neutral:hover {
-  color: #d32f2f;
-  border-color: white;
-  background-color: white;
-}
-
-.btn-neutral:focus,
-.btn-neutral.focus {
-  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08),
-    0 0 0 0 rgba(255, 255, 255, 0.5);
-}
-
-.btn-neutral.disabled,
-.btn-neutral:disabled {
-  color: #212529;
-  border-color: #fff;
-  background-color: #fff;
-}
-
-.btn-neutral:not(:disabled):not(.disabled):active,
-.btn-neutral:not(:disabled):not(.disabled).active,
-.show > .btn-neutral.dropdown-toggle {
-  color: #212529;
-  border-color: white;
-  background-color: #e6e6e6;
-}
-
-.btn-neutral:not(:disabled):not(.disabled):active:focus,
-.btn-neutral:not(:disabled):not(.disabled).active:focus,
-.show > .btn-neutral.dropdown-toggle:focus {
-  box-shadow: none, 0 0 0 0 rgba(255, 255, 255, 0.5);
-}
-
-.btn-neutral {
-  color: #5e72e4;
 }
 
 .card {
@@ -148,7 +63,7 @@ body {
   background-color: #fff;
 }
 
-.card-profile-stats > div .heading {
+.card-profile-stats>div .heading {
   font-size: 1rem;
   font-weight: bold;
 
@@ -163,7 +78,7 @@ body {
   text-transform: uppercase;
 }
 
-.card-profile-stats > div .description {
+.card-profile-stats>div .description {
   font-size: 1rem;
 
   color: #1e88e5;
@@ -185,7 +100,11 @@ body {
   flex-grow: 1;
 }
 
-.card-profile-image {
+.btn-neutral{
+  color: #5e72e4;
+  border-color: #fff;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgb(50 50 93 / 11%), 0 1px 3px rgb(0 0 0 / 8%);
 }
 
 body {
