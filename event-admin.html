@@ -11,6 +11,7 @@
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
         integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./assets/css/styles.css">
     <link rel="stylesheet" href="./assets/css/event-admin.css">
@@ -18,19 +19,24 @@
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
         integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous">
-    </script>
+        </script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
         integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous">
-    </script>
+        </script>
     <link href="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/event-admin.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/request-admin.css">
 
-    <script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
-    <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.js"></script>
-    <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table-locale-all.min.js"></script>
-    <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/extensions/export/bootstrap-table-export.min.js">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
     </script>
-    <script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <!-- <script>
         init({
             title: 'Welcome Examples',
             desc: 'Examples with checkbox, sort, pagination, export, detailView and other added features.',
@@ -43,8 +49,8 @@
                 'https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table-locale-all.min.js',
                 'extensions/export/bootstrap-table-export.min.js'
             ]
-        })
-    </script>
+        })()
+    </script> -->
 </head>
 
 <body>
@@ -131,9 +137,12 @@
                         <a href="" class="btn btn-sm btn-neutral">Filter</a>
                     </div>
                 </div>
-                <!-- Card Stats -->
+            </div>
+            <!-- Card Stats -->
+
+            <div class="statCards" style="position: relative;top: -200px;">
                 <div class="row mt-2 mr-4 ml-4">
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-3 col-md-6 mb-4">
                         <div class="card card-stats">
                             <div class="card-body">
                                 <div class="row">
@@ -156,7 +165,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-3 col-md-6 mb-4">
                         <div class="card card-stats">
                             <div class="card-body">
                                 <div class="row">
@@ -179,7 +188,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-3 col-md-6 mb-4">
                         <div class="card card-stats">
                             <div class="card-body">
                                 <div class="row">
@@ -202,7 +211,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-3 col-md-6 mb-4">
                         <div class="card card-stats">
                             <div class="card-body">
                                 <div class="row">
@@ -227,156 +236,246 @@
                     </div>
 
                 </div>
+            </div>
 
-                <div class="fixed-table-container fixed-height has-footer"
-                    style="height: 433.8px; padding-bottom: 148.2px;">
-                    <div class="fixed-table-header" style="margin-right: 0px;">
-                    </div>
-                    <div class="fixed-table-body">
-                        <div class="fixed-table-loading table table-hover" style="top: 98.6px; width: 704px;">
+            <div class="fixed-table-container fixed-height has-footer"
+                style="height: 433.8px; padding-bottom: 148.2px;">
+                <div class="fixed-table-header" style="margin-right: 0px;">
+                </div>
+                <div class="fixed-table-body">
+                    <div class="fixed-table-loading table table-hover" style="top: 98.6px; width: 704px;">
 
+
+
+
+
+
+
+                        <div class="container tabView" style="margin-top:-150px;width: 100vw;">
+                            <div class="">
+                                <div class="nav nav-tabs" id="requestTab" role="tablist">
+                                    <!-- <li class="active"><a data-toggle="tab" href="#makeRequest">Make Request</a></li>
+                        <li><a data-toggle="tab" href="#viewRequests">View Requests</a></li> -->
+
+                                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab"
+                                        href="#addEvent" role="tab" aria-controls="addEvent" aria-selected="true">Add
+                                        Event</a>
+                                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
+                                        href="#viewEvents" role="tab" aria-controls="viewEvents"
+                                        aria-selected="false">View Events</a>
+                                </div>
+
+                            </div>
+
+
+                            <div class="tab-content" id="nav-tabContent" style="margin:100px">
+                                <!-- add request tab -->
+                                <div style="width: 75%; margin:auto" id="addEvent" class="tab-pane fade show active"
+                                    role="tabpanel" aria-labelledby="addEvent">
+                                    <div class="container-fluid mt-4">
+                                        <div class="row">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 edit-form-container">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h3>Post Event</h3>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <form action="">
+                                                            <h6 class="text-muted mb-4">Basic Information</h6>
+                                                            <div class="row">
+                                                                <div class="col-xl-6 col-lg-6 col-md-6">
+                                                                    <div class="form-group">
+                                                                        <input type="text" id="event_title"
+                                                                            class="form-control"
+                                                                            placeholder="Event Title" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-xl-6 col-lg-6 col-md-6">
+                                                                    <div class="form-group">
+                                                                        <input type="text" id="event_location"
+                                                                            class="form-control"
+                                                                            placeholder="Event Location" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <h6 class="text-muted mb-4">About the organizer</h6>
+                                                            <div class="row">
+                                                                <div class="col-xl-6 col-lg-6 col-md-6">
+                                                                    <div class="form-group">
+                                                                        <input type="text" id="organizer_number"
+                                                                            class="form-control"
+                                                                            placeholder="Phone Number" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-xl-6 col-lg-6 col-md-6">
+                                                                    <div class="form-group">
+                                                                        <input type="text" id="organizer_goal"
+                                                                            class="form-control"
+                                                                            placeholder="Organizer Goal (in Blood Kits)" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <div class="col-xl-6 col-lg-6 col-md-6">
+                                                                    <div class="form-group">
+                                                                        <input type="text" id="organizer_address"
+                                                                            class="form-control"
+                                                                            placeholder="Organizer Address " />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-xl-6 col-lg-6 col-md-6">
+                                                                    <div class="form-group">
+                                                                        <input type="text" id="organizer_name"
+                                                                            class="form-control"
+                                                                            placeholder="Organizer Name" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <h6 class="text-muted mb-4">Duration</h6>
+
+                                                            <div class="row" style="margin-bottom: 30px;">
+                                                                <div class="col-xl-6 col-lg-6 col-md-6">
+                                                                    <div class="input-append date form_datetime"
+                                                                        id="startDate">
+                                                                        <input size="16" type="text" value=""
+                                                                            readonly />
+                                                                        <span class="add-on"><i
+                                                                                class="icon-th"></i></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-xl-6 col-lg-6 col-md-6">
+                                                                    <div class="input-append date form_datetime">
+                                                                        <input size="16" type="text" value=""
+                                                                            readonly />
+                                                                        <span class="add-on"><i
+                                                                                class="icon-th"></i></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <div class="container-fluid col-lg-12 col-xl-12">
+                                                                    <textarea rows="10" class="form-control" id=""
+                                                                        placeholder="Additional Information"
+                                                                        name="additional_info"></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row form-group mt-3">
+                                                                <div class="col-sm-10">
+                                                                    <button type="submit" class="btn btn-primary">
+                                                                        Post Event
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- view requests tab -->
+                                <div id="viewEvents" class="tab-pane fade " role="tabpanel"
+                                    aria-labelledby="viewEvents">
+
+                                    <script>
+
+                                        let dataSet = [
+                                            //  userId  location    organizer   event_goal  startDate endDate    additional_info  status    createdAt  action  
+                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
+                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
+                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
+                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
+                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
+                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
+                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
+                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
+                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
+                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
+                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
+                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
+                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
+                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
+                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
+                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
+                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
+                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
+                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
+                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
+                                            
+                                        ]
+                                        function reject(e){
+                                            // traverse to the eventid element in the dom
+                                            let eventId = e.target.parentElement.parentElement.parentElement.children[0].innerText
+                                            // let userId = e.target.parentElement.parentElement.parentElement.children[1].innerText
+                                            console.log(eventId)
+                                        }
+                                        function accept(e){
+                                            // traverse to the eventid element in the dom
+                                            let eventId = e.target.parentElement.parentElement.parentElement.children[0].innerText
+                                            // let userId = e.target.parentElement.parentElement.parentElement.children[1].innerText
+                                            console.log(eventId)
+                                        }
+                                        function edit(e){
+                                            // traverse to the eventid element in the dom
+                                            let eventId = e.target.parentElement.parentElement.parentElement.children[0].innerText
+                                            // let userId = e.target.parentElement.parentElement.parentElement.children[1].innerText
+                                            console.log(eventId)
+                                        }
+                                        
+                                        $(document).ready(function () {
+                                            $('#example').DataTable({
+                                                data: dataSet,
+                                                columns: [
+                                                    { title: "eventId" },
+                                                    { title: "userId" },
+                                                    { title: "location" },
+                                                    { title: "organizer" },
+                                                    { title: "event_goal" },
+                                                    { title: "startDate" },
+                                                    { title: "endDate" },
+                                                    { title: "additional_info" },
+                                                    { title: "status" },
+                                                    { title: "created at" },
+                                                    {
+                                                        title: "Action",
+                                                        "mRender": function (data, type, row) {
+                                                            // return `<button >${data}</button>`; 
+                                                            // TODO   fas fa-edit
+                                                            return `<a onClick="accept(event)" class="Accept"  title="Accept">
+                                                                        <i class="fa fa-check"></i>
+                                                                    </a> 
+                                                                    <a onClick="reject(event)"  class="Reject"  title="Reject">
+                                                                        <i class="fa fa-times"></i>
+                                                                    </a>
+                                                                    <a onClick="edit(event)" class="Accept" style="color:purple;" title="Accept">
+                                                                        <i class="fa fa-edit"></i>
+                                                                    </a>  `
+                                                        }
+                                                    }
+                                                ]
+                                            });
+                                        });
+
+                                    </script>
+                                    <!-- TODO ********************************************** -->
+                                    
+                                    <!-- <style>
+                                table{
+                                    margin: 0 auto;
+                                    width: 150%;
+                                    clear: both;
+                                    border-collapse: collapse;
+                                    table-layout: fixed; 
+                                    word-wrap:break-word; 
+                                    }
+                            </style> -->
+                                    <table id="example" class="display" style="width: 100%;"></table>
+                                </div>
+
+                            </div>
                         </div>
-                        <table id="table" data-toolbar="#toolbar" data-search="true" data-show-refresh="true"
-                            data-show-toggle="true" data-show-fullscreen="true" data-show-columns="true"
-                            data-show-columns-toggle-all="true" data-detail-view="true" data-show-export="true"
-                            data-click-to-select="true" data-detail-formatter="detailFormatter"
-                            data-minimum-count-columns="2" data-show-pagination-switch="true" data-pagination="true"
-                            data-id-field="id" data-page-list="[10, 25, 50, 100, all]" data-show-footer="true"
-                            data-side-pagination="server"
-                            data-url="https://examples.wenzhixin.net.cn/examples/bootstrap_table/data"
-                            data-response-handler="responseHandler" class="table table-bordered table-hover"
-                            style="margin-top: 97.6px;">
-                            <thead class="">
-                                <tr>
-
-                                    <th class="bs-checkbox "
-                                        style="text-align: center; vertical-align: middle; width: 36px; " rowspan="2"
-                                        data-field="state">
-                                        <div class="th-inner "><label><input name="btSelectAll"
-                                                    type="checkbox"><span></span></label></div>
-                                        <div class="fht-cell"></div>
-                                    </th>
-                                    <th style="text-align: center; vertical-align: middle; " rowspan="2"
-                                        data-field="id">
-                                        <div class="th-inner sortable both">Event id</div>
-                                        <div class="fht-cell"></div>
-                                    </th>
-                                    <th style="text-align: center; " colspan="7">
-                                        <div class="th-inner ">Event Detail</div>
-                                        <div class="fht-cell"></div>
-                                    </th>
-                                </tr>
-                                <tr>
-                                    <th style="text-align: center; " data-field="name" data-not-first-th="">
-                                        <div class="th-inner sortable both">Name</div>
-                                        <div class="fht-cell"></div>
-                                    </th>
-                                    <th style="text-align: center; " data-field="operate">
-                                        <div class="th-inner "> Organizer </div>
-                                        <div class="fht-cell"></div>
-                                    </th>
-                                    <th style="text-align: center; " data-field="operate">
-                                        <div class="th-inner ">Start Date</div>
-                                        <div class="fht-cell"></div>
-                                    </th>
-                                    <th style="text-align: center; " data-field="operate">
-                                        <div class="th-inner ">End Date</div>
-                                        <div class="fht-cell"></div>
-                                    </th>
-                                    <th style="text-align: center; " data-field="operate">
-                                        <div class="th-inner ">Place</div>
-                                        <div class="fht-cell"></div>
-                                    </th>
-
-                                    <th style="text-align: center; " data-field="operate">
-                                        <div class="th-inner ">Status</div>
-                                        <div class="fht-cell"></div>
-                                    </th>
-
-                                    <th style="text-align: center; " data-field="operate">
-                                        <div class="th-inner ">Action</div>
-                                        <div class="fht-cell"></div>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- use userid to make the event based tasks easier -->
-                                <tr id="userId" class="active" data-index="0" data-has-detail-view="true">
-
-                                    <td class="bs-checkbox "
-                                        style="text-align: center; vertical-align: middle; width: 36px; "><label>
-                                            <input data-index="0" name="btSelectItem" type="checkbox" value="0">
-                                            <span></span>
-                                        </label></td>
-                                    <td class="eventIdText" style="text-align: center;">@event12314</td>
-                                    <td class="eventNameText" style="text-align: center;">event Name</td>
-                                    <td class="organizerIdText" style="text-align: center;">@userId2123</td>
-                                    <td class="startDateText" style="text-align: center; ">Feb 1 2021</td>
-                                    <td class="endDateText" style="text-align: center; ">Feb 4 2021</td>
-                                    <td class="timeText" style="text-align: center; ">3:24 AM</td>
-                                    <td>
-                                        <span class="statusColor rejected"></span><span
-                                            class="statusText">Rejected</span>
-                                    </td>
-                                    <td style="text-align: center; ">
-                                        <a class="accept" href="javascript:void(0)" title="accept"><i
-                                                class="fa fa-check"></i></a> &nbsp;&nbsp;&nbsp;&nbsp;
-                                        <a class="Reject" href="javascript:void(0)" title="Reject"><i
-                                                class="fa fa-times"></i></a>
-                                    </td>
-                                </tr>
-                                <tr id="userId" class="active" data-index="0" data-has-detail-view="true">
-
-                                    <td class="bs-checkbox "
-                                        style="text-align: center; vertical-align: middle; width: 36px; "><label>
-                                            <input data-index="0" name="btSelectItem" type="checkbox" value="0">
-                                            <span></span>
-                                        </label></td>
-                                    <td class="eventIdText" style="text-align: center;">@event12314</td>
-                                    <td class="eventNameText" style="text-align: center;">event Name</td>
-                                    <td class="organizerIdText" style="text-align: center;">@userId2123</td>
-                                    <td class="startDateText" style="text-align: center; ">Feb 1 2021</td>
-                                    <td class="endDateText" style="text-align: center; ">Feb 4 2021</td>
-                                    <td class="timeText" style="text-align: center; ">3:24 AM</td>
-                                    <td>
-                                        <span class="statusColor pending"></span><span class="statusText">Pending</span>
-                                    </td>
-                                    <td style="text-align: center; ">
-                                        <a class="accept" href="javascript:void(0)" title="accept"><i
-                                                class="fa fa-check"></i></a> &nbsp;&nbsp;&nbsp;&nbsp;
-                                        <a class="Reject" href="javascript:void(0)" title="Reject"><i
-                                                class="fa fa-times"></i></a>
-                                    </td>
-                                </tr>
-                                <tr id="userId" class="active" data-index="0" data-has-detail-view="true">
-
-                                    <td class="bs-checkbox "
-                                        style="text-align: center; vertical-align: middle; width: 36px; "><label>
-                                            <input data-index="0" name="btSelectItem" type="checkbox" value="0">
-                                            <span></span>
-                                        </label></td>
-                                    <td class="eventIdText" style="text-align: center;">@event12314</td>
-                                    <td class="eventNameText" style="text-align: center;">event Name</td>
-                                    <td class="organizerIdText" style="text-align: center;">@userId2123</td>
-                                    <td class="startDateText" style="text-align: center; ">Feb 1 2021</td>
-                                    <td class="endDateText" style="text-align: center; ">Feb 4 2021</td>
-                                    <td class="timeText" style="text-align: center; ">3:24 AM</td>
-                                    <td>
-                                        <span class="statusColor accepted"></span><span
-                                            class="statusText">accepted</span>
-                                    </td>
-                                    <td style="text-align: center; ">
-                                        <a class="accept" href="javascript:void(0)" title="accept"><i
-                                                class="fa fa-check"></i></a> &nbsp;&nbsp;&nbsp;&nbsp;
-                                        <a class="Reject" href="javascript:void(0)" title="Reject"><i
-                                                class="fa fa-times"></i></a>
-                                    </td>
-                                </tr>
-
-
-                            </tbody>
-                        </table>
-                        <div class="fixed-table-border" style="width: 704px; height: 0px;"></div>
                     </div>
                 </div>
             </div>
