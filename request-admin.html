@@ -37,19 +37,7 @@
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script>
-        init({
-            title: 'Welcome Examples',
-            desc: 'Examples with checkbox, sort, pagination, export, detailView and other added features.',
-            links: [
-                'bootstrap-table.min.css'
-            ],
-            scripts: [
-                'https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js',
-                'bootstrap-table.min.js',
-                'https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table-locale-all.min.js',
-                'extensions/export/bootstrap-table-export.min.js'
-            ]
-        })
+        
     </script>
 </head>
 
@@ -273,7 +261,7 @@
                                                     <div class="col-xl-6 col-lg-6 col-md-6">
                                                         <div class="form-group">
 
-                                                            <select id="inputState" class="form-control">
+                                                            <select id="bloodTypeInput" class="form-control">
                                                                 <option selected disabled>
                                                                     Choose Blood Type...
                                                                 </option>
@@ -298,7 +286,7 @@
                                                 <div class="row">
                                                     <div class="col-xl-6 col-lg-6 col-md-6">
                                                         <div class="form-group">
-                                                            <select id="inputState" class="form-control">
+                                                            <select id="reasonTypeInput" class="form-control">
                                                                 <option selected disabled>Request Reasons</option>
                                                                 <option value="surgery">Surgery</option>
                                                                 <option value="accident">Accident</option>
@@ -380,6 +368,9 @@
                                 // let userId = e.target.parentElement.parentElement.parentElement.children[1].innerText
                                 console.log(requestId)
                             }
+                            function modalDesplay(e){
+                                let 
+                            }
 
                             $(document).ready(function () {
                                 $('#example').DataTable({
@@ -393,7 +384,36 @@
                                         { title: "reason" },
                                         { title: "units" },
                                         { title: "location" },
-                                        { title: "additional info" },
+                                        { title: "additional info",
+                                        "mRender": function (data, type, row) {
+                                                // return `<button >${data}</button>`; 
+                                                // TODO   fas fa-edit
+                                                return `
+                                                <a data-toggle="modal" data-target="#addtionalInfoModal" >${data}</a>
+                                                <div class="modal fade" id="addtionalInfoModal" tabindex="-1" role="dialog" aria-labelledby="addtionalInfoModalTitle" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="addtionalInfoModalLongTitle">Additional Information</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                        <div class="modal-body">
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum odit,<br>
+                                                            id fuga sapiente expedita consequuntur, placeat nihil, nesciunt facilis<br> 
+                                                            quisquam non accusamus nulla laudantium? Nam ullam maxime et tenetur alias!<br>
+                                                        </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addtionalInfoModal">ok</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                `
+                                            }
+                                        },
                                         { title: "status" },
                                         {
                                             title: "Action",
