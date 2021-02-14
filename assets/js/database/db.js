@@ -6,7 +6,7 @@ import { DonationCenter } from "../models/DonationCenter.js";
 import { Event } from "../models/Event.js";
 
 export const db = new Dexie("eshi_blood_database");
-db.version(1).stores({
+db.version(12).stores({
   donors:
     "++id,name,email,blood_type,city,woreda,phone_number,birthdate,password,activated,can_donate,is_admin,points,createdAt,updatedAt",
   appointment:
@@ -17,7 +17,7 @@ db.version(1).stores({
   donation_center:
     "++id,center_name,city,woreda,phone_number,add_info,is_open,createdAt,updatedAt",
   event:
-    "++id,location,organizer_name,organizer_address,organizer_phone,event_goal,start_date,end_date,add_info,status,createdAt,updatedAt,id_donors",
+    "++id,event_title,event_location,organizer_id,organizer_name,organizer_address,organizer_number,event_goal,start_date,end_date,add_info,status,createdAt,updatedAt,*id_donors",
 });
 
 db.open();

@@ -69,13 +69,12 @@
     </nav>
 
     <!-- Page Content  -->
-    <div id="content" class="main">
-      <div class="header">
-        <nav class="navbar navbar-expand-lg">
+    <div id="content">
+      <div class="header" id="header">
+        <nav class="navbar navbar-expand-lg" id="navbar">
           <div class="container-fluid">
             <button type="button" id="sidebarCollapse" class="btn btn-info ml-2">
               <i class="fas fa-align-justify"></i>
-              <span>Toggle Sidebar</span>
             </button>
             <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
               data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -106,7 +105,7 @@
             <div class="ml-5">
               <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                 <li class="breadcrumb-item">
-                  <a href="#"><i class="fas fa-home"></i></a>
+                  <a class="main" href="#"><i class="fas fa-home"></i></a>
                 </li>
                 <li class="breadcrumb-item"><a href="#">Dashboards</a></li>
                 <li class="breadcrumb-item"><a href="#">Requst</a></li>
@@ -319,34 +318,44 @@
     });
   </script>
 
+  <!-- Optional JS -->
+  <script src="assets/vendor/chart.js/dist/Chart.min.js"></script>
+  <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
+
   <script type="text/javascript">
     $(document).ready(function () {
       $("#sidebarCollapse").on("click", function () {
         $("#sidebar").toggleClass("active");
       });
     });
+
     const sidebar = document.getElementById('sidebar')
-    const main = document.querySelector('.main')
+    const content = document.getElementById('content')
+    const header = document.getElementById('header')
+    const navBar = document.getElementById('navbar')
     document.getElementById('sidebarCollapse').addEventListener('click', () => {
       if (!sidebar.classList.contains('active')) {
-        main.style.marginLeft = '110px'
+        sidebar.style.left = '0px'
+        content.classList.add('changeOpacityBackground');
+        header.classList.add('changeOpacityBackground');
+        navBar.classList.add('changeOpacityBackground');
       } else {
-        main.style.marginLeft = '250px'
+        sidebar.style.left = '-250px'
       }
-
-      if (innerWidth < 768) {
-                if (sidebar.classList.contains('active')) {
-                    main.style.marginLeft = "0px"
-                }else{
-                    main.style.marginLeft = "110px"
-                }  
-            }
     });
-  </script>
 
-  <!-- Optional JS -->
-  <script src="assets/vendor/chart.js/dist/Chart.min.js"></script>
-  <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
+    content.addEventListener('mouseup', () => {
+      if (!sidebar.classList.contains('active')) {
+
+      } else {
+        sidebar.style.left = '-250px'
+        sidebar.classList.remove('active');
+        content.classList.remove('changeOpacityBackground');
+        header.classList.remove('changeOpacityBackground');
+        navBar.classList.remove('changeOpacityBackground');
+      }
+    })
+  </script>
 </body>
 
 </html>

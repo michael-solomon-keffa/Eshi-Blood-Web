@@ -67,9 +67,9 @@
         </nav>
 
         <!-- Page Content  -->
-        <div id="content" class="main">
-            <div class="header">
-                <nav class="navbar navbar-expand-lg">
+        <div id="content">
+            <div class="header" id="header">
+                <nav class="navbar navbar-expand-lg" id="navbar">
                     <div class="container-fluid">
                         <button type="button" id="sidebarCollapse" class="btn btn-info ml-2">
                             <i class="fas fa-align-justify"></i>
@@ -244,23 +244,31 @@
 
     <script>
         const sidebar = document.getElementById('sidebar')
-        const main = document.querySelector('.main')
+        const content = document.getElementById('content')
+        const header = document.getElementById('header')
+        const navBar = document.getElementById('navbar')
         document.getElementById('sidebarCollapse').addEventListener('click', () => {
             if (!sidebar.classList.contains('active')) {
-                main.style.marginLeft = '110px'
+                sidebar.style.left = '0px'
+                content.classList.add('changeOpacityBackground');
+                header.classList.add('changeOpacityBackground');
+                navBar.classList.add('changeOpacityBackground');
             } else {
-                main.style.marginLeft = '250px'
-            }
-
-
-            if (innerWidth < 768) {
-                if (sidebar.classList.contains('active')) {
-                    main.style.marginLeft = "0px"
-                }else{
-                    main.style.marginLeft = "110px"
-                }  
+                sidebar.style.left = '-250px'
             }
         });
+
+        content.addEventListener('mouseup', () => {
+            if (!sidebar.classList.contains('active')) {
+
+            } else {
+                sidebar.style.left = '-250px'
+                sidebar.classList.remove('active');
+                content.classList.remove('changeOpacityBackground');
+                header.classList.remove('changeOpacityBackground');
+                navBar.classList.remove('changeOpacityBackground');
+            }
+        })
     </script>
 </body>
 

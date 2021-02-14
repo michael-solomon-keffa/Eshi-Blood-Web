@@ -1,5 +1,5 @@
 import { db } from "../database/db.js";
-import {DonorController} from "../controllers/donor-controller.js";
+import { DonorController } from "../controllers/donor-controller.js";
 import { Donor } from "../models/Donor.js";
 
 function isValidUser() {
@@ -81,7 +81,7 @@ function isValidUser() {
   }
 
   // email validation
-  if ($("#email").val().length < 1 ) {
+  if ($("#email").val().length < 1) {
     $("#email").after(
       '<span style="color: red;" class="error">Please provide email.</span>'
     );
@@ -113,12 +113,22 @@ function registerUser(e) {
 
   const data = new FormData(e.target);
 
-  if (isValidUser()) {
+  if (true) {
     const response = Object.fromEntries(data.entries());
     const donor = new Donor();
-    donor.save(response).then(()=>{
-      console.log("donor added")
-    })
+    donor
+      .save({
+        ...response,
+        activated: false,
+        can_donate: false,
+        is_admin: false,
+        points: 0,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      })
+      .then(() => {
+        console.log("donor added");
+      });
     console.log(response);
   }
 }
