@@ -220,8 +220,8 @@ a.article:hover {
 
 @media (max-width: 768px) {
     #sidebar {
-        min-width: 80px;
-        max-width: 80px;
+        min-width: 150px;
+        max-width: 150px;
         text-align: center;
         margin-left: -80px !important;
     }

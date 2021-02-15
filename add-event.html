@@ -272,6 +272,7 @@
                     </div>
                     <h6 class="text-muted mb-4">Duration</h6>
 
+
                     <!--Grid row-->
                     <div class="row">
 
@@ -280,25 +281,28 @@
 
                         <div class="md-form">
                           <!--The "from" Date Picker -->
-                          <input placeholder="Selected starting date" type="text" id="startingDate"
+                          <input placeholder="Selected starting date" type="text" id="picker"
                             class="form-control datepicker">
                         </div>
 
                       </div>
-                      <!--Grid column-->
 
-                      <!--Grid column-->
                       <div class="col-md-6 mb-4">
 
                         <div class="md-form">
-                          <!--The "to" Date Picker -->
-                          <input placeholder="Selected ending date" type="text" id="endingDate"
-                            class="form-control datepicker">
+                          <!--The "from" Date Picker -->
+                          <div class="row">
+                            <div class="col-6">
+                              <p class="d-flex" name="startDate" id="startDate"></p>
+                            </div>
+                            <div class="col-6">
+                              <p class="d-flex" name="endDate" id="endDate"></p>
+                            </div>
+                          </div>
                         </div>
 
                       </div>
                       <!--Grid column-->
-
                     </div>
                     <!--Grid row-->
 
@@ -340,13 +344,19 @@
   </script>
   <script src="./assets/js/jquery.datetimepicker.js"></script>
 
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+
   <script type="text/javascript">
     $(document).ready(function () {
       $("#sidebarCollapse").on("click", function () {
         $("#sidebar").toggleClass("active");
       });
     });
-  
+
     const sidebar = document.getElementById('sidebar')
     const content = document.getElementById('content')
     const header = document.getElementById('header')
@@ -372,6 +382,15 @@
         header.classList.remove('changeOpacityBackground');
         navBar.classList.remove('changeOpacityBackground');
       }
+    })
+  </script>
+
+  <script>
+    $('#picker').daterangepicker({
+      opens: "left",
+    }, function (start, end, label) {
+      $('#startDate').text(start.format('YYYY-MM-DD'))
+      $('#endDate').text(end.format("YYYY-MM-DD"))
     })
   </script>
 
