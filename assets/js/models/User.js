@@ -1,3 +1,3 @@
 import { db } from "../database/db.js";
 
-export class Donor {}
+export function User() {}

@@ -4,20 +4,22 @@ import { Donation } from "../models/Donation.js";
 import { Request } from "../models/Request.js";
 import { DonationCenter } from "../models/DonationCenter.js";
 import { Event } from "../models/Event.js";
+import { User } from "../models/User.js";
 
 export const db = new Dexie("eshi_blood_database");
-db.version(12).stores({
+db.version(15).stores({
   donors:
-    "++id,name,email,blood_type,city,woreda,phone_number,birthdate,password,activated,can_donate,is_admin,points,createdAt,updatedAt",
+    "++id,name,email,blood_type,city,woreda,phone_number,birthdate,activated,can_donate,points,createdAt,updatedAt,is_deleted",
   appointment:
-    "++id,start_date,end_date,time,status,createdAt,updatedAt,id_donor,id_donation_center,id_req,id_event",
-  donation: "++id,date,createdAt,updatedAt,id_donor,id_appointment",
+    "++id,start_date,end_date,time,status,createdAt,updatedAt,id_donor,id_donation_center,id_req,id_event,is_deleted",
+  donation: "++id,date,createdAt,updatedAt,id_donor,id_appointment,is_deleted",
   request:
-    "++id,blood_type,units_needed,request_reason,location,add_info,status,createdAt,updatedAt,*id_donors",
+    "++id,blood_type,units_needed,request_reason,location,add_info,status,createdAt,updatedAt,*id_donors,is_deleted",
   donation_center:
-    "++id,center_name,city,woreda,phone_number,add_info,is_open,createdAt,updatedAt",
+    "++id,center_name,city,woreda,phone_number,add_info,is_open,createdAt,updatedAt,is_deleted",
   event:
-    "++id,event_title,event_location,organizer_id,organizer_name,organizer_address,organizer_number,event_goal,start_date,end_date,add_info,status,createdAt,updatedAt,*id_donors",
+    "++id,event_title,event_location,organizer_id,organizer_name,organizer_address,organizer_number,event_goal,start_date,end_date,add_info,status,createdAt,updatedAt,*id_donors,is_deleted",
+  users: "++id,email,password,is_admin,id_donor",
 });
 
 db.open();
@@ -28,6 +30,7 @@ db.donation.mapToClass(Donation);
 db.request.mapToClass(Request);
 db.donation_center.mapToClass(DonationCenter);
 db.event.mapToClass(Event);
+db.users.mapToClass(User);
 
 // db.donors.add({
 //   name: "Michael Solomon",

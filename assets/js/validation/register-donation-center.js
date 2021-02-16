@@ -17,6 +17,7 @@ function registerDonationCenter(e) {
         ...response,
         createdAt: new Date(),
         updatedAt: new Date(),
+        is_deleted: false,
       })
       .then(() => {
         console.log("Donation Center added!");

@@ -1,29 +1,28 @@
-import { Event } from "../models/Event.js";
+import { RequestController } from "../controllers/request-controller.js";
 
-function isValidEvent() {}
+function isValidUser() {}
 
-function registerEvent(e) {
+function registerRequest(e) {
   e.preventDefault();
 
   const data = new FormData(e.target);
-
   if (true) {
     const response = Object.fromEntries(data.entries());
 
-    const event = new Event();
-    event
+    const request = new RequestController();
+    request
       .save({
         ...response,
-        status: "rejected",
+        status: "active",
         createdAt: new Date(),
         updatedAt: new Date(),
         is_deleted: false,
       })
       .then(() => {
-        console.log("event added");
+        console.log("Request Added");
       });
   }
 }
 
 const form = document.querySelector("form");
-form.addEventListener("submit", registerEvent);
+form.addEventListener("submit", registerRequest);

@@ -6,7 +6,7 @@ export class DonorController {
   }
 
   // adding to db
-  save(donor){
+  save(donor) {
     return db.donors.add(donor);
   }
 

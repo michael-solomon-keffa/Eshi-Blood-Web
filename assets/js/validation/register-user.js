@@ -1,10 +1,25 @@
 import { db } from "../database/db.js";
 import { DonorController } from "../controllers/donor-controller.js";
-import { Donor } from "../models/Donor.js";
+import { UserController } from "../controllers/user-controller.js";
+import { crypt } from "../utils/crypt.js";
+
+const donorController = new DonorController();
+const userController = new UserController();
+
+function checkEmail(email) {
+  let check = false;
+  userController.doesEmailExist(email).then((user) => {
+    if (user) {
+      console.log(user);
+      check = true;
+    }
+  });
+  return check;
+}
 
 function isValidUser() {
   $(".error").remove();
-  let error = false;
+  let error = true;
 
   const fullName = $("#name").val();
   const email = $("#email").val();
@@ -16,30 +31,62 @@ function isValidUser() {
   const password = $("#password").val();
   const confirmPassword = $("#passwordConfirmation").val();
 
-  // length greater than zero
+  // full name
   if (fullName.length < 1) {
     error = false;
     $("#name").after(
       '<div style="color: red;" class="error">Please provide your full name.</div>'
     );
+  } else {
+    if (fullName.length < 8) {
+      error = false;
+      $("#name").after(
+        '<span style="color: red;" class="error">Full Name must have more than 8 characters.</span>'
+      );
+    } else if (!isNaN(fullName)) {
+      error = false;
+      $("#name").after(
+        '<span style="color: red;" class="error">Please provide correct Full name.(Do not Use numbers)</span>'
+      );
+    }
   }
+
   if (email.length < 1) {
     error = false;
     $("#email").after(
       '<span style="color: red;" class="error">Please provide your email.</span>'
     );
+  } else {
+    var regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    var validEmail = regEx.test($("#email").val());
+    if (!validEmail) {
+      $("#email").after(
+        '<span style="color: red;" class="error">Please provide valid email.</span>'
+      );
+      error = false;
+    } else {
+      console.log(checkEmail(email));
+      if (checkEmail(email)) {
+        $("#email").after(
+          '<span style="color: red;" class="error">Email already exists.</span>'
+        );
+        error = false;
+      }
+    }
   }
-  // if (bloodType.length < 1) {
-  //   error = false;
-  //   $("#bloodType").after(
-  //     '<span style="color: red;" class="error">Please provide your blood type.</span>'
-  //   );
-  // }
+
   if (phoneNumber.length < 8) {
     error = false;
     $("#phoneNumber").after(
       '<span style="color: red;" class="error">Please provide your phone number.</span>'
     );
+  } else {
+    if (isNaN(phoneNumber)) {
+      error = false;
+      $("#phoneNumber").after(
+        '<span style="color: red;" class="error">Please provide correct phone number.(Use numbers)</span>'
+      );
+    }
   }
   if (city.length < 1) {
     error = false;
@@ -58,50 +105,23 @@ function isValidUser() {
     $("#password").after(
       '<span style="color: red;" class="error">Please provide Password.</span>'
     );
+  } else {
+    if (password.length < 8) {
+      error = false;
+      $("#password").after(
+        '<span style="color: red;" class="error">Password must be greater than 8</span>'
+      );
+    }
   }
   if (confirmPassword.length < 1) {
     error = false;
     $("#passwordConfirmation").after(
       '<span style="color: red;" class="error">Please provide passwordConfirmation.</span>'
     );
-  }
-
-  // firstName validation
-  if (!isNaN(fullName)) {
+  } else if (password !== confirmPassword) {
     error = false;
-    $("#name").after(
-      '<span style="color: red;" class="error">Please provide correct Full name.(Do not Use numbers)</span>'
-    );
-  }
-  if (fullName.length < 8) {
-    error = false;
-    $("#name").after(
-      '<span style="color: red;" class="error">Full Name must have more than 8 characters.</span>'
-    );
-  }
-
-  // email validation
-  if ($("#email").val().length < 1) {
-    $("#email").after(
-      '<span style="color: red;" class="error">Please provide email.</span>'
-    );
-    error = false;
-  } else {
-    var regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    var validEmail = regEx.test($("#email").val());
-    if (!validEmail) {
-      $("#email").after(
-        '<span style="color: red;" class="error">Please provide valid email.</span>'
-      );
-      error = false;
-    }
-  }
-
-  // phone number
-  if (isNaN(phoneNumber)) {
-    error = false;
-    $("#phoneNumber").after(
-      '<span style="color: red;" class="error">Please provide correct phone number.(Use numbers)</span>'
+    $("#passwordConfirmation").after(
+      '<span style="color: red;" class="error">Password does not much.</span>'
     );
   }
 
@@ -113,25 +133,57 @@ function registerUser(e) {
 
   const data = new FormData(e.target);
 
-  if (true) {
+  if (isValidUser()) {
     const response = Object.fromEntries(data.entries());
-    const donor = new Donor();
-    donor
-      .save({
-        ...response,
-        activated: false,
-        can_donate: false,
-        is_admin: false,
-        points: 0,
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      })
-      .then(() => {
-        console.log("donor added");
-      });
-    console.log(response);
+
+    const password = crypt.encrypt(response.password);
+
+    const {
+      name,
+      email,
+      blood_type,
+      city,
+      woreda,
+      phone_number,
+      birthdate,
+    } = response;
+    const donorInfo = {
+      name,
+      email,
+      blood_type,
+      city,
+      woreda,
+      phone_number,
+      birthdate,
+    };
+
+    const userInfo = { email };
+    db.transaction("rw", db.donors, db.users, function () {
+      return donorController
+        .save({
+          ...donorInfo,
+          activated: false,
+          can_donate: false,
+          points: 0,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          is_deleted: false,
+        })
+        .then((id_donor) => {
+          userController.save({
+            ...userInfo,
+            password: password,
+            id_donor: id_donor,
+          });
+        });
+    });
+    console.log("registered");
   }
 }
 
 const form = document.querySelector("form");
+document.querySelectorAll("form").forEach((item) => {
+  item.addEventListener("keyup", isValidUser);
+});
+
 form.addEventListener("submit", registerUser);

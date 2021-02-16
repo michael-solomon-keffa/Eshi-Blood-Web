@@ -20,6 +20,10 @@ if (Number(urlParams.get("page"))) {
   page = 1;
 }
 
+donor.getDonor(1).then((donor) => {
+  console.log(donor);
+});
+
 const populateList = async () => {
   let obj = await donor.getAllDonors(page, 6);
   let donorList = obj.donors;
@@ -108,10 +112,10 @@ const populateCard = async () => {
 
 const trying = async () => {
   let obj = await donor.getDonorTry();
-  console.log(obj.donors);
+  //console.log(obj.donors);
 };
 
-console.log(page);
+//console.log(page);
 trying();
 populateList();
 populateCard();
