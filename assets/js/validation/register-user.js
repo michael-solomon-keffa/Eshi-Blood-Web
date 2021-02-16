@@ -5,13 +5,14 @@ import { crypt } from "../utils/crypt.js";
 
 const donorController = new DonorController();
 const userController = new UserController();
+let check = false;
 
 function checkEmail(email) {
-  let check = false;
   userController.doesEmailExist(email).then((user) => {
     if (user) {
-      console.log(user);
       check = true;
+    } else {
+      check = false;
     }
   });
   return check;

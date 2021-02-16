@@ -9,7 +9,7 @@ let email;
 let password;
 
 const requestedUrl = document.location.href;
-window.onload = () => {
+document.onload = () => {
   checkSession();
 };
 
@@ -27,13 +27,8 @@ function checkSession() {
   }
 }
 
-function notSignedIn() {}
-
 function checkPass(user, password) {
-  console.log(user, password);
-  console.log(crypt.decrypt(user.password));
-  console.log(crypt.encrypt(password));
-  return crypt.decrypt(user.password) == password;
+  return crypt.decrypt(user.password) === password;
 }
 
 function login(e) {
@@ -60,5 +55,3 @@ function logout() {
 
 const form = document.querySelector("form");
 form.addEventListener("submit", login);
-
-//checkSession("bobthegreat@gmail.co");
