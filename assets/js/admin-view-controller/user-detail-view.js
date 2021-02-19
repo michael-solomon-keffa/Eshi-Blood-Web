@@ -42,22 +42,35 @@ function activateUser() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", () => {});
+document.addEventListener("DOMContentLoaded", () => {
+  function deleted(e) {
+    // traverse to the eventid element in the dom
+    let id = parseInt(
+      e.target.parentElement.parentElement.parentElement.children[0].innerText
+    );
+    // let userId = e.target.parentElement.parentElement.parentElement.children[1].innerText
+    eventController.deleteEvent(id).then((_event) => {
+      if (_event) {
+      }
+    });
+  }
+});
 
-const populateData = async () => {
-  let donors = await donorController.getDonor(userId);
-  const donor = donors[0];
-  console.log(userId);
-  console.log(donor);
-  let activated;
+const populateData = () => {
+  donorController
+    .getDonor(userId)
+    .then((donors) => {
+      const donor = donors[0];
+      console.log(userId);
+      console.log(donor);
+      let activated;
+      if (donor.activated) {
+        activated = "disabled";
+      } else {
+        activated = "";
+      }
 
-  if (donor) {
-    if (donor.activated) {
-      activated = "disabled";
-    } else {
-      activated = "";
-    }
-    element = `<div class="col-md-4 order-md-1 mt-4">
+      element = `<div class="col-md-4 order-md-1 mt-4">
     <div class="card card-profile rainbow">
       <div class="row mx-auto">
         <div class="col-md-3 order-md-2">
@@ -134,78 +147,79 @@ const populateData = async () => {
       </div>
     </div>
     </div>`;
-    const wrapper = document.createElement("div");
-    wrapper.className = "col-lg-4 col-md-6 col-sm-12 mt-2";
-    wrapper.innerHTML = element;
-    userDetailView.append(wrapper);
-    // activate
+      const wrapper = document.createElement("div");
+      wrapper.className = "col-lg-4 col-md-6 col-sm-12 mt-2";
+      wrapper.innerHTML = element;
+      userDetailView.append(wrapper);
+      // activate
 
-    activateButton = document.getElementById("activate");
-    console.log(activateButton);
-    activateButton.addEventListener("click", activateUser);
+      activateButton = document.getElementById("activate");
+      console.log(activateButton);
+      activateButton.addEventListener("click", activateUser);
 
-    // donation table
-    let renderDonationTable = function () {
-      let [id, date, createdAt] = donor.donations;
+      // donation table
+      let renderDonationTable = function () {
+        let [id, date, createdAt] = donor.donations;
 
-      $("#donationTable").DataTable({
-        data: [[id, date, createdAt]],
-        columns: [
-          { title: "Donation Id" },
-          { title: "Donation Date" },
-          { title: "created at" },
-        ],
-      });
-    };
-    let renderAptTable = function () {
-      let [
-        id,
-        start_date,
-        end_date,
-        time,
-        status,
-        createdAt,
-        updatedAt,
-        id_req,
-        id_event,
-      ] = donor.appointments;
-      $("#appointmentTable").DataTable({
-        data: [
-          [
-            id,
-            start_date,
-            end_date,
-            time,
-            status,
-            createdAt,
-            updatedAt,
-            id_req,
-            id_event,
+        $("#donationTable").DataTable({
+          data: [[id, date, createdAt]],
+          columns: [
+            { title: "Donation Id" },
+            { title: "Donation Date" },
+            { title: "created at" },
           ],
-        ],
-        columns: [
-          { title: "Apt Id" },
-          { title: "Start Date" },
-          { title: "End Date" },
-          { title: "Time" },
-          { title: "Status" },
-          { title: "Created At" },
-          { title: "Updated At" },
-          { title: "Request" },
-          { title: "Event" },
-        ],
-      });
-    };
+        });
+      };
+      let renderAptTable = function () {
+        let [
+          id,
+          start_date,
+          end_date,
+          time,
+          status,
+          createdAt,
+          updatedAt,
+          id_req,
+          id_event,
+        ] = donor.appointments;
+        $("#appointmentTable").DataTable({
+          data: [
+            [
+              id,
+              start_date,
+              end_date,
+              time,
+              status,
+              createdAt,
+              updatedAt,
+              id_req,
+              id_event,
+            ],
+          ],
+          columns: [
+            { title: "Apt Id" },
+            { title: "Start Date" },
+            { title: "End Date" },
+            { title: "Time" },
+            { title: "Status" },
+            { title: "Created At" },
+            { title: "Updated At" },
+            { title: "Request" },
+            { title: "Event" },
+          ],
+        });
+      };
 
-    renderDonationTable();
-    renderAptTable();
-  } else {
-    element = `<h1 class="mt-5">Sorry! No Donor Found with this ID</h1>`;
-    const wrapper = document.createElement("div");
-    wrapper.className = "mt-5";
-    wrapper.innerHTML = element;
-    userDetailView.appendChild(wrapper);
-  }
+      renderDonationTable();
+      renderAptTable();
+    })
+    .catch(() => {
+      element = `<h1 class="mt-5">Sorry! No Donor Found with this ID</h1>`;
+      const wrapper = document.createElement("div");
+      wrapper.className = "mt-5";
+      wrapper.innerHTML = element;
+      userDetailView.appendChild(wrapper);
+    });
 };
 
 populateData();

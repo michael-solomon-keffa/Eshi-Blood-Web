@@ -34,6 +34,8 @@
       integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
       crossorigin="anonymous"
     ></script>
+
+    <!-- crypt and cookies -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
 
     <script src="./assets/js/utils/cookiesCDN.js"></script>
@@ -62,7 +64,7 @@
             </a>
           </li>
           <li>
-            <a href="add-request.html">
+            <a href="request-admin.html">
               <i class="fas fa-image"></i>
               <span>&nbsp;Make Request</span>
             </a>
@@ -148,15 +150,19 @@
               </ol>
             </div>
           </div>
-          <div class="mr-auto" id="user-detail">
-            <!-- Added part -->
-          </div>
         </div>
         <div class="align-items-center">
-          <div class="row">
-            <div class="col-lg-8">
-              <table id="appointmentTable" class="display"></table>
-              <table id="donationTable" class="display"></table>
+          <div class="row mx-auto ml-2">
+            <div class="col-lg-7 mt-3 pt-4">
+              <table id="appointmentTable" class="display">
+                <h3 class="mt-4 mb-2">Appointment</h3>
+              </table>
+              <table id="donationTable" class="display">
+                <h3 class="mt-4 mb-4">Donation</h3>
+              </table>
+            </div>
+            <div class="ml-auto" id="user-detail">
+              <!-- Added part -->
             </div>
           </div>
         </div>

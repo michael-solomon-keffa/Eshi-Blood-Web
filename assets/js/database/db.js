@@ -7,11 +7,11 @@ import { Event } from "../models/Event.js";
 import { User } from "../models/User.js";
 
 export const db = new Dexie("eshi_blood_database");
-db.version(15).stores({
+db.version(16).stores({
   donors:
     "++id,name,email,blood_type,city,woreda,phone_number,birthdate,activated,can_donate,points,createdAt,updatedAt,is_deleted",
   appointment:
-    "++id,start_date,end_date,time,status,createdAt,updatedAt,id_donor,id_donation_center,id_req,id_event,is_deleted",
+    "++id,start_date,end_date,time,status,id_donor,id_donation_center,id_req,id_event,createdAt,updatedAt,is_deleted",
   donation: "++id,date,createdAt,updatedAt,id_donor,id_appointment,is_deleted",
   request:
     "++id,blood_type,units_needed,request_reason,location,add_info,status,createdAt,updatedAt,*id_donors,is_deleted",
@@ -55,12 +55,14 @@ db.users.mapToClass(User);
 // });
 
 // db.appointment.add({
-//   start_date: "Jan 04 2020",
-//   end_date: "Jan 04 2020",
+//   start_date: "Jan 5 2021",
+//   end_date: "Jan 23 2021",
 //   time: "02:20",
 //   status: "pending",
 //   createdAt: "Jan 04 2020",
-//   updatedAt: "Jan 04 2020",
+//   updatedAt: "Feb 20 2020",
 //   id_donor: "1",
+//   status: "success",
+//   is_deleted: "false",
 // });
 //users: ++id, name, phone_number, email, password, sta isAdmin;

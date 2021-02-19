@@ -1,7 +1,7 @@
 import { EventController } from "../controllers/event-controller.js";
 import { Event } from "../models/Event.js";
 
-let eventController = new EventController();
+const eventController = new EventController();
 
 let dataSet = [];
 
@@ -34,7 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let eventId =
       e.target.parentElement.parentElement.parentElement.children[0].innerText;
     // let userId = e.target.parentElement.parentElement.parentElement.children[1].innerText
-    console.log("yeyeyeyey");
   }
 
   example.addEventListener("click", buttonFunctions);
@@ -62,7 +61,7 @@ eventController.getAllEvents().then((events) => {
   console.log(dataSet);
 });
 
-let renderTable = function () {
+const renderTable = function () {
   $("#example").DataTable({
     data: dataSet,
     columns: [
