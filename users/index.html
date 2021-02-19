@@ -10,21 +10,14 @@
 
     <!-- Compressed Styles -->
     <link href="css/slides.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/index_style.css">
 
-    <!-- Custom Styles -->
-    <!-- <link href="css/custom.css" rel="stylesheet" type="text/css"> -->
-
-    <!-- jQuery 3.3.1 -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <!-- Compressed Scripts -->
-    <script src="js/slides.min.js" type="text/javascript"></script>
-
-    <!-- Custom Scripts -->
-    <!-- <script src="js/custom.js" type="text/javascript"></script> -->
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
     <!-- Fonts and Material Icons -->
     <link rel="stylesheet" as="font" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700|Material+Icons"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+
   
 </head>
 <body class="slides horizontal simplifiedMobile animated">
@@ -103,111 +96,117 @@
 
   </svg>
 
-  <!-- Panel Top #05 -->
   <nav class="panel top">
     <div class="sections desktop">
-      <div class="left"><a href="#" title="Slides Framework"><svg style="width:82px;height:24px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#logo"></use></svg></a></div>
+      <div class="left"><a href="#" title="Slides Framework">
+          <a href="" class="no-decor">
+            <h1 class="text-sized-big">Eshi Blood</h1>
+          </a>
+      </div>
       <div class="center">
         <ul class="menu">
-          <li><a href="#">Tour</a></li>
-          <li><a href="#">Upgrade</a></li>
-          <li><a href="#">Help</a></li>
-          <li><a href="#">Explore</a></li>
+          <li><a href="#">Appointment</a></li>
+          <li><a href="#request">Request</a></li>
+          <li><a href="#">Event</a></li>
+          <li><a href="#">About us</a></li>
         </ul>
       </div>
-      <div class="right"><a class="button blue gradient" href="#">Profile</a><a class="button green gradient" href="#">Get App</a></div>
+      <div class="right">
+        <a class="button btn-primary gradient no-decor" href="#">Sign up</a></div>
     </div>
     <div class="sections compact hidden">
-      <div class="left"><a href="#" title="Slides Framework"><svg style="width:82px;height:24px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#logo"></use></svg></a></div>
-      <div class="right"><span class="button actionButton sidebarTrigger" data-sidebar-id="1"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu"></use></svg></span</div>
-    </div>
-  </nav>
+      <div class="left"><a href="#" title="Slides Framework"><svg style="width:82px;height:24px">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#logo"></use>
+          </svg></a></div>
+      <div class="right"><span class="button actionButton sidebarTrigger" data-sidebar-id="1"><svg>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu"></use>
+          </svg></span</div> </div>
+        </nav> <!-- Sidebar -->
+          <nav class="sidebar" data-sidebar-id="1">
+            <div class="close"><svg>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#close"></use>
+              </svg></div>
+            <div class="content">
+              <a href="#" class="eshi-blood">
+                <h1 class="text-sized-big">Eshi Blood</h1>
+              </a>
+              <ul class="mainMenu margin-top-3">
+                <li><a href="#">Appointment</a></li>
+                <li><a href="#request">Request</a></li>
+                <li><a href="#">Event</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Profile</a></li>
+              </ul>
+              <ul class="social opacity-8">
+                <li><a href="#"><svg>
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#facebook"></use>
+                    </svg></a></li>
+                <li><a href="#"><svg>
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#twitter"></use>
+                    </svg></a></li>
+                <li><a href="#"><svg>
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#instagram"></use>
+                    </svg></a></li>
+              </ul>
+            </div>
+          </nav>
 
-  <!-- Sidebar -->
-  <nav class="sidebar" data-sidebar-id="1">
-    <div class="close"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#close"></use></svg></div>
-    <div class="content">
-      <a href="#" class="logo"><svg width="37" height="30"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#logo-icon"></use></svg></a>
-      <ul class="mainMenu margin-top-3">
-        <li><a href="#">All Goods</a></li>
-        <li><a href="#">UI Kits</a></li>
-        <li><a href="#">Icons</a></li>
-        <li><a href="#">Mockups</a></li>
-        <li><a href="#">Toolkit</a></li>
-      </ul>
-      <ul class="subMenu small opacity-8">
-        <li><a href="#">Submit Product</a></li>
-        <li><a href="#">FAQ</a></li>
-        <li><a href="#">License</a></li>
-        <li><a href="#">Terms & Conditions</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Contact Us</a></li>
-      </ul>
-      <ul class="social opacity-8">
-        <li><a href="#"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#facebook"></use></svg></a></li>
-        <li><a href="#"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#twitter"></use></svg></a></li>
-        <li><a href="#"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#instagram"></use></svg></a></li>
-      </ul>
-    </div>
-  </nav>
-
-<!-- Slide 1 (#34) -->
-<section class="slide fade-6 kenBurns">
+<!-- Getting Started -->
+<section id="getting_stated" class="slide fade-6 kenBurns">
   <div class="content">
     <div class="container">
       <div class="wrap">
-      
         <div class="fix-12-12">
           <ul class="flex fixedSpaces verticalCenter reverse">
             <li class="col-6-12 left middle">
-              <h1 class="ae-1 fromLeft">Designers are meant to be loved, not to be understood.</h1>
-              <p class="ae-2 fromLeft"><span class="opacity-8">The sudden hunch, the creative leap of mind that “sees” in a flash how to solve a problem in a simple way, is something quite&nbsp;different.</span></p>
-              <a class="button blue gradient ae-3 fromCenter cropLeft">Get Started</a><a class="button white ae-4 fromCenter">Learn more</a>
+              <h1 class="ae-1 fromLeft">There is no substitute for blood, It only comes from <u>Generous Donors.</u></h1>
+              <p class="ae-2 fromLeft"><span class="opacity-8">Eshi Blood makes the process of donating simple and rewarding. You Don't Have to be a Doctor to save lives, Just <strong>Donate Blood.</strong></span></p>
+              <a href="#appointment" class="button blue gradient ae-3 fromCenter cropLeft">Schedule an appointment</a>
             </li>
             <li class="col-6-12">
               <img class="ae-4" width="605" src="assets/img/iphones-34.png" alt="iPhones Thumbnail" data-action="zoom"/>
             </li>
           </ul>
         </div>
-        
       </div>
     </div>
   </div>
+  
   <div class="background" style="background-image:url(assets/img/background/img-34.jpg)"></div>
+  
+  
 </section>
 
-<!-- Slide 2 (#60) -->
-<section class="slide fade-6 kenBurns">
+<!-- Learn -->
+<section id="learn" class="slide fade-6 kenBurns">
   <div class="content">
     <div class="container">
       <div class="wrap">
-          
         <div class="fix-12-12">
           <ul class="grid">
-            <li class="col-6-12 left">
-              <h1 class="ae-2 fromLeft">Krabi Island</h1>
-              <p class="ae-3 fromLeft"><span class="opacity-8">An electrician isn’t an opinion former, but a graphic designer is. My argument is that all graphic designers hold high levels of responsibility in society.</span></p>
+            <li class="col-6-12 left" style="font-size: 48px;">Learn</h1>
+              <p class="ae-3 fromLeft"><span class="opacity-8">It only takes an hour to give blood, but it could change someone's life</span></p>
               <ul class="tabs controller uppercase bold ae-4 fromCenter" data-slider-id="60-1">
-                <li class="selected">Krabi Island</li>
-                <li>Community</li>
-                <li>Surfing</li>
+                <li class="selected">Stat</li>
+                <li>Save Lives</li>
+                <li>Make an Impact</li>
               </ul>
             </li>
             <li class="col-6-12 left ae-5 fromCenter">
               <ul class="slider animated margin-top-4" data-slider-id="60-1">
                 <li class="selected fromCenter">
                   <div class="popupTrigger videoThumbnail shadow rounded" data-popup-id="60-1">
-                    <img class="wide" src="assets/img/gallery-60-1.jpg" alt="Video Thumbnail"/>
+                    <img class="wide" src="assets/img/video1.PNG" alt="Video Thumbnail"/>
                   </div>
                 </li>
                 <li class="fromCenter">
                   <div class="popupTrigger videoThumbnail shadow rounded" data-popup-id="60-2">
-                    <img class="wide" src="assets/img/gallery-60-2.jpg" alt="Video Thumbnail"/>
+                    <img class="wide" src="assets/img/video2.PNG" alt="Video Thumbnail"/>
                   </div>
                 </li>
                 <li class="fromCenter">
                   <div class="popupTrigger videoThumbnail shadow rounded" data-popup-id="60-3">
-                    <img class="wide" src="assets/img/gallery-60-3.jpg" alt="Video Thumbnail"/>
+                    <img class="wide" src="assets/img/video3.PNG" alt="Video Thumbnail"/>
                   </div>
                 </li>
               </ul>
@@ -222,7 +221,7 @@
 </section>
 
 
-<!-- Popup Video -->
+<!-- Popup GIF -->
 <div class="popup autoplay" data-popup-id="60-1">
   <div class="close"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#close"></use></svg></div>
   <div class="content">
@@ -230,7 +229,7 @@
       <div class="wrap">
         <div class="fix-10-12">
           <div class="embedVideo popupContent">
-            <iframe src="https://player.vimeo.com/video/101231747?color=ff0179&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            <iframe src=".././assets/images/stat.gif" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
           </div>
         </div>
       </div>
@@ -247,7 +246,7 @@
       <div class="wrap">
         <div class="fix-10-12">
           <div class="embedVideo popupContent">
-            <iframe src="https://player.vimeo.com/video/101231747?color=ff0179&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            <iframe src="./assets/video/abc-bg-video.mp4" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
           </div>
         </div>
       </div>
@@ -264,7 +263,7 @@
       <div class="wrap">
         <div class="fix-10-12">
           <div class="embedVideo popupContent">
-            <iframe src="https://player.vimeo.com/video/101231747?color=ff0179&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            <iframe src="https://www.vitalant.org/Vitalant/media/HomePage/Vitalant_blood-donation_2-7.mp4" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
           </div>
         </div>
       </div>
@@ -273,48 +272,90 @@
 </div>
 
 
-<!-- Slide 3 (#27) -->
-<section class="slide fade-6 kenBurns">
+<!-- Appointment -->
+<section id="appointment" class="slide fade-6 kenBurns">
   <div class="content">
     <div class="container">
       <div class="wrap">
-        
         <div class="fix-12-12">
           <ul class="flex verticalCenter">
-            <li class="col-5-12 cell-27">
-              <div class="fix-4-12">
-                <ul class="slider clickable ae-1 fromAbove" data-slider-id="27-2">
-                  <li class="selected"><img src="assets/img/watch-26-2.png" alt="Apple Watch Thumbnail"/></li>
-                  <li><img src="assets/img/watch-26-1.png" alt="Apple Watch Thumbnail"/></li>
-                  <li><img src="assets/img/watch-26-2.png" alt="Apple Watch Thumbnail"/></li>
-                  <li><img src="assets/img/watch-26-1.png" alt="Apple Watch Thumbnail"/></li>
-                </ul>
-                <ul class="controller dots ae-2 fromCenter margin-top-3" data-slider-id="27-2">
-                  <li class="dot selected"></li>
-                  <li class="dot"></li>
-                  <li class="dot"></li>
-                  <li class="dot"></li>
-                </ul>
-              </div>
-            </li>
-            <li class="col-7-12 left">
-              <h1 class="ae-2 fromRight">Be creative</h1>
+            <li class="col-6-12 left">
+              <h1 class="ae-2 fromRight">Schedule an Appointment</h1>
               <div class="ae-3 fromRight">
-                <p class="opacity-8">When we feel less secure, with less control over our daily lives, we reach out to brands to connect with a time when things seemed&nbsp;better.</p>
+                <p class="opacity-8">It's is easy, fill the form on the right to make an appointment using our online scheduling tool.</p>
               </div>
               <div class="relative">
-                <img src="assets/img/icon-2.png" class="ae-3 fromCenter app-26" alt="app"/>
-                <div class="text-26">
-                  <h3 class="ae-3 fromRight">Ember for Apple Watch</h3>
-                  <div class="ae-5 fromRight">
-                    <p class="tiny opacity-6">People don&rsquo;t use a product<br>because of the great&nbsp;design.</p>
-                  </div>
+                <input type="text" class="ae-3 fromRight">
+                <input type="button" class="ae-3 fromRight" value="GO!">
+                <div class="ae-5 fromRight">
+                  <p class="tiny opacity-6">Use an Event Code</p>
                 </div>
               </div>
             </li>
+            <li class="col-6-12 left">
+              <ul class="accordion">
+                <li class="accordion-item">
+                  <input id="s1" class="hide" type="checkbox">
+                  <label for="s1"class="accordion-label">Appointment Form</label>
+                  <ul class="accordion-child">
+                    <li>
+                        <!--The "from" Date Picker -->
+                        <label for="picker">Date & Time</label><br>
+                        <input placeholder="Selected starting date" type="text" id="picker" class="datepicker" name="datetimes">
+                    </li>
+                    <br>
+                    <li>
+                      <!--The "from" Date Picker -->
+                      <label for="picker">Location</label><br>
+                        <select class="form-control select2">
+                        <option>Select</option> 
+                        <option>Car</option> 
+                        <option>Bike</option> 
+                        <option>Scooter</option> 
+                        <option>Cycle</option> 
+                        <option>Horse</option> 
+                     </select>
+                    </li>
+                    <li style="margin-top: 20px;">
+                      <button type="button" class="btn btn-outline-primary">Confirm</button>
+                    </li>
+                 </ul>
+                </li>
+                <li class="accordion-item">
+                  <input id="s2" class="hide" type="checkbox">
+                  <label for="s2"class="accordion-label">Appointment Detail</label>
+                  <ul class="accordion-child">
+                  <li>
+                      <span>Start Date<span>
+                      <span>Feb 19</span>
+                  </li>
+                  <br>
+                  <li>
+                    <span>Start Date<span>
+                    <span>Feb 19</span>
+                </li>
+                <br>
+                <li>
+                  <span>Start Date<span>
+                  <span>Feb 19</span>
+              </li>
+              <br>
+              <li>
+                <span>Start Date<span>
+                <span>Feb 19</span>
+            </li>
+            <br>
+            <li>
+              <span>Start Date<span>
+              <span>Feb 19</span>
+          </li>
+          <br>
+                 </ul>
+                </li>
+              </ul>
+            </li>
           </ul>
         </div>
-        
       </div>
     </div>
   </div>
@@ -369,7 +410,7 @@
   <div class="background" style="background-image:url(assets/img/background/img-26.jpg)"></div>
 </section>
 
-<!-- Slide 5 (#91) -->
+<!-- Events -->
 <section class="slide fade-6 kenBurns">
   <div class="content">
     <div class="container">
@@ -377,27 +418,53 @@
       
         <div class="fix-12-12 toCenter">
           <div class="fix-7-12">
-            <p class="margin-bottom-2 ae-1"><span class="opacity-6">Case study</p>
-            <h1 class="ae-2 huge fromAbove margin-bottom-2">Discomfort is a signal of a good concept</h1>
-            <a href="#" class="button green gradient ae-3">Purchase</a>
+            <p class="margin-bottom-2 ae-1"><span class="opacity-6">Events</p>
+            <h1 class="ae-2 fromAbove margin-bottom-2">Individual we are one drop, together we are an ocean</h1>
           </div>
-          <ul class="grid fixedSpaces left margin-top-10">
-            <li class="col-3-12 col-tablet-1-2 col-phablet-1-1 ae-4 fromLeft">
-             <h3>Inspiration</h3>
-             <p class="tiny opacity-6">We live in a society where everybody feels guilty.</p>
+          <ul class="grid fixedSpaces left margin-top-10 articles">
+            <li class="col-4-12 col-tablet-1-2 col-phablet-1-1 ae-4 fromLeft articles__article" style="--animation-order:1">
+              <figure class="fir-image-figure">
+
+                <a class="fir-imageover" rel="noopener" target="_blank" data-target="#Modal4" data-toggle="modal">
+                  <img class="fir-author-image fir-clickcircle" src="https://fir-rollup.firebaseapp.com/de-sm.jpg" alt="David East - Author">
+                  <div class="fir-imageover-color"></div>
+                </a>
+                <figcaption>
+                  <div class="fig-author-figure-title"><strong>Eshi festive</strong></div>
+                  <div class="fig-author-figure-title">Eshi Digital</div>
+                  <div class="fig-author-figure-title">Jan. 16th, 2017 &#8212; 500 unit</div>
+                </figcaption>
+              </figure>              
             </li>
-            <li class="col-3-12 col-tablet-1-2 col-phablet-1-1 ae-5 fromLeft">
-             <h3>Creativity</h3>
-             <p class="tiny opacity-6">You don’t have to be “a creative” to be creative.</p>
+            <li class="col-4-12 col-tablet-1-2 col-phablet-1-1 ae-4 fromLeft articles__article" style="--animation-order:1">
+              <figure class="fir-image-figure">
+
+                <a class="fir-imageover" rel="noopener" target="_blank" data-target="#Modal4" data-toggle="modal">
+                  <img class="fir-author-image fir-clickcircle" src="https://fir-rollup.firebaseapp.com/de-sm.jpg" alt="David East - Author">
+                  <div class="fir-imageover-color"></div>
+                </a>
+                <figcaption>
+                  <div class="fig-author-figure-title"><strong>Eshi festive</strong></div>
+                  <div class="fig-author-figure-title">Eshi Digital</div>
+                  <div class="fig-author-figure-title">Jan. 16th, 2017 &#8212; 500 unit</div>
+                </figcaption>
+              </figure>              
             </li>
-            <li class="col-3-12 col-tablet-1-2 col-phablet-1-1 ae-6 fromLeft">
-             <h3>Fashion</h3>
-             <p class="tiny opacity-6">There is no such thing as simple. Simple is hard.</p>
+            <li class="col-4-12 col-tablet-1-2 col-phablet-1-1 ae-4 fromLeft articles__article" style="--animation-order:1">
+              <figure class="fir-image-figure">
+
+                <a class="fir-imageover" rel="noopener" target="_blank" data-target="#Modal4" data-toggle="modal">
+                  <img class="fir-author-image fir-clickcircle" src="https://fir-rollup.firebaseapp.com/de-sm.jpg" alt="David East - Author">
+                  <div class="fir-imageover-color"></div>
+                </a>
+                <figcaption>
+                  <div class="fig-author-figure-title"><strong>Eshi festive</strong></div>
+                  <div class="fig-author-figure-title">Eshi Digital</div>
+                  <div class="fig-author-figure-title">Jan. 16th, 2017 &#8212; 500 unit</div>
+                </figcaption>
+              </figure>              
             </li>
-            <li class="col-3-12 col-tablet-1-2 col-phablet-1-1 ae-7 fromLeft">
-             <h3>Photography</h3>
-             <p class="tiny opacity-6">Design makes what was once impossible possible.</p>
-            </li>
+            
           </ul>
         </div>
                 
@@ -407,74 +474,159 @@
   <div class="background" style="background-image:url(assets/img/background/img-91.jpg)"></div>
 </section>
 
-<!-- Slide 6 (#83) -->
+<!-- Profie -->
 <section class="slide fade-6 kenBurns">
   <div class="content">
     <div class="container">
-      <div class="wrap">
-      
-        <div class="fix-10-12">
-          <h1 class="ae-1">Pricing</h1>
-          <ul class="grid grid-83 noSpaces equal ae-2 fadeIn">
-            <li class="col-4-12 ae-3" style="background: #F5FBFE">
-              <h3>Moon</h3>
-              <div class="price ae-5"><span class="currency">$</span>0</div>
-              <div class="ae-5">
-                <h6 class="uppercase bold small opacity-4">No Credit Card Needed</h6>
+      <div class="wrap">      
+        <div class="fix-12-12 toCenter">
+          <div class="fix-7-12">
+            <p class="margin-bottom-2 ae-1"><span class="opacity-6">Profile</p>
+          </div>
+          <ul class="grid fixedSpaces left margin-top-10 ">
+            <li class="col-4-12 col-tablet-1-2 col-phablet-1-1 ae-4 fromLeft">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" style="margin-left: 30%;" width="120">
+                    <div class="mt-3">
+                      <h3 style="margin-left: 35%; margin-top: 10px;">John Doe</h3>
+                      <p style="margin-left: 20%; margin-bottom: 4px;" class="text-secondary">Full Stack Developer</p>
+                      <p style="margin-left: 17%" class="text-muted font-size-sm">Addis Ababa, Ethiopia</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- <div class="card mt-3">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                      <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe mr-2 icon-inline"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>Website</h6>
+                      <span class="text-secondary">https://bootdey.com</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                      <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github mr-2 icon-inline"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>Github</h6>
+                      <span class="text-secondary">bootdey</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                      <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter mr-2 icon-inline text-info"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>Twitter</h6>
+                      <span class="text-secondary">@bootdey</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                      <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram mr-2 icon-inline text-danger"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>Instagram</h6>
+                      <span class="text-secondary">bootdey</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                      <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook mr-2 icon-inline text-primary"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>Facebook</h6>
+                      <span class="text-secondary">bootdey</span>
+                    </li>
+                  </ul>
+                </div> -->
               </div>
-              <div class="margin-top-3 margin-bottom-3 equalElement ae-6">
-                <ul class="p tiny">
-                  <li><strong>25 Free Images</strong></li>
-                  <li class="opacity-7">Custom Domain</li>
-                  <li class="opacity-7">24/7 Customer Support</li>
-                </ul>
-              </div>
-              <a href="#" class="button blue gradient wide cropSides cropBottom ae-7">Try Free</a>
             </li>
-            <li class="col-4-12 ae-4">
-              <h3>Planet</h3>
-              <div class="price ae-6"><span class="currency">$</span>6</div>
-              <div class="ae-6">
-                <h6 class="uppercase bold small opacity-4">Billed per Month</h6>
+            <li class="col-8-12 col-tablet-1-2 col-phablet-1-1 ae-4 fromLeft">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3" style="font-weight: bold;">
+                      <h6 class="mb-0">Full Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary" style="font-weight: 400; margin-left: 30px;">
+                      Michael Solomon
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3" style="font-weight: bold;">
+                      <h6 class="mb-0">Email</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary" style="font-weight: 400; margin-left: 30px;">
+                      se.michael.solomon@gmail.com
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3" style="font-weight: bold;">
+                      <h6 class="mb-0">Phone</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary" style="font-weight: 400; margin-left: 30px;">
+                      +2519-66-30-30-09
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3" style="font-weight: bold;">
+                      <h6 class="mb-0">Address</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary" style="font-weight: 400; margin-left: 30px;">
+                      Addis Ababa, Ethiopia
+                    </div>
+                  </div>
+                  <hr>
+                </div>
               </div>
-              <div class="margin-top-3 margin-bottom-3 equalElement ae-7">
-                <ul class="p tiny">
-                  <li><strong>60 Free Images</strong></li>
-                  <li><strong>Mobile-Optimized</strong></li>
-                  <li><strong>No Transaction Fees</strong></li>
-                  <li class="opacity-8">Custom Domain</li>
-                  <li class="opacity-8">24/7 Customer Support</li>
-                </ul>
-              </div>
-              <a href="#" class="button green gradient wide cropSides cropBottom ae-8">Purchase</a>
-            </li>
-            <li class="col-4-12 ae-5">
-              <h3>Galaxy</h3>
-              <div class="price ae-7"><span class="currency">$</span>24</div>
-              <div class="ae-7">
-                <h6 class="uppercase bold small opacity-4">Billed per Month</h6>
-              </div>
-              <div class="margin-top-3 margin-bottom-3 equalElement ae-8">
-                <ul class="p tiny">
-                  <li><strong>60 Free Images</strong></li>
-                  <li><strong>Mobile-Optimized</strong></li>
-                  <li><strong>No Transaction Fees</strong></li>
-                  <li><strong>Unlimited Projects</strong></li>
-                  <li class="opacity-8">Custom Domain</li>
-                  <li class="opacity-8">24/7 Customer Support</li>
-                </ul>
-              </div>
-              <a href="#" class="button green gradient wide cropSides cropBottom ae-9">Purchase</a>
-            </li>
+              <ul class="grid fixedSpaces left">
+                <li class="col-6-12 col-tablet-1-2 col-phablet-1-1 ae-4 fromLeft">
+                  <div class="card h-100">
+                    <div class="card-body">
+                      <h6 class="d-flex align-items-center mb-3" style="margin-left: 35%;">Remaining Date</h6>
+                      <!-- LOADER START -->
+                      <div class="loader" style="margin-left: 40%; border-color: blue; color: red">
+                        <div class="loader-bg">
+                            <div class="text"></div>
+                        </div>        
+                        <div class="spiner-holder-one animate-0-25-a">
+                            <div class="spiner-holder-two animate-0-25-b">
+                                <div class="loader-spiner"></div>
+                            </div>
+                        </div>
+                        <div class="spiner-holder-one animate-25-50-a">
+                            <div class="spiner-holder-two animate-25-50-b">
+                                <div class="loader-spiner"></div>
+                            </div>
+                        </div>
+                        <div class="spiner-holder-one animate-50-75-a">
+                            <div class="spiner-holder-two animate-50-75-b">
+                                <div class="loader-spiner"></div>
+                            </div>
+                        </div>
+                        <div class="spiner-holder-one animate-75-100-a">
+                            <div class="spiner-holder-two animate-75-100-b">
+                                <div class="loader-spiner"></div>
+                            </div>
+                        </div>
+                        <!-- LOADER END -->
+                    </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="col-6-12 col-tablet-1-2 col-phablet-1-1 ae-4 fromLeft">
+                  <div class="card h-100">
+                    <div class="card-body">
+                      <h6 class="d-flex align-items-center mb-3">Donation History</h6>
+                      <small>2/19/2021</small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <small>7/23/2021</small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <small>7/27/2021</small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </li>    
           </ul>
-        </div> 
-
+        </div>
+                
       </div>
     </div>
   </div>
-  <div class="background" style="background-image:url(assets/img/background/img-83.jpg)"></div>
+  <div class="background" style="background-image:url(assets/img/background/img-91.jpg)"></div>
 </section>
-
 <!-- Slide 7 (#95) -->
 <section class="slide fade-6 kenBurns">
   <div class="content">
@@ -502,7 +654,6 @@
 <!-- Panel Bottom #01 -->
 <nav class="panel bottom forceMobileView">
   <div class="sections desktop">
-    <div class="left"><a href="#" class="opacity-8">Available <svg style="height:21px;"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#apple"></use></svg> iPhone</a></div>
     <div class="center"><span class="nextSlide"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-down"></use></svg></span></div>
     <div class="right"><span data-dropdown-id="2" class="button actionButton dropdownTrigger"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#share"></use></svg></span></div>
   </div>
@@ -530,6 +681,76 @@
 
 <!-- Loading Progress Bar -->
 <div class="progress-bar blue"></div>
-		
+
+  <!-- jQuery CDN - Slim version (=without AJAX) -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <!-- Popper.JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+  integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous">
+  </script>
+  <!-- Bootstrap JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+  integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous">
+  </script>
+  <script src="../assets/js/jquery.datetimepicker.js"></script>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+
+  
+  <!-- Compressed Scripts -->
+  <script src="js/slides.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+
+  <script>
+    $(function() {
+      $('input[name="datetimes"]').daterangepicker({
+        timePicker: true,
+        startDate: moment().startOf('hour'),
+        endDate: moment().startOf('hour').add(32, 'hour'),
+        locale: {
+          format: 'M/DD hh:mm A'
+        }
+      });
+    });
+  </script>
+
+  <script>
+    $('.select2').select2();
+  </script>
+
+  <script>
+    function renderProgress(progress){
+      progress = Math.floor(progress);
+      if(progress<25){
+          var angle = -90 + (progress/100)*360;
+          $(".animate-0-25-b").css("transform","rotate("+angle+"deg)");
+      }
+      else if(progress>=25 && progress<50){
+          var angle = -90 + ((progress-25)/100)*360;
+          $(".animate-0-25-b").css("transform","rotate(0deg)");
+          $(".animate-25-50-b").css("transform","rotate("+angle+"deg)");
+      }
+      else if(progress>=50 && progress<75){
+          var angle = -90 + ((progress-50)/100)*360;
+          $(".animate-25-50-b, .animate-0-25-b").css("transform","rotate(0deg)");
+          $(".animate-50-75-b").css("transform","rotate("+angle+"deg)");
+      }
+      else if(progress>=75 && progress<=100){
+          var angle = -90 + ((progress-75)/100)*360;
+          $(".animate-50-75-b, .animate-25-50-b, .animate-0-25-b")
+                                                .css("transform","rotate(0deg)");
+          $(".animate-75-100-b").css("transform","rotate("+angle+"deg)");
+      }
+      $(".text").html(progress+"%");
+  }
+  </script>
+
+  
 </body>
 </html>
