@@ -2,19 +2,28 @@ import { db } from "../database/db.js";
 
 export class EventController {
   save(event) {
-    db.event.add(event);
+    return db.event.add(event);
   }
 
   async getAllEvents() {
-    const events = db.event.toArray();
+    const events = await db.event
+      .filter((event) => {
+        return event.is_deleted == false;
+      })
+      .toArray();
     return events;
   }
 
   async getEvent(id) {
-    const event = db.event.get(id);
+    const event = await db.event.get(id);
+    return event;
   }
 
-  // async registerEvent(donorId, eventId){
-  //   return db.event.put()
-  // }
+  async deleteEvent(id) {
+    await db.event.update(id, { is_deleted: "true" }).then((update) => {
+      console.log(update);
+    });
+  }
+
+  
 }

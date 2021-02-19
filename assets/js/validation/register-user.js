@@ -179,6 +179,7 @@ function registerUser(e) {
         });
     });
     console.log("registered");
+    window.location.replace("/index.html?registered=true");
   }
 }
 

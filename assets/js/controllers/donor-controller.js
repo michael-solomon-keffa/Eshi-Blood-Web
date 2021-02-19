@@ -36,17 +36,6 @@ export class DonorController {
     };
   }
 
-  // async getActiveDonor() {
-  //   const donations = await db.donation.toArray();
-  //   await Promise.all(
-  //     donations.map(async (donation) => {
-  //       [donation.donor] = await Promise.all([
-  //         db.donor.get(donation.id_donor).toArray(),
-  //       ]);
-  //     })
-  //   );
-  // }
-
   /**
    * @param {integer} page
    * @param {integer} limit
@@ -55,7 +44,14 @@ export class DonorController {
   async getAllDonors(page, limit = 10) {
     page = page * 1 || 1;
     const offset = (page - 1) * limit;
-    const donors = await db.donors.offset(offset).limit(limit).toArray();
+
+    const donors = await db.donors
+      .offset(offset)
+      .limit(limit)
+      .filter((donor) => {
+        return donor.is_deleted == false;
+      })
+      .toArray();
 
     await Promise.all(
       donors.map(async (donor) => {
@@ -72,8 +68,17 @@ export class DonorController {
    * @returns {Donor} Donor
    */
   async getDonor(id) {
-    const donor = await db.donors.get(id);
-    return donor;
+    const donors = [await db.donors.get(id)];
+    await Promise.all(
+      donors.map(async (donor) => {
+        [donor.donations, donor.appointments] = await Promise.all([
+          db.donation.where("id_donor").anyOf(donor.id.toString()).toArray(),
+          db.appointment.where("id_donor").anyOf(donor.id.toString()).toArray(),
+        ]);
+      })
+    );
+
+    return donors;
   }
   /**
    * @param {string} name
@@ -101,5 +106,27 @@ export class DonorController {
       })
     );
     return { donors, page };
+  }
+
+  async deleteDonor(id) {
+    await db.donors
+      .update(id, { is_deleted: "true", updatedAt: new Date() })
+      .then((update) => {
+        return update;
+      });
+  }
+
+  async updateDonor(id, donor) {
+    await db.donor.update(id, { donor }).then((update) => {
+      return update;
+    });
+  }
+
+  async activateUser(id) {
+    await db.donors
+      .update(id, { activated: "true", updatedAt: new Date() })
+      .then((update) => {
+        return update;
+      });
   }
 }

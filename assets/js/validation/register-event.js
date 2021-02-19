@@ -1,4 +1,4 @@
-import { Event } from "../models/Event.js";
+import { EventController } from "../controllers/event-controller.js";
 
 function isValidEvent() {}
 
@@ -10,11 +10,12 @@ function registerEvent(e) {
   if (true) {
     const response = Object.fromEntries(data.entries());
 
-    const event = new Event();
-    event
+    const eventController = new EventController();
+    console.log(response);
+    eventController
       .save({
         ...response,
-        status: "rejected",
+        status: "active",
         createdAt: new Date(),
         updatedAt: new Date(),
         is_deleted: false,

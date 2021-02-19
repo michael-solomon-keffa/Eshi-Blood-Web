@@ -2,6 +2,7 @@ import { DonorController } from "../controllers/donor-controller.js";
 
 let donor = new DonorController();
 const urlParams = new URLSearchParams(window.location.search);
+
 const donorViewList = document.getElementById("donors_list_view");
 const paginationView = document.getElementById("pagination");
 const totalDonorsView = document.getElementById("totalDonorsView");
@@ -27,6 +28,7 @@ donor.getDonor(1).then((donor) => {
 const populateList = async () => {
   let obj = await donor.getAllDonors(page, 6);
   let donorList = obj.donors;
+  console.log(donorList);
   //console.log(donorList);
   if (donorList.length === 0) {
     element = `<h1 class="mt-5">Sorry! No Donors Found!</h1>`;
@@ -36,6 +38,7 @@ const populateList = async () => {
     donorViewList.appendChild(wrapper);
   } else {
     donorList.forEach((donor) => {
+      console.log(donor.getRegisteredMonth());
       element = `
       <div class="card-wrapper">
         <div class="content">
@@ -47,7 +50,9 @@ const populateList = async () => {
                 width: 150px;
                 background-color: grey;
                 align-items: center;
-                background: url(/assets/images/blood-types/${donor.blood_type}.webp) no-repeat;
+                background: url(/assets/images/blood-types/${
+                  donor.blood_type
+                }.webp) no-repeat;
               "
             ></span>
             <div class="card-body">
@@ -65,14 +70,22 @@ const populateList = async () => {
           </div>
           <div class="face-back z-depth-2">
             <div class="card-body">
-              <h4 class="font-weight-bold">Donor Stat</h4>
+              <h4 class="font-weight-bold">Donor Status</h4>
               <hr />
-              <p>Donations &nbsp; ${donor.donations.length}</p>
-              <p>Birth Date &nbsp; ${donor.birthDate}</p>
+              <p>Total Donations &nbsp; ${donor.donations.length}</p>
+              <p>Total Appointments &nbsp; ${donor.appointments.length}</p>
+              <p>Birth Date &nbsp; ${donor.birthdate}</p>
+              <p>Woreda &nbsp; ${donor.woreda}</p>
+              <p>Phone number &nbsp; ${donor.phone_number}</p>
+              <p>Created at &nbsp; ${new Date(
+                donor.createdAt
+              ).toDateString()}</p>
               <p>Activated &nbsp; ${donor.activated}</p>
-              <button class="btn btn-danger ml-1">
+              <a  type"button" href="/user-detail.html?id=${
+                donor.id
+              }" class="btn btn-danger ml-1">
                 View Detail
-              </button>
+              </a>
             </div>
           </div>
         </div>

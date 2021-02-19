@@ -20,7 +20,7 @@
     <script type="module" src="./assets/js/controllers/login.js"></script>
   </head>
 
-  <body class="bg-default">
+  <body class="bg-default" style="display: none">
     <!-- Main content -->
     <div class="main-content">
       <!-- Header -->
@@ -59,6 +59,22 @@
               points="2560 0 2560 100 0 100"
             ></polygon>
           </svg>
+        </div>
+        <div
+          class="alert alert-success alert-dismissible fade"
+          role="alert"
+          id="alert"
+        >
+          <strong>Registered!</strong> You are now part of the donor group.
+          Please Log in.
+          <button
+            type="button"
+            class="close"
+            data-dismiss="alert"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
       </div>
       <!-- Page content -->

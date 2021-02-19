@@ -4,13 +4,22 @@ import { crypt } from "../utils/crypt.js";
 
 const userController = new UserController();
 // const userCookie = new UserCookie();
+const urlParams = new URLSearchParams(window.location.search);
+
 let user;
 let email;
 let password;
+const isFromSignUp = urlParams.get("registered");
+console.log(isFromSignUp);
+let alertView = document.getElementById("alert");
 
 const requestedUrl = document.location.href;
-document.onload = () => {
-  checkSession();
+window.onload = () => {
+  if (fromSignUp()) {
+    document.body.style.removeProperty("display");
+  } else if (checkSession()) {
+    document.body.style.removeProperty("display");
+  }
 };
 
 function checkSession() {
@@ -29,6 +38,13 @@ function checkSession() {
 
 function checkPass(user, password) {
   return crypt.decrypt(user.password) === password;
+}
+
+function fromSignUp() {
+  if (isFromSignUp) {
+    alertView.classList.add("show");
+    return true;
+  }
 }
 
 function login(e) {

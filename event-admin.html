@@ -131,7 +131,7 @@
                 </nav>
                 <div class="row align-items-center py-4">
                     <div class="col-lg-6 col-7">
-                        <h4 class="pl-5 white-text">Dashboard</h4>
+                        <h4 id="demo" class="pl-5 white-text">Dashboard</h4>
                     </div>
                     <div class="col-lg-5 col-5 text-right">
                         <a href="" class="btn btn-sm btn-neutral">Filter</a>
@@ -268,7 +268,7 @@
                             </div>
 
 
-                            <div class="tab-content" id="nav-tabContent" style="margin:100px">
+                            <div class="tab-content" id="nav-tabContent" style="margin-top:100px ;padding-right:100px">
                                 <!-- add request tab -->
                                 <div style="width: 75%; margin:auto" id="addEvent" class="tab-pane fade show active"
                                     role="tabpanel" aria-labelledby="addEvent">
@@ -381,82 +381,7 @@
 
                                     <script>
 
-                                        let dataSet = [
-                                            //  userId  location    organizer   event_goal  startDate endDate    additional_info  status    createdAt  action  
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            
-                                        ]
-                                        function reject(e){
-                                            // traverse to the eventid element in the dom
-                                            let eventId = e.target.parentElement.parentElement.parentElement.children[0].innerText
-                                            // let userId = e.target.parentElement.parentElement.parentElement.children[1].innerText
-                                            console.log(eventId)
-                                        }
-                                        function accept(e){
-                                            // traverse to the eventid element in the dom
-                                            let eventId = e.target.parentElement.parentElement.parentElement.children[0].innerText
-                                            // let userId = e.target.parentElement.parentElement.parentElement.children[1].innerText
-                                            console.log(eventId)
-                                        }
-                                        function edit(e){
-                                            // traverse to the eventid element in the dom
-                                            let eventId = e.target.parentElement.parentElement.parentElement.children[0].innerText
-                                            // let userId = e.target.parentElement.parentElement.parentElement.children[1].innerText
-                                            console.log(eventId)
-                                        }
                                         
-                                        $(document).ready(function () {
-                                            $('#example').DataTable({
-                                                data: dataSet,
-                                                columns: [
-                                                    { title: "eventId" },
-                                                    { title: "userId" },
-                                                    { title: "location" },
-                                                    { title: "organizer" },
-                                                    { title: "event_goal" },
-                                                    { title: "startDate" },
-                                                    { title: "endDate" },
-                                                    { title: "additional_info" },
-                                                    { title: "status" },
-                                                    { title: "created at" },
-                                                    {
-                                                        title: "Action",
-                                                        "mRender": function (data, type, row) {
-                                                            // return `<button >${data}</button>`; 
-                                                            // TODO   fas fa-edit
-                                                            return `<a onClick="accept(event)" class="Accept"  title="Accept">
-                                                                        <i class="fa fa-check"></i>
-                                                                    </a> 
-                                                                    <a onClick="reject(event)"  class="Reject"  title="Reject">
-                                                                        <i class="fa fa-times"></i>
-                                                                    </a>
-                                                                    <a onClick="edit(event)" class="Accept" style="color:purple;" title="Accept">
-                                                                        <i class="fa fa-edit"></i>
-                                                                    </a>  `
-                                                        }
-                                                    }
-                                                ]
-                                            });
-                                        });
 
                                     </script>
                                     <!-- TODO ********************************************** -->
@@ -471,7 +396,7 @@
                                     word-wrap:break-word; 
                                     }
                             </style> -->
-                                    <table id="example" class="display" style="width: 100%;"></table>
+                                    <table id="example" class="display" style="width: 100vw;"></table>
                                 </div>
 
                             </div>
@@ -482,10 +407,10 @@
         </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
     <!-- jQuery CDN - Slim version (=without AJAX) -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
+    
     <!-- Popper.JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
         integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous">
@@ -494,6 +419,13 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
         integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous">
     </script>
+
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+
+
+    <script src="./assets/js/utils/dexie.js"></script>
+    <script type="module" src="./assets/js/validation/register-event.js"></script>
+    <script type="module" src="./assets/js/admin-view-controller/event-detail-view.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -530,9 +462,20 @@
         })
     </script>
 
+<script>
+ if (innerWidth < 768) {
+     if (sidebar.classList.contains('active')) {
+         main.style.marginLeft = "0px"
+     } else {
+         main.style.marginLeft = "110px"
+     }
+ };
+</script>
+
+
     <!-- Optional JS -->
-    <script src="assets/vendor/chart.js/dist/Chart.min.js"></script>
-    <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
+    <!-- <script src="assets/vendor/chart.js/dist/Chart.min.js"></script>
+    <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script> -->
 </body>
 
 </html>
