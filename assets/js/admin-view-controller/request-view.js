@@ -27,6 +27,13 @@ function checkSession() {
   }
 }
 
+const logout = function () {
+  Cookies.remove("_emeshi");
+  Cookies.remove("_adeshi");
+  window.location.replace("http://127.0.0.1:5502/index.html");
+};
+document.getElementById("logout").addEventListener("click", logout);
+
 const requestController = new RequestController();
 
 const totalRequestView = document.getElementById("totalRequests");

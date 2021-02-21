@@ -24,4 +24,17 @@ export class Donor {
     ];
     return month;
   }
+
+  hasActiveAppointment() {
+    if (this.can_donate) {
+      this.appointments.forEach((apt) => {
+        if (apt.status == "active" || apt.status == "pending") {
+          return true;
+        }
+      });
+      return false;
+    } else {
+      return true;
+    }
+  }
 }

@@ -20,7 +20,12 @@ if (Number(urlParams.get("page"))) {
 } else {
   page = 1;
 }
-
+const logout = function () {
+  Cookies.remove("_emeshi");
+  Cookies.remove("_adeshi");
+  window.location.replace("http://127.0.0.1:5502/index.html");
+};
+document.getElementById("logout").addEventListener("click", logout);
 const populateList = async () => {
   let obj = await donor.getAllDonors(page, 6);
   let donorList = obj.donors;

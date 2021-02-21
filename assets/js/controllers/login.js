@@ -2,6 +2,8 @@ import { db } from "../database/db.js";
 import { UserController } from "./user-controller.js";
 import { crypt } from "../utils/crypt.js";
 
+db.open();
+
 const userController = new UserController();
 // const userCookie = new UserCookie();
 const urlParams = new URLSearchParams(window.location.search);
@@ -50,6 +52,8 @@ function checkPass(user, password) {
 function fromSignUp() {
   if (isFromSignUp) {
     alertView.classList.add("show");
+    alertView.classList.toggle("alert-success");
+    alertView.innerText = "Registered! Please Sign In.";
     return true;
   }
 }
@@ -65,6 +69,7 @@ function login(e) {
     if (checkPass(user, password)) {
       userController.getUser(email).then((user) => {
         console.log(user.id_donor);
+        Cookies.set("x", crypt.encrypt(password.toString()));
         Cookies.set("_emeshi", crypt.encrypt(user.id_donor.toString()), {
           expires: 3,
         });
@@ -84,7 +89,10 @@ function login(e) {
         }
       });
     } else {
-      console.log("error");
+      alertView.classList.add("show");
+      alertView.classList.toggle("alert-warning");
+      alertView.innerText = "Incorrect password or email!";
+      return true;
     }
   });
 }

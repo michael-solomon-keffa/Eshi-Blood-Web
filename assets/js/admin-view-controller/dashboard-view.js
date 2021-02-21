@@ -50,7 +50,6 @@ const totalDonationCentersView = document.getElementById(
 const populateList = async () => {
   const dashboardData = await dashboardController.getDashboardData();
 
-  totalActiveDonorsView.innerText = dashboardData.totalActiveDonorsCount;
   totalAppointmentsView.innerText = dashboardData.totalAppointments;
   totalDonationCentersView.innerText = dashboardData.totalDonationCenters;
   totalDonorsView.innerText = dashboardData.totalDonors;

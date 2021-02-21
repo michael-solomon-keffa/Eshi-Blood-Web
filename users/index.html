@@ -443,7 +443,7 @@
                             online scheduling tool.</p>
                         </div>
                         <div class="row">
-                          <form action="" id="register-user-event">
+                          <form id="register-user-event">
                             <div class="col-sm-8">
                               <input id="eventcode" type="text" placeholder="Enter event code" class="form-group-edited ae-3 fromRight">
                             </div>
@@ -457,66 +457,42 @@
                         </div>
                       </li>         
                       <li class="col-6-12 left">
-                        <form action=""></form>
-                        <ul class="accordion">
-                          <li class="accordion-item">
+                        <form action="" id="apt_form">
+                        <ul class="accordion" >
+                          <li class="accordion-item" id="apt-holder">
                             <input id="s1" class="hide" type="checkbox">
                             <label for="s1" class="accordion-label">Appointment Form</label>
                             <ul class="accordion-child">
                               <li>
                                 <!--The "from" Date Picker -->
                                 <label for="picker">Date & Time</label><br>
-                                <input placeholder="Selected starting date" type="text" id="picker" class="datepicker input-edited"
+                                <input  placeholder="Selected starting date" type="text" id="picker" class="datepicker input-edited"
                                   name="datetimes">
                               </li>
                               <br>
                               <li>
                                 <!--The "from" Date Picker -->
                                 <label for="picker">Location</label><br>
-                                <select class="form-control select2">
-                                  <option class="options">Select</option>
-                                  <option class="options">Car</option>
-                                  <option class="options">Bike</option>
-                                  <option class="options">Scooter</option>
-                                  <option class="options">Cycle</option>
-                                  <option class="options">Horse</option>
+                                <select name="location" id="location" class="form-control select2">
+                                  <option value="1" class="options">Addis Ababa</option>
+                                  <option value="2" class="options">Bahir Dar</option>
+                                  <option value="3" class="options">Hawassa</option>
+                                  <option value="4" class="options">Gondar</option>
+                                  <option value="5" class="options">Mekele</option>
+                                  <option value="6" class="options">Jimma</option>
                                 </select>
                               </li>
                               <li style="margin-top: 20px;">
-                                <button type="button" class="btn btn-outline-primary btn-edited">Confirm</button>
+                                <button type="submit" class="btn btn-outline-primary btn-edited">Confirm</button>
                               </li>
                             </ul>
+                          
                           </li>
-                          <li class="accordion-item">
+                          </form>
+                          <li class="accordion-item" id="apt-detail">
                             <input id="s2" class="hide" type="checkbox">
                             <label for="s2" class="accordion-label">Appointment Detail</label>
-                            <ul class="accordion-child">
-                              <li>
-                                <span>Start Date<span>
-                                    <span>Feb 19</span>
-                              </li>
-                              <br>
-                              <li>
-                                <span>Start Date<span>
-                                    <span>Feb 19</span>
-                              </li>
-                              <br>
-                              <li>
-                                <span>Start Date<span>
-                                    <span>Feb 19</span>
-                              </li>
-                              <br>
-                              <li>
-                                <span>Start Date<span>
-                                    <span>Feb 19</span>
-                              </li>
-                              <br>
-                              <li>
-                                <span>Start Date<span>
-                                    <span>Feb 19</span>
-                              </li>
-                              <br>
-                            </ul>
+                          
                           </li>
                         </ul>
                       </li>
@@ -573,61 +549,11 @@
                   <div class="fix-12-12 toCenter">
                     <div class="fix-7-12">
                       <p class="margin-bottom-1 ae-1 events">Events</p>
-                      <h1 class="profile-content">Individual we are one drop, together we are an ocean</h1>
+                      <h1 class="profile-content">Individual we are one drop, together we are an ocean</h1></br> <h1>Active Events</h1>
+                      <h1>You can register to any event by appointing using event Code!</h1>
                     </div>
-                    <ul class="grid fixedSpaces left margin-top-10 articles">
-                      <li class="col-4-12 col-tablet-1-2 col-phablet-1-1 ae-4 fromLeft articles__article"
-                        style="--animation-order:1">
-                        <figure class="fir-image-figure">
-
-                          <a class="fir-imageover" rel="noopener" target="_blank" data-target="#Modal4"
-                            data-toggle="modal">
-                            <img class="fir-author-image fir-clickcircle"
-                              src="https://fir-rollup.firebaseapp.com/de-sm.jpg" alt="David East - Author">
-                            <div class="fir-imageover-color"></div>
-                          </a>
-                          <figcaption>
-                            <div class="fig-author-figure-title"><strong>Eshi festive</strong></div>
-                            <div class="fig-author-figure-title">Eshi Digital</div>
-                            <div class="fig-author-figure-title">Jan. 16th, 2017 &#8212; 500 unit</div>
-                          </figcaption>
-                        </figure>
-                      </li>
-                      <li class="col-4-12 col-tablet-1-2 col-phablet-1-1 ae-4 fromLeft articles__article"
-                        style="--animation-order:1">
-                        <figure class="fir-image-figure">
-
-                          <a class="fir-imageover" rel="noopener" target="_blank" data-target="#Modal4"
-                            data-toggle="modal">
-                            <img class="fir-author-image fir-clickcircle"
-                              src="https://fir-rollup.firebaseapp.com/de-sm.jpg" alt="David East - Author">
-                            <div class="fir-imageover-color"></div>
-                          </a>
-                          <figcaption>
-                            <div class="fig-author-figure-title"><strong>Eshi festive</strong></div>
-                            <div class="fig-author-figure-title">Eshi Digital</div>
-                            <div class="fig-author-figure-title">Jan. 16th, 2017 &#8212; 500 unit</div>
-                          </figcaption>
-                        </figure>
-                      </li>
-                      <li class="col-4-12 col-tablet-1-2 col-phablet-1-1 ae-4 fromLeft articles__article"
-                        style="--animation-order:1">
-                        <figure class="fir-image-figure">
-
-                          <a class="fir-imageover" rel="noopener" target="_blank" data-target="#Modal4"
-                            data-toggle="modal">
-                            <img class="fir-author-image fir-clickcircle"
-                              src="https://fir-rollup.firebaseapp.com/de-sm.jpg" alt="David East - Author">
-                            <div class="fir-imageover-color"></div>
-                          </a>
-                          <figcaption>
-                            <div class="fig-author-figure-title"><strong>Eshi festive</strong></div>
-                            <div class="fig-author-figure-title">Eshi Digital</div>
-                            <div class="fig-author-figure-title">Jan. 16th, 2017 &#8212; 500 unit</div>
-                          </figcaption>
-                        </figure>
-                      </li>
-
+                    <ul id="eventListView" class="grid fixedSpaces left margin-top-10 articles">
+                    
                     </ul>
                   </div>
 
@@ -806,9 +732,10 @@
                 startDate: moment().startOf('hour'),
                 endDate: moment().startOf('hour').add(32, 'hour'),
                 locale: {
-                  format: 'M/DD hh:mm A'
+                  format: 'M/DD/YYYY hh:mm A'
                 }
               });
+              
             });
           </script>
 

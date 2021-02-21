@@ -1,9 +1,11 @@
 import { EventController } from "../controllers/event-controller.js";
 import { RequestController } from "../controllers/request-controller.js";
 import { DonorController } from "../controllers/donor-controller.js";
+import { AppointmentController } from "../controllers/appointment-controller.js";
 
 import { crypt } from "../utils/crypt.js";
 import { db } from "../database/db.js";
+import { Appointment } from "../models/Appointment.js";
 
 window.onload = () => {
   checkSession().then((check) => {
@@ -39,19 +41,7 @@ async function checkSession() {
 
 let disabled = "";
 
-async function checkDonorStatus() {
-  const apts = await donor[0].appointments;
-  for (const apt of apts) {
-    if (apt.status == "active") {
-      disabled = "disabled";
-      await donorController.updateCanDonate(donorID, false);
-    }
-    // } else {
-    //   disabled = "";
-    //   await donorController.updateCanDonate(donorID, true);
-    // }
-  }
-}
+function checkDonorStatus() {}
 
 // logout
 const logout = function () {
@@ -65,17 +55,57 @@ document.getElementById("logout").addEventListener("click", logout);
 // events
 
 const eventController = new EventController();
-const eventListView = document.getElementById("eventCodeList");
+const eventListView = document.getElementById("eventListView");
 const populateEvents = function () {
-  eventController.getActiveEvents().then((_events) => {
-    
+  eventController.getActiveEventsId().then((_events) => {
+    if (_events.length === 0) {
+      let element = `<h1 class="mt-5"> Sorry! No events found!</h1>`;
+      const wrapper = document.createElement("div");
+      wrapper.className = "mt-5";
+      wrapper.innerHTML = element;
+      eventListView.append(wrapper);
+    } else {
+      _events.forEach((_event) => {
+        let element = `
+          <li class="col-4-12 col-tablet-1-2 col-phablet-1-1 ae-4 fromLeft articles__article"
+          style="--animation-order:1">
+          <div class="fir-image-figure">
+            <a class="" style="margin-right: 20px" rel="noopener" data-target="#Modal4"
+            data-toggle="modal">
+              <div class="ml-3"> Id <div class="mr-3"> ${
+                _event.id
+              } </div> </div>
+            </a>
+            
+            <div>
+              <div class="fig-author-figure-title"><strong>${
+                _event.event_title
+              }</strong></div>
+              <div class="fig-author-figure-title">${
+                _event.organizer_name
+              }</div>
+              <div class="fig-author-figure-title">${_event.start_date} - ${
+          _event.end_date
+        } </br> ${_event.event_goal ? _event.event_goal : 0} Blood Kits</div>
+            </div>
+          </div>
+        </li>
+
+        `;
+
+        const wrapper = document.createElement("li");
+        wrapper.className =
+          "col-4-12 col-tablet-1-2 col-phablet-1-1 ae-4 fromLeft articles__article";
+        wrapper.innerHTML = element;
+        eventListView.append(wrapper);
+      });
+    }
   });
 };
 
-// window.onload =
+populateEvents();
 
 // request
-
 const requestController = new RequestController();
 const requestListView = document.getElementById("request-list");
 const populateRequestList = function () {
@@ -250,3 +280,74 @@ const populateProfile = function (donor) {
   wrapper.innerHTML = element;
   userProfileView.append(wrapper);
 };
+
+// appointment
+
+const appointmentController = new AppointmentController();
+
+const isValid = function () {};
+const appointmentFormHolder = document.getElementById("s1");
+const appointmentDetailHolder = document.getElementById("s2");
+const aptDetailView = document.getElementById("apt-detail");
+const aptForm = document.getElementById("apt-holder");
+
+function submitForm(e) {
+  e.preventDefault();
+  const data = new FormData(e.target);
+  const response = Object.fromEntries(data.entries());
+  console.log(response.datetimes);
+  let date = response.datetimes.split("-");
+  let startDate = date[0].trim();
+  let endDate = date[1].trim();
+  let time = date[0].split(" ")[1];
+  let apt = {
+    startDate,
+    endDate,
+    time,
+    donorID,
+  };
+  appointmentController.save(apt).then((apt) => {
+    appointmentController.getApt(parseInt(apt)).then((apt) => {
+      let wrapper = document.createElement("ul");
+      wrapper.className = "accordion-child";
+      const element = ` 
+      <div> Appointment Submitted </div>
+      <div>
+         Appointment Id -  ${apt.id} 
+      </div>
+      <div>
+         Start Date -  ${apt.startDate} 
+      </div>
+
+      <div>
+         End Date -  ${apt.endDate} 
+      </div>
+
+      <div>
+         Start Time -  ${apt.startDate.split(" ")[1]} 
+      </div>
+
+      <div>
+         End Time -  ${apt.endDate.split(" ")[1]} 
+      </div>
+
+      <div>
+         Status -  ${apt.status} 
+      </div>
+  
+    `;
+
+      wrapper.innerHTML = element;
+
+      aptDetailView.append(wrapper);
+      appointmentDetailHolder.click();
+
+      appointmentFormHolder.click();
+
+      aptForm.style.pointerEvents = "none";
+    });
+  });
+}
+
+const form = document.getElementById("apt_form");
+form.addEventListener("submit", submitForm);
