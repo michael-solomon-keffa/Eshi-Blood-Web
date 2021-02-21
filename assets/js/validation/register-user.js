@@ -136,6 +136,7 @@ function registerUser(e) {
 
   if (isValidUser()) {
     const response = Object.fromEntries(data.entries());
+    console.log(response);
 
     const password = crypt.encrypt(response.password);
 
