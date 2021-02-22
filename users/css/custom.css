@@ -168,3 +168,21 @@
 .fullName, .email, .phone, .address{
     color: #fff;
 }
+
+
+.circular{
+    height: 100px;
+    width: 100px;
+    background: red;
+
+}
+
+.circular .inner{
+    position: absolute;
+    z-index: 6;
+   
+    height: 80px;
+    width: 80px;
+    margin: -40px 0 0 -40px;
+}
+
