@@ -132,6 +132,10 @@ body {
     background: #1161ee
 }
 
+.login-space .group .button:hover{
+    text-decoration: none;
+}
+
 .login-space .group label .icon {
     width: 15px;
     height: 15px;

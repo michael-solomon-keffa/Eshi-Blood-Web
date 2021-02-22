@@ -1,0 +1,338 @@
+button {
+    cursor: pointer;
+    padding: 0 6px;
+    min-width: 88px;
+    min-height: 36px;
+  }
+.controls {
+    padding: 24px;
+}
+  
+.modal-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: rgba(0,0,0,0.15);  
+    opacity: 0;
+    visibility: hidden;
+}
+  
+.modal-dialog {
+    width: 70vmin;
+    height: 70vmin;  
+    position: relative;
+    overflow: hidden;
+}
+  
+.modal-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+  
+.modal-polygon {
+    fill: #ab47bc;
+}
+  
+.modal-content {
+    position: relative;
+    top: 0;
+    left: 0;
+    padding: 24px;  
+    visibility: hidden;
+    opacity: 0;  
+    color: rgba(255,255,255,0.87);
+}
+
+.hide {
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+.accordion {
+    background: #fff;
+    color: #999;
+    width: 400px;
+    border: 1px solid #e0e0e0;
+}
+.accordion-item {
+    position: relative;
+    width: 100%;
+    border-bottom: 1px solid #e0e0e0;
+}
+.accordion-item:last-child {
+    border-bottom: none;
+}
+.accordion-label {
+    padding: 20px 0 20px 30px;
+    width: 100%;
+    display: block;
+    font-size: 18px;
+}
+.accordion-label:hover {
+    cursor: pointer;
+}
+.accordion-label:before {
+    content: '';
+    position: absolute;
+    height: 5px;
+    width: 5px;
+    top: 22px;
+    left: 12px;
+    display: inline-block;
+    border-left: 5px solid #999;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+}
+input[type=checkbox]:checked ~ .accordion-label:before {
+    transform: rotate(90deg);
+}
+.accordion-child {
+    margin: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    opacity: 0;
+    height: 0;
+    transform: scale(1, 0);
+    transform-origin: center top;
+}
+input[type=checkbox]:checked ~ .accordion-child {
+    border: 1px solid #e0e0e0;
+    margin: 0 -20px 15px -20px;
+    background: #fff;
+    box-shadow: 0 3px 6px 1px rgba(0, 0, 0, 0.16);
+    padding: 30px;
+    height: auto;
+    opacity: 1;
+    transform: scale(1, 1);
+}
+
+/* Date Picker */
+.ui-datepicker-week-end >.ui-state-default{
+    color: red ;
+}
+
+.select2-container .select2-selection--single{
+    height:34px !important;
+}
+.select2-container--default .select2-selection--single{
+         border: 1px solid #ccc !important; 
+     border-radius: 0px !important; 
+}
+
+/* Event cards */
+.fir-clickcircle {
+  height: 80px;
+  width: 80px;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.fir-image-figure {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  position: relative;
+  text-decoration: none;
+}
+
+.fir-image-figure .caption, .fir-image-figure figcaption {
+  padding-left: 15px;
+}
+
+html.wf-active .fir-image-figure .fig-author-figure-title {
+  font-family: var(--fir-font-header);
+  font-size: 16px;
+}
+
+.fir-image-figure .fig-author-figure-title {
+  color: var(--fir-color-grey);
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  margin-top: 2px;
+}
+
+.fir-imageover {
+  position: relative;
+  display: flex;
+}
+
+.fir-imageover-color {
+  height: 80px;
+  width: 80px;
+  position: absolute;
+  background: var(--fir-blue-twitter-alpha);
+  background-image: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background .3s ease-in-out;
+  animation: fadeInFadeOut 2s infinite;
+  top: 0;
+  left: 0;
+}
+
+.fir-imageover-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: fadeInFadeOut 2s infinite;
+}
+
+@keyframes fadeInFadeOut {
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+
+.card {
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #ccc;
+    background-clip: border-box;
+    border: 0 solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1rem;
+}
+
+.gutters-sm {
+    margin-right: -8px;
+    margin-left: -8px;
+}
+
+.gutters-sm>.col, .gutters-sm>[class*=col-] {
+    padding-right: 8px;
+    padding-left: 8px;
+}
+.mb-3, .my-3 {
+    margin-bottom: 1rem!important;
+}
+
+.bg-gray-300 {
+    background-color: #e2e8f0;
+}
+.h-100 {
+    height: 100%!important;
+}
+.shadow-none {
+    box-shadow: none!important;
+}
+
+.loader{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    float:left;
+    user-select: none;
+    box-sizing: border-box;
+}
+.loader-bg
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
+}
+.spiner-holder-one
+{
+    position: absolute;
+    top:0;
+    left:0;
+    overflow: hidden;
+    width: 50%;
+    height: 50%;
+    background: transparent;
+    box-sizing: border-box;
+}
+.spiner-holder-two
+{
+    position: absolute;
+    top:0;
+    left:0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    box-sizing: border-box;
+}
+.loader-spiner
+{
+    width: 200%;
+    height: 200%;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    box-sizing: border-box;
+}  
+  .animate-0-25-a
+{
+    transform: rotate(90deg);
+    transform-origin: 100% 100%;
+}
+.animate-0-25-b
+{
+    transform: rotate(-90deg);
+    transform-origin: 100% 100%;
+}
+.animate-25-50-a
+{
+    transform: rotate(180deg);
+    transform-origin: 100% 100%;
+}
+.animate-25-50-b
+{
+    transform: rotate(-90deg);
+    transform-origin: 100% 100%;
+}
+.animate-50-75-a
+{
+    transform: rotate(270deg);
+    transform-origin: 100% 100%;
+}
+.animate-50-75-b
+{
+    transform: rotate(-90deg);
+    transform-origin:100% 100%;
+}
+.animate-75-100-a
+{
+    transform: rotate(0deg);
+    transform-origin: 100% 100%;
+}
+.animate-75-100-b
+{
+    transform: rotate(-90deg);
+    transform-origin: 100% 100%;
+}
+.text
+{
+    text-align: center;
+    padding-top:32%;
+    font-size: 12px;     
+    color: rgba(255, 255, 255, 0.3);
+}

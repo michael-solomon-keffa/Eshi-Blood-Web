@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Quicksand:wght@300&display=swap');
+
+.no-decor:hover {
+    text-decoration: none;
+}
+
+.menu li a {
+    color: #fff;
+}
+
+.menu li a:hover {
+    text-decoration: none;
+    color: #5C6BC0;
+}
+
+.left a h1 {
+    color: #fff;
+}
+
+.left a h1:hover {
+    color: #5C6BC0;
+}
+
+.text-sized-big {
+    font-size: 24px;
+    color: #fff;
+}
+
+.eshi-blood:hover {
+    text-decoration: none;
+}
+
+.mainMenu li a:hover {
+    text-decoration: none;
+}
+
+#horizontal-scroll {
+    display: grid;
+}
+
+.cards-wrapper {
+    width: 100%;
+    grid-column: center-start / -1;
+    overflow: auto;
+    display: flex;
+    padding: 10px;
+}
+
+.cards-wrapper .card {
+    background-color: #d0f0ee;
+    color: #15928a;
+    height: 400px;
+    min-width: 292px;
+    margin-right: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cards-wrapper .card:last-child {
+    margin-right: 0;
+}
+
+.cards-wrapper::after {
+    content: "";
+    display: block;
+    min-width: var(--page-margin);
+}
+
+.card {
+    transition: 0.5s;
+    cursor: pointer; 
+}
+
+.card-title {
+    font-size: 21px;
+    transition: 1s;
+    cursor: pointer;
+}
+
+.card-title i {
+    font-size: 15px;
+    transition: 1s;
+    cursor: pointer;
+    color: #ffa710
+}
+
+.card-title i:hover {
+    transform: scale(1.25) rotate(100deg);
+    color: #18d4ca;
+
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card-text {
+    font-size: 18px;
+    height: 80px;
+    padding: 1px;
+}
+
+.card::before,
+.card::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: scale3d(0, 0, 1);
+    transition: transform .3s ease-out 0s;
+    background: rgba(255, 255, 255, 0.1);
+    content: '';
+    pointer-events: none;
+}
+
+.card::before {
+    transform-origin: left top;
+}
+
+.card::after {
+    transform-origin: right bottom;
+}
+
+.card:hover::before,
+.card:hover::after,
+.card:focus::before,
+.card:focus::after {
+    transform: scale3d(1, 1, 1);
+}
+
+.blood-type{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.share-accept-btn{
+    width: 100%;
+}
+
+.accept-btn{
+    width: 100%;
+    height: 50px;
+    
+}
+
+.active-link{
+    color: #CDDC39;
+}
+
+.profile-content{
+    font-size: 18px;
+}
+
+.profile,.request,.events, .title-header,.appointment,.learn{
+    font-family: 'Quicksand', sans-serif;;
+    font-size: 48px;
+    
+}
+
+.card-detail{
+    background: #3F51B5;
+}
+
+.fullName, .email, .phone, .address{
+    color: #fff;
+}
+
+
+.circular{
+    height: 100px;
+    width: 100px;
+    background: red;
+
+}
+
+.circular .inner{
+    position: absolute;
+    z-index: 6;
+   
+    height: 80px;
+    width: 80px;
+    margin: -40px 0 0 -40px;
+}
+
