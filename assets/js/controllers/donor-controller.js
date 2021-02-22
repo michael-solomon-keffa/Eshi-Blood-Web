@@ -109,11 +109,13 @@ export class DonorController {
   }
 
   async deleteDonor(id) {
-    await db.donors
+    const update = await db.donors
       .update(id, { is_deleted: "true", updatedAt: new Date() })
       .then((update) => {
         return update;
       });
+
+    return update;
   }
 
   async updateDonor(id, donor) {
@@ -123,10 +125,11 @@ export class DonorController {
   }
 
   async activateUser(id) {
-    await db.donors
+    const update = await db.donors
       .update(id, { activated: "true", updatedAt: new Date() })
       .then((update) => {
         return update;
       });
+    return update;
   }
 }

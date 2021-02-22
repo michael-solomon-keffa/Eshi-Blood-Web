@@ -36,6 +36,11 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
+
+          <!-- crypt and cookies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+
+    <script src="./assets/js/utils/cookiesCDN.js"></script>
     <!-- <script>
         init({
             title: 'Welcome Examples',
@@ -130,11 +135,13 @@
                     </div>
                 </nav>
                 <div class="row align-items-center py-4">
-                    <div class="col-lg-6 col-7">
-                        <h4 id="demo" class="pl-5 white-text">Dashboard</h4>
-                    </div>
-                    <div class="col-lg-5 col-5 text-right">
-                        <a href="" class="btn btn-sm btn-neutral">Filter</a>
+                    <div class="ml-5 col-lg-2 col-5">
+                        <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                            <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                            <li class="breadcrumb-item "><a href="./dashboard.html">Dashboards</a></li>
+                            <li class="breadcrumb-item active"><a href="./event-admin.html">Events</a></li>
+
+                        </ol>
                     </div>
                 </div>
             </div>
@@ -273,6 +280,12 @@
                                 <div style="width: 75%; margin:auto" id="addEvent" class="tab-pane fade show active"
                                     role="tabpanel" aria-labelledby="addEvent">
                                     <div class="container-fluid mt-4">
+                                        <div id="submitAlert" class="alert alert-success alert-dismissible fade" role="alert">
+                                            <strong></strong>
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                              <span aria-hidden="true">&times;</span>
+                                            </button>
+                                          </div>
                                         <div class="row">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 edit-form-container">
                                                 <div class="card">

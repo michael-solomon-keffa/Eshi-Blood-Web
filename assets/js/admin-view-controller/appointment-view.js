@@ -63,12 +63,12 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(appointmentId);
   }
 
-  table.addEventListener("click", buttonFunctions);
+  // table.addEventListener("click", buttonFunctions);
 
-  function buttonFunctions(e) {
-    reject(e);
-    accept(e);
-  }
+  // function buttonFunctions(e) {
+  //   reject(e);
+  //   accept(e);
+  // }
   populateCardData();
   getData();
 });
@@ -132,14 +132,14 @@ const renderTable = function (data) {
         mRender: function (data, type, row) {
           // return `<button >${data}</button>`;
           // TODO   fas fa-edit
-          return `<button class="btn btn-success accept ml-3" data-toggle="modal" data-target="#acceptModal"  title="Accept">
+          return `<button onclick="accept(e)" class="btn btn-success accept ml-3" data-toggle="modal" data-target="#acceptModal"  title="Accept">
                     <i class="fa fa-check text-light accept"></i>
                 </button> 
                 <button   class="btn btn-warning reject" data-toggle="modal" data-target="#rejectModal"  title="Reject">
                     <i class="fa fa-times text-light reject-inner"></i>
                 </button>
                 <button   class="btn btn-danger delete" data-toggle="modal" data-target="#deleteModal" title="Delete">
-                    <i class="fa fa-trash text-light delete-inner"></i>
+                    <i class=" text-light delete-inner"></i>
                 </button>
                     `;
         },

@@ -36,9 +36,10 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
-    <script>
-        
-    </script>
+     <!-- crypt and cookies -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+
+     <script src="./assets/js/utils/cookiesCDN.js"></script>
 </head>
 
 <body>
@@ -118,11 +119,13 @@
                     </div>
                 </nav>
                 <div class="row align-items-center py-4">
-                    <div class="col-lg-6 col-7">
-                        <h4 class="pl-5 white-text">Dashboard</h4>
-                    </div>
-                    <div class="col-lg-5 col-5 text-right">
-                        <a href="" class="btn btn-sm btn-neutral">Filter</a>
+                    <div class="ml-5 col-lg-2 col-5">
+                        <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                            <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                            <li class="breadcrumb-item "><a href="./dashboard.html">Dashboards</a></li>
+                            <li class="breadcrumb-item active"><a href="./request-admin.html">Requests</a></li>
+
+                        </ol>
                     </div>
                 </div>
             </div>
@@ -135,8 +138,8 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
-                                        <h5 class="card-title text-uppercase text-muted mb-0">Donations</h5>
-                                        <span class="h2 font-weight-bold mb-0">100k</span>
+                                        <h5 class="card-title text-uppercase text-muted mb-0">Total Requests</h5>
+                                        <span class="h2 font-weight-bold mb-0" id="totalRequests">0</span>
                                     </div>
                                     <div class="col-auto">
                                         <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
@@ -158,8 +161,8 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
-                                        <h5 class="card-title text-uppercase text-muted mb-0">Donations</h5>
-                                        <span class="h2 font-weight-bold mb-0">100k</span>
+                                        <h5 class="card-title text-uppercase text-muted mb-0">Total BloodKits</h5>
+                                        <span class="h2 font-weight-bold mb-0" id="totalBloodKits">0</span>
                                     </div>
                                     <div class="col-auto">
                                         <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
@@ -181,8 +184,8 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
-                                        <h5 class="card-title text-uppercase text-muted mb-0">Donations</h5>
-                                        <span class="h2 font-weight-bold mb-0">100k</span>
+                                        <h5 class="card-title text-uppercase text-muted mb-0">Active Requests</h5>
+                                        <span class="h2 font-weight-bold mb-0" id="activeRequests">0</span>
                                     </div>
                                     <div class="col-auto">
                                         <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
@@ -248,6 +251,12 @@
                         role="tabpanel" aria-labelledby="makeRequest">
 
                         <div class="container-fluid mt-4">
+                            <div id="submitAlert" class="alert alert-success alert-dismissible fade" role="alert">
+                                <strong></strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
                             <div class="row">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 edit-form-container">
                                     <div class="card">
@@ -261,7 +270,7 @@
                                                     <div class="col-xl-6 col-lg-6 col-md-6">
                                                         <div class="form-group">
 
-                                                            <select id="bloodTypeInput" class="form-control">
+                                                            <select id="bloodTypeInput" class="form-control" name="blood_type">
                                                                 <option selected disabled>
                                                                     Choose Blood Type...
                                                                 </option>
@@ -278,7 +287,7 @@
                                                     </div>
                                                     <div class="col-xl-6 col-lg-6 col-md-6">
                                                         <div class="form-group">
-                                                            <input type="number" id="units" class="form-control"
+                                                            <input type="number" id="units_needed" class="form-control"
                                                                 placeholder="Units Needed" />
                                                         </div>
                                                     </div>
@@ -286,7 +295,7 @@
                                                 <div class="row">
                                                     <div class="col-xl-6 col-lg-6 col-md-6">
                                                         <div class="form-group">
-                                                            <select id="reasonTypeInput" class="form-control">
+                                                            <select id="reasonTypeInput" class="form-control" name="request_reason">
                                                                 <option selected disabled>Request Reasons</option>
                                                                 <option value="surgery">Surgery</option>
                                                                 <option value="accident">Accident</option>
@@ -300,7 +309,7 @@
                                                     <div class="col-xl-6 col-lg-6 col-md-6">
                                                         <div class="form-group">
                                                             <input type="text" id="location" class="form-control"
-                                                                placeholder="Location" />
+                                                                placeholder="Location" name="location"/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -308,7 +317,7 @@
                                                     <div class="container-fluid col-lg-12 col-xl-12">
                                                         <textarea rows="10" class="form-control" id=""
                                                             placeholder="Additional Information"
-                                                            name="additional_info"></textarea>
+                                                            name="add_info"></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="row form-group mt-3">
@@ -474,6 +483,14 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
         integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous">
         </script>
+
+    <script src="./assets/js/utils/dexie.js"></script>
+
+    <script
+    type="module"
+    src="./assets/js/admin-view-controller/request-view.js"
+    ></script>
+    <script type="module" src="./assets/js/validation/register-request.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {

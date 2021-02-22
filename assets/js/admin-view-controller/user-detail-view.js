@@ -80,6 +80,8 @@ const populateData = () => {
                 src="/assets/images/blood-types/${donor.blood_type}.webp"
                 class="rounded-circle"
                 alt=""
+                width="150px"
+                height="100px"
               />
             </a>
           </div>
@@ -154,15 +156,18 @@ const populateData = () => {
       // activate
 
       activateButton = document.getElementById("activate");
-      console.log(activateButton);
       activateButton.addEventListener("click", activateUser);
 
       // donation table
       let renderDonationTable = function () {
-        let [id, date, createdAt] = donor.donations;
+        const donations = [];
+        donor.donations.forEach((donation) => {
+          let { id, date, createdAt } = donation;
+          donations.push([id, date, createdAt]);
+        });
 
         $("#donationTable").DataTable({
-          data: [[id, date, createdAt]],
+          data: donations,
           columns: [
             { title: "Donation Id" },
             { title: "Donation Date" },
@@ -171,31 +176,35 @@ const populateData = () => {
         });
       };
       let renderAptTable = function () {
-        let [
-          id,
-          start_date,
-          end_date,
-          time,
-          status,
-          createdAt,
-          updatedAt,
-          id_req,
-          id_event,
-        ] = donor.appointments;
+        const apts = [];
+        donor.appointments.forEach((apt) => {
+          let {
+            id,
+            start_date,
+            end_date,
+            time,
+            status,
+            createdAt,
+            updatedAt,
+            // id_req,
+            // id_event,
+          } = apt;
+
+          apts.push([
+            id,
+            start_date,
+            end_date,
+            time,
+            status,
+            createdAt,
+            updatedAt,
+            // id_req,
+            // id_event,
+          ]);
+        });
+
         $("#appointmentTable").DataTable({
-          data: [
-            [
-              id,
-              start_date,
-              end_date,
-              time,
-              status,
-              createdAt,
-              updatedAt,
-              id_req,
-              id_event,
-            ],
-          ],
+          data: apts,
           columns: [
             { title: "Apt Id" },
             { title: "Start Date" },
@@ -204,8 +213,8 @@ const populateData = () => {
             { title: "Status" },
             { title: "Created At" },
             { title: "Updated At" },
-            { title: "Request" },
-            { title: "Event" },
+            // { title: "Request" },
+            // { title: "Event" },
           ],
         });
       };

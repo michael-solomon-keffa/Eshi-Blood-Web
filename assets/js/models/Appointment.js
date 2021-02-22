@@ -29,4 +29,13 @@ export class Appointment {
     const link = `<a href="./user.html?id=${this.id_donor}" class="btn btn-primary"> Center Detail</a>`;
     return link;
   }
+
+  isEndDatePassed() {
+    const currentDate = new Date();
+    const endDate = new Date(this.end_date);
+    if (currentDate.getTime() - endDate.getTime() >= 0) {
+      return true;
+    }
+    return false;
+  }
 }

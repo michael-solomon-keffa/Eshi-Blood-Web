@@ -32,26 +32,21 @@ db.donation_center.mapToClass(DonationCenter);
 db.event.mapToClass(Event);
 db.users.mapToClass(User);
 
-// db.donors.add({
-//   name: "Michael Solomon",
-//   blood_type: "A+",
-//   city: "Addis Ababa",
-//   woreda: "04",
-//   phone_number: "0946415555",
-//   birthdate: "Jan 04 2020",
-//   password: "bchsessssaer",
-//   activated: "false",
-//   points: "0",
-//   createdAt: "Jan 04 2020",
-//   updatedAt: "Jan 04 2020",
-// });
+//
 
 // db.donation.add({
 //   date: "Jan 04 2020",
 //   createdAt: "Jan 04 2020",
 //   updatedAt: "Jan 04 2020",
-//   id_donor: "1",
+//   id_donor: "76",
 //   id_appointment: "1",
+// });
+
+// db.request.add({
+//   blood_type: "A+",
+//   units_needed: "5",
+//   request_reason: "Operation",
+//   id_donors: "",
 // });
 
 // db.appointment.add({
@@ -61,8 +56,8 @@ db.users.mapToClass(User);
 //   status: "pending",
 //   createdAt: "Jan 04 2020",
 //   updatedAt: "Feb 20 2020",
-//   id_donor: "1",
-//   status: "success",
+//   id_donor: "76",
+//   status: "pending",
 //   is_deleted: "false",
 // });
 //users: ++id, name, phone_number, email, password, sta isAdmin;

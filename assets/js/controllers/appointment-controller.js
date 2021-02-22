@@ -8,7 +8,7 @@ export class AppointmentController {
   async getAllAppointments() {
     const appointments = await db.appointment
       .filter((apt) => {
-        return apt.is_deleted == false;
+        return apt.is_deleted == "false";
       })
       .toArray();
     return appointments;

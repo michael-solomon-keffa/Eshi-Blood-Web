@@ -1,6 +1,6 @@
 import { DonorController } from "../controllers/donor-controller.js";
 
-let donor = new DonorController();
+const donor = new DonorController();
 const urlParams = new URLSearchParams(window.location.search);
 
 const donorViewList = document.getElementById("donors_list_view");
@@ -21,10 +21,6 @@ if (Number(urlParams.get("page"))) {
   page = 1;
 }
 
-donor.getDonor(1).then((donor) => {
-  console.log(donor);
-});
-
 const populateList = async () => {
   let obj = await donor.getAllDonors(page, 6);
   let donorList = obj.donors;
@@ -43,18 +39,13 @@ const populateList = async () => {
       <div class="card-wrapper">
         <div class="content">
           <div class="face-front z-depth-2">
-            <span
-              class="rounded-circle mt-3"
-              style="
-                height: 150px;
-                width: 150px;
-                background-color: grey;
-                align-items: center;
-                background: url(/assets/images/blood-types/${
-                  donor.blood_type
-                }.webp) no-repeat;
-              "
-            ></span>
+          <img
+          src="/assets/images/blood-types/${donor.blood_type}.webp"
+          class="rounded-circle"
+          alt=""
+          width="150px"
+          height="100px"
+        />
             <div class="card-body">
               <h4 class="font-weight-bold">${donor.name}</h4>
               <hr />
