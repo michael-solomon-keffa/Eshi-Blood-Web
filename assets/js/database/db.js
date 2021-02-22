@@ -7,11 +7,11 @@ import { Event } from "../models/Event.js";
 import { User } from "../models/User.js";
 
 export const db = new Dexie("eshi_blood_database");
-db.version(16).stores({
+db.version(17).stores({
   donors:
     "++id,name,email,blood_type,city,woreda,phone_number,birthdate,activated,can_donate,points,createdAt,updatedAt,is_deleted",
   appointment:
-    "++id,start_date,end_date,time,status,id_donor,id_donation_center,id_req,id_event,createdAt,updatedAt,is_deleted",
+    "++id,start_date,end_date,time,status,id_donor,id_donation_center,is_event_request,id_event_request,createdAt,updatedAt,is_deleted",
   donation: "++id,date,createdAt,updatedAt,id_donor,id_appointment,is_deleted",
   request:
     "++id,blood_type,units_needed,request_reason,location,add_info,status,createdAt,updatedAt,*id_donors,is_deleted",
