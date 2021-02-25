@@ -13,10 +13,14 @@ function registerEvent(e) {
     const response = Object.fromEntries(data.entries());
 
     const eventController = new EventController();
-    console.log(response);
+    const date = response.start_date.split("-");
+
+    console.log(date);
     eventController
       .save({
         ...response,
+        start_date: date[0],
+        end_Date: date[1],
         status: "active",
         createdAt: new Date(),
         updatedAt: new Date(),

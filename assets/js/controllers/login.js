@@ -53,12 +53,16 @@ function login(e) {
 
   email = document.getElementById("email").value;
   password = document.getElementById("password").value;
-  console.log(email);
-  console.log(password);
+
   userController.getUser(email).then((user) => {
     if (checkPass(user, password)) {
-      Cookies.set("_emeshi", crypt.encrypt(email), { expires: 3 });
-      window.location.replace("http://127.0.0.1:5502/dashboard.html");
+      userController.getUser(email).then((user) => {
+        console.log(user.id_donor);
+        Cookies.set("_emeshi", crypt.encrypt(user.id_donor.toString()), {
+          expires: 3,
+        });
+        window.location.replace("http://127.0.0.1:5502/dashboard.html");
+      });
     } else {
       console.log("error");
     }

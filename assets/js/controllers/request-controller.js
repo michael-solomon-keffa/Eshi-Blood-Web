@@ -43,7 +43,9 @@ export class RequestController {
 
   async registerRequest(id_donor, id_request) {
     const request = await db.request.get(id_request);
+    console.log(request);
     if (request.id_donors.includes(id_donor)) {
+      return false;
     } else {
       await db.request.update(id_request, {
         id_donors: [...request.id_donors, id_donor],
@@ -62,13 +64,34 @@ export class RequestController {
         updatedAt: new Date(),
         is_deleted: false,
       });
+      return true;
     }
+  }
+
+  async getRequestByBloodType(bloodType) {
+    const donationRule = {
+      "A+": ["A+", "AB+"],
+      "A-": ["A-", "A+", "AB-", "AB+"],
+      "B+": ["B+", "AB+"],
+      "B-": ["B-", "B+", "AB-", "AB+"],
+      "AB+": ["AB+"],
+      "AB-": ["AB-", "AB+"],
+      "O+": ["A+", "B+", "O+", "AB+"],
+      "O-": ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"],
+    };
+    const requests = await db.request
+      .filter((req) => {
+        return donationRule[bloodType].includes(req.blood_type);
+      })
+      .sortBy("createdAt");
+
+    return requests;
   }
 
   async getAllRequests() {
     const requests = await db.request
       .filter((req) => {
-        return req.is_deleted == "false";
+        return req.is_deleted == false;
       })
       .toArray();
     return requests;

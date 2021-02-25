@@ -12,6 +12,14 @@ export class EventController {
     });
   }
 
+  async getAllEventsId() {
+    const idList = [];
+    const event = await db.event.each((_event) => {
+      idList.push(_event.id.toString());
+    });
+    return idList;
+  }
+
   async getAllEvents() {
     const events = await db.event
       .filter((event) => {
@@ -32,10 +40,11 @@ export class EventController {
     });
   }
 
-  async registerEvent(id_donor, id_event) {
+  async registerUserToEvent(id_donor, id_event) {
     const event = await db.event.get(id_event);
 
     if (event.id_donors.includes(id_donor)) {
+      return false;
     } else {
       await db.event.update(id_event, {
         id_donors: [...event.id_donors, id_donor],
@@ -43,7 +52,7 @@ export class EventController {
 
       await db.appointment.add({
         start_date: new Date(event.createdAt),
-        end_date: new Date(end_date),
+        end_date: new Date(event.end_date),
         time: "",
         status: "active",
         id_donors: id_donor,
@@ -55,5 +64,7 @@ export class EventController {
         is_deleted: false,
       });
     }
+
+    return true;
   }
 }

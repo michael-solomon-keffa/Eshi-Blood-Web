@@ -300,14 +300,16 @@
                                                                     <div class="form-group">
                                                                         <input type="text" id="event_title"
                                                                             class="form-control"
-                                                                            placeholder="Event Title" />
+                                                                            placeholder="Event Title"
+                                                                            name="event_title" />
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                                                     <div class="form-group">
                                                                         <input type="text" id="event_location"
                                                                             class="form-control"
-                                                                            placeholder="Event Location" />
+                                                                            placeholder="Event Location" 
+                                                                            name="event_location"/>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -317,14 +319,16 @@
                                                                     <div class="form-group">
                                                                         <input type="text" id="organizer_number"
                                                                             class="form-control"
-                                                                            placeholder="Phone Number" />
+                                                                            placeholder="Phone Number"
+                                                                            name="organizer_number" />
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                                                     <div class="form-group">
-                                                                        <input type="text" id="organizer_goal"
+                                                                        <input type="text" id="event_goal"
                                                                             class="form-control"
-                                                                            placeholder="Organizer Goal (in Blood Kits)" />
+                                                                            placeholder="Organizer Goal (in Blood Kits)"
+                                                                            name="event_goal" />
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -334,44 +338,42 @@
                                                                     <div class="form-group">
                                                                         <input type="text" id="organizer_address"
                                                                             class="form-control"
-                                                                            placeholder="Organizer Address " />
+                                                                            placeholder="Organizer Address " 
+                                                                            name="organizer_address"/>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                                                     <div class="form-group">
-                                                                        <input type="text" id="organizer_name"
+                                                                        <input type="text" id="organizer_name" name="organizer_name"
                                                                             class="form-control"
                                                                             placeholder="Organizer Name" />
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <h6 class="text-muted mb-4">Duration</h6>
+                                                            <div class="row">
 
-                                                            <div class="row" style="margin-bottom: 30px;">
-                                                                <div class="col-xl-6 col-lg-6 col-md-6">
-                                                                    <div class="input-append date form_datetime"
-                                                                        id="startDate">
-                                                                        <input size="16" type="text" value=""
-                                                                            readonly />
-                                                                        <span class="add-on"><i
-                                                                                class="icon-th"></i></span>
-                                                                    </div>
+                                                                <!--Grid column-->
+                                                                <div class="col-md-6 mb-4">
+                                          
+                                                                  <div class="md-form">
+                                                                    <!--The "from" Date Picker -->
+                                                                    <input placeholder="Selected starting date" type="text" id="picker" name="start_date"
+                                                                      class="form-control datepicker">
+                                                                  </div>
+                                          
                                                                 </div>
-                                                                <div class="col-xl-6 col-lg-6 col-md-6">
-                                                                    <div class="input-append date form_datetime">
-                                                                        <input size="16" type="text" value=""
-                                                                            readonly />
-                                                                        <span class="add-on"><i
-                                                                                class="icon-th"></i></span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                          
+                                                                
+                                                                <!--Grid column-->
+                                                              </div>
+                                                            
 
                                                             <div class="row">
                                                                 <div class="container-fluid col-lg-12 col-xl-12">
                                                                     <textarea rows="10" class="form-control" id=""
                                                                         placeholder="Additional Information"
-                                                                        name="additional_info"></textarea>
+                                                                        name="add_info"></textarea>
                                                                 </div>
                                                             </div>
                                                             <div class="row form-group mt-3">
@@ -434,7 +436,23 @@
     </script>
 
     <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
+    <!-- duration -->
+    <script>
+        $('#picker').daterangepicker({
+          opens: "left",
+        }, function (start, end, label) {
+            document.getElementById("start_date").setAttribute("value", start.format('YYYY-MM-DD'))
+            document.getElementById("end_date").setAttribute("value", end.format('YYYY-MM-DD'))
+            console.log(document.getElementById("start_date"));
+            $('#start_date').val(start.format('YYYY-MM-DD'))
+            $('#end_date').val(end.format("YYYY-MM-DD"))
+        })
+    </script>
 
     <script src="./assets/js/utils/dexie.js"></script>
     <script type="module" src="./assets/js/validation/register-event.js"></script>
