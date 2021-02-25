@@ -163,12 +163,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p class="mt-3 mb-0 text-sm">
+                                <!-- <p class="mt-3 mb-0 text-sm">
                                     <span class="text-success mr-2">
                                         <i class="fa fa-arrow-up"></i> 3.48%
                                     </span>
                                     <span class="text-nowrap">Since last month</span>
-                                </p>
+                                </p> -->
                             </div>
                         </div>
                     </div>
@@ -177,8 +177,8 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
-                                        <h5 class="card-title text-uppercase text-muted mb-0">Total Active events</h5>
-                                        <span class="h2 font-weight-bold mb-0 total-active">100k</span>
+                                        <h5 class="card-title text-uppercase text-muted mb-0">Active events</h5>
+                                        <span class="h2 font-weight-bold mb-0 total-active">0</span>
                                     </div>
                                     <div class="col-auto">
                                         <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
@@ -186,12 +186,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p class="mt-3 mb-0 text-sm">
+                                <!-- <p class="mt-3 mb-0 text-sm">
                                     <span class="text-success mr-2">
                                         <i class="fa fa-arrow-up"></i> 3.48%
                                     </span>
                                     <span class="text-nowrap">Since last month</span>
-                                </p>
+                                </p> -->
                             </div>
                         </div>
                     </div>
@@ -200,8 +200,8 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
-                                        <h5 class="card-title text-uppercase text-muted mb-0">Events In this month</h5>
-                                        <span class="h2 font-weight-bold mb-0 total-events-month">100k</span>
+                                        <h5 class="card-title text-uppercase text-muted mb-0">In this month</h5>
+                                        <span class="h2 font-weight-bold mb-0 total-events-month">0</span>
                                     </div>
                                     <div class="col-auto">
                                         <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
@@ -209,12 +209,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p class="mt-3 mb-0 text-sm">
+                                <!-- <p class="mt-3 mb-0 text-sm">
                                     <span class="text-success mr-2">
                                         <i class="fa fa-arrow-up"></i> 3.48%
                                     </span>
                                     <span class="text-nowrap">Since last month</span>
-                                </p>
+                                </p> -->
                             </div>
                         </div>
                     </div>
@@ -223,8 +223,8 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
-                                        <h5 class="card-title text-uppercase text-muted mb-0">Total Success Events</h5>
-                                        <span class="h2 font-weight-bold mb-0 total-success">100k</span>
+                                        <h5 class="card-title text-uppercase text-muted mb-0">Success Events</h5>
+                                        <span class="h2 font-weight-bold mb-0 total-success"></span>
                                     </div>
                                     <div class="col-auto">
                                         <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
@@ -232,12 +232,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p class="mt-3 mb-0 text-sm">
+                                <!-- <p class="mt-3 mb-0 text-sm">
                                     <span class="text-success mr-2">
                                         <i class="fa fa-arrow-up"></i> 3.48%
                                     </span>
                                     <span class="text-nowrap">Since last month</span>
-                                </p>
+                                </p> -->
                             </div>
                         </div>
                     </div>
@@ -245,18 +245,12 @@
                 </div>
             </div>
 
-            <div class="fixed-table-container fixed-height has-footer"
+            <div class="fixed-table-container fixed-height has-footer mt-4"
                 style="height: 433.8px; padding-bottom: 148.2px;">
                 <div class="fixed-table-header" style="margin-right: 0px;">
                 </div>
                 <div class="fixed-table-body">
                     <div class="fixed-table-loading table table-hover" style="top: 98.6px; width: 704px;">
-
-
-
-
-
-
 
                         <div class="container tabView" style="margin-top:-150px;width: 100vw;">
                             <div class="">
@@ -394,24 +388,13 @@
                                 <div id="viewEvents" class="tab-pane fade " role="tabpanel"
                                     aria-labelledby="viewEvents">
 
-                                    <script>
-
-                                        
-
-                                    </script>
-                                    <!-- TODO ********************************************** -->
-                                    
-                                    <!-- <style>
-                                table{
-                                    margin: 0 auto;
-                                    width: 150%;
-                                    clear: both;
-                                    border-collapse: collapse;
-                                    table-layout: fixed; 
-                                    word-wrap:break-word; 
-                                    }
-                            </style> -->
-                                    <table id="example" class="display" style="width: 100vw;"></table>
+                                    <div id="accept-alert" class="alert  alert-dismissible fade " role="alert">
+                                        <strong></strong> 
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <table id="event-table" class="display" style="width: 100vw;"></table>
                                 </div>
 
                             </div>
@@ -421,6 +404,49 @@
             </div>
         </div>
     </div>
+
+    <!-- modals -->
+     <!-- Modal -->
+  <div class="modal fade" id="acceptModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Success Event</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-warning" data-dismiss="modal" id="success-btn">Accept</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Delete Event</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" id="delete-btn">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
@@ -446,11 +472,7 @@
         $('#picker').daterangepicker({
           opens: "left",
         }, function (start, end, label) {
-            document.getElementById("start_date").setAttribute("value", start.format('YYYY-MM-DD'))
-            document.getElementById("end_date").setAttribute("value", end.format('YYYY-MM-DD'))
-            console.log(document.getElementById("start_date"));
-            $('#start_date').val(start.format('YYYY-MM-DD'))
-            $('#end_date').val(end.format("YYYY-MM-DD"))
+           
         })
     </script>
 

@@ -19,8 +19,8 @@ function registerEvent(e) {
     eventController
       .save({
         ...response,
-        start_date: date[0],
-        end_Date: date[1],
+        start_date: date[0].trim(),
+        end_date: date[1].trim(),
         status: "active",
         createdAt: new Date(),
         updatedAt: new Date(),

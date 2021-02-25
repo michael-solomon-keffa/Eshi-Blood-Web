@@ -34,6 +34,8 @@ function checkSession() {
   }
 }
 
+let eventToBeChanged = 0;
+
 const eventController = new EventController();
 updateCards();
 async function updateCards() {
@@ -45,6 +47,101 @@ async function updateCards() {
   totalSuccessText.innerText = cardData.totalSuccessEvents;
 }
 
-let dataSet = [];
+const getData = (cb) => {
+  let data = [];
+  eventController.getAllEvents().then((events) => {
+    console.log(events);
+    events.forEach((_event) => {
+      let innerData = [];
+      innerData.push(_event.id);
+      innerData.push(_event.event_title);
+      innerData.push(_event.event_location);
+      innerData.push(_event.organizer_name);
+      innerData.push(_event.organizer_number);
+      innerData.push(_event.event_goal);
+      innerData.push(_event.start_date);
+      innerData.push(_event.end_date);
+      innerData.push(_event.status);
+      innerData.push(_event.id_donors);
+      data.push(innerData);
+    });
+    renderTable(data);
+    const btns = document.querySelectorAll(".btn");
+    btns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        eventToBeChanged = btn.classList[0];
+      });
+    });
+  });
+};
+const renderTable = function (data) {
+  $("#event-table").DataTable({
+    data: data,
+    columns: [
+      {
+        title: "id",
+      },
+      {
+        title: "event title",
+      },
+      {
+        title: "location",
+      },
+      {
+        title: "organizer name",
+      },
+      {
+        title: "O. number",
+      },
+      {
+        title: "goal",
+      },
+      {
+        title: "start date",
+      },
+      {
+        title: "end date",
+      },
+      { title: "status" },
+      { title: "donors id" },
+      {
+        title: "Action",
+        mRender: function (data, type, row) {
+          return `<button  class="${row[0]} btn btn-warning accept" data-toggle="modal" data-target="#acceptModal"  title="Accept">
+                    <i class="fa fa-check text-light accept"></i>
+                    </button>
+                <button  class=" ${row[0]} btn btn-danger delete" data-toggle="modal" data-target="#deleteModal" title="Delete">
+                    <i class="fa fa-trash text-light text-light delete-inner"></i>
+                </button>
+                    `;
+        },
+      },
+    ],
+  });
+};
 
-let example = document.getElementById("example");
+document.getElementById("success-btn").addEventListener("click", successApt);
+document.getElementById("delete-btn").addEventListener("click", deleteApt);
+
+function successApt() {
+  const alertView = document.getElementById("accept-alert");
+  eventController.updateStatus(eventToBeChanged, "success").then(() => {
+    alertView.firstElementChild.innerText = "Event Successfully!";
+    alertView.classList.toggle("alert-success");
+    alertView.classList.toggle("show");
+    setTimeout(window.location.reload(), 2000);
+  });
+}
+
+function deleteApt() {
+  const alertView = document.getElementById("accept-alert");
+  eventController.deleteEvent(eventToBeChanged).then((deleted) => {
+    console.log(deleted);
+    alertView.firstElementChild.innerText = "Event Deleted";
+    alertView.classList.toggle("alert-danger");
+    alertView.classList.toggle("show");
+    setTimeout(window.location.reload(), 2000);
+  });
+}
+
+getData();

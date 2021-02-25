@@ -58,8 +58,8 @@ const getData = (cb) => {
     appointments.forEach((apt) => {
       let innerData = [];
       innerData.push(apt.id);
-      innerData.push(apt.start_date);
-      innerData.push(apt.end_date);
+      innerData.push(apt.getStartDate());
+      innerData.push(apt.getEndDate());
       innerData.push(apt.time);
       innerData.push(apt.status);
       innerData.push(apt.getDonorLink());

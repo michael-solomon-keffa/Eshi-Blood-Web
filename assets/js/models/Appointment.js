@@ -38,4 +38,13 @@ export class Appointment {
     }
     return false;
   }
+
+  getStartDate() {
+    const startDate = new Date(this.start_date);
+    return startDate.toDateString();
+  }
+  getEndDate() {
+    const startDate = new Date(this.end_date);
+    return startDate.toDateString();
+  }
 }

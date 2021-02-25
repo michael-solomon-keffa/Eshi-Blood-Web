@@ -4,7 +4,7 @@ export class EventController {
   save(event) {
     return db.event.add({
       ...event,
-      status: "active",
+      status: "pending",
       createdAt: new Date(),
       updateAt: new Date(),
       id_donors: [],
@@ -30,11 +30,8 @@ export class EventController {
         const endDate = new Date(eve.end_date);
         const startDate = new Date(eve.start_date);
         const currentDate = new Date();
-        console.log(
-          currentDate.getTime() > startDate.getTime() &&
-            currentDate.getTime() < endDate.getTime()
-        );
-        if (endDate.getMonth() == currentDate.getMonth()) {
+        console.log(currentDate);
+        if (endDate.getMonth() == currentDate.getMonth() + 1) {
           return eve;
         }
       })
@@ -77,7 +74,7 @@ export class EventController {
   }
 
   async deleteEvent(id) {
-    await db.event.update(id, { is_deleted: true }).then((update) => {
+    await db.event.update(parseInt(id), { is_deleted: true }).then((update) => {
       console.log(update);
     });
   }
@@ -108,5 +105,11 @@ export class EventController {
     }
 
     return true;
+  }
+
+  async updateStatus(id, status) {
+    const update = await db.event.update(parseInt(id), { status: status });
+
+    return update;
   }
 }
