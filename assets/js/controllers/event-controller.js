@@ -12,6 +12,48 @@ export class EventController {
     });
   }
 
+  async getEventCardData() {
+    const totalEvents = await db.event
+      .filter((eve) => {
+        return eve.is_deleted == false;
+      })
+      .count();
+
+    const totalActiveEvents = await db.event
+      .filter((eve) => {
+        return eve.status == "active";
+      })
+      .count();
+
+    const eventsInThisMonth = await db.event
+      .filter((eve) => {
+        const endDate = new Date(eve.end_date);
+        const startDate = new Date(eve.start_date);
+        const currentDate = new Date();
+        console.log(
+          currentDate.getTime() > startDate.getTime() &&
+            currentDate.getTime() < endDate.getTime()
+        );
+        if (endDate.getMonth() == currentDate.getMonth()) {
+          return eve;
+        }
+      })
+      .count();
+
+    const totalSuccessEvents = await db.event
+      .filter((eve) => {
+        return eve.status == "success";
+      })
+      .count();
+
+    return {
+      totalEvents,
+      totalActiveEvents,
+      eventsInThisMonth,
+      totalSuccessEvents,
+    };
+  }
+
   async getAllEventsId() {
     const idList = [];
     const event = await db.event.each((_event) => {
@@ -35,7 +77,7 @@ export class EventController {
   }
 
   async deleteEvent(id) {
-    await db.event.update(id, { is_deleted: "true" }).then((update) => {
+    await db.event.update(id, { is_deleted: true }).then((update) => {
       console.log(update);
     });
   }
@@ -54,7 +96,7 @@ export class EventController {
         start_date: new Date(event.createdAt),
         end_date: new Date(event.end_date),
         time: "",
-        status: "active",
+        status: "pending",
         id_donors: id_donor,
         id_donation_center: event.event_location,
         is_event_request: "event",

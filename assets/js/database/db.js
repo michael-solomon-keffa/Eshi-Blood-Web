@@ -54,10 +54,10 @@ db.users.mapToClass(User);
 //   end_date: "Jan 23 2021",
 //   time: "02:20",
 //   status: "pending",
-//   createdAt: "Jan 04 2020",
-//   updatedAt: "Feb 20 2020",
+//   createdAt: new Date(),
+//   updatedAt: new Date(),
 //   id_donor: "76",
 //   status: "pending",
-//   is_deleted: "false",
+//   is_deleted: false,
 // });
 //users: ++id, name, phone_number, email, password, sta isAdmin;

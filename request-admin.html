@@ -287,7 +287,7 @@
                                                     </div>
                                                     <div class="col-xl-6 col-lg-6 col-md-6">
                                                         <div class="form-group">
-                                                            <input type="number" id="units_needed" class="form-control"
+                                                            <input type="number" name="units_needed" id="units_needed" class="form-control"
                                                                 placeholder="Units Needed" />
                                                         </div>
                                                     </div>
@@ -337,127 +337,15 @@
 
                     <div id="viewRequests" class="tab-pane fade " role="tabpanel" aria-labelledby="makeRequest">
 
-
-                        <script>
-
-                            let dataSet = [
-                                // requestId    date    time    type    reason  units   location    additional_info status  action
-                                ["req123","ui0908"   , "2/4/3",  "3:56", "A+",   "surgery", "2" ,  "mexico" , "lorem ips.." , "pending", "",],
-                                ["req123","ui0908"   , "2/4/3",  "3:56", "A+",   "surgery", "2" ,  "mexico" , "lorem ips.." , "pending", "",],
-                                ["req123","ui0908"   , "2/4/3",  "3:56", "A+",   "surgery", "2" ,  "mexico" , "lorem ips.." , "pending", "",],
-                                ["req123","ui0908"   , "2/4/3",  "3:56", "A+",   "surgery", "2" ,  "mexico" , "lorem ips.." , "pending", "",],
-                                ["req123","ui0908"   , "2/4/3",  "3:56", "A+",   "surgery", "2" ,  "mexico" , "lorem ips.." , "pending", "",],
-                                ["req123","ui0908"   , "2/4/3",  "3:56", "A+",   "surgery", "2" ,  "mexico" , "lorem ips.." , "pending", "",],
-                                ["req123","ui0908"   , "2/4/3",  "3:56", "A+",   "surgery", "2" ,  "mexico" , "lorem ips.." , "pending", "",],
-                                ["req123","ui0908"   , "2/4/3",  "3:56", "A+",   "surgery", "2" ,  "mexico" , "lorem ips.." , "pending", "",],
-                                ["req123","ui0908"   , "2/4/3",  "3:56", "A+",   "surgery", "2" ,  "mexico" , "lorem ips.." , "pending", "",],
-                                ["req123","ui0908"   , "2/4/3",  "3:56", "A+",   "surgery", "2" ,  "mexico" , "lorem ips.." , "pending", "",],
-                                ["req123","ui0908"   , "2/4/3",  "3:56", "A+",   "surgery", "2" ,  "mexico" , "lorem ips.." , "pending", "",],
-                                ["req123","ui0908"   , "2/4/3",  "3:56", "A+",   "surgery", "2" ,  "mexico" , "lorem ips.." , "pending", "",],
-                                ["req123","ui0908"   , "2/4/3",  "3:56", "A+",   "surgery", "2" ,  "mexico" , "lorem ips.." , "pending", "",],
-                                ["req123","ui0908"   , "2/4/3",  "3:56", "A+",   "surgery", "2" ,  "mexico" , "lorem ips.." , "pending", "",],
-                                ["req123","ui0908"   , "2/4/3",  "3:56", "A+",   "surgery", "2" ,  "mexico" , "lorem ips.." , "pending", "",],
-
-                            ]
-                            function reject(e) {
-                                // traverse to the eventid element in the dom
-                                let requestId = e.target.parentElement.parentElement.parentElement.children[0].innerText
-                                // let userId = e.target.parentElement.parentElement.parentElement.children[1].innerText
-                                console.log(requestId)
-                            }
-                            function accept(e) {
-                                // traverse to the eventid element in the dom
-                                let requestId = e.target.parentElement.parentElement.parentElement.children[0].innerText
-                                // let userId = e.target.parentElement.parentElement.parentElement.children[1].innerText
-                                console.log(requestId)
-                            }
-                            function edit(e) {
-                                // traverse to the eventid element in the dom
-                                let requestId = e.target.parentElement.parentElement.parentElement.children[0].innerText
-                                // let userId = e.target.parentElement.parentElement.parentElement.children[1].innerText
-                                console.log(requestId)
-                            }
-                            function modalDesplay(e){
-                                let 
-                            }
-
-                            $(document).ready(function () {
-                                $('#example').DataTable({
-                                    data: dataSet,
-                                    columns: [
-                                        { title: "requestId" },
-                                        { title: "userId" },
-                                        { title: "date" },
-                                        { title: "time" },
-                                        { title: "type" },
-                                        { title: "reason" },
-                                        { title: "units" },
-                                        { title: "location" },
-                                        { title: "additional info",
-                                        "mRender": function (data, type, row) {
-                                                // return `<button >${data}</button>`; 
-                                                // TODO   fas fa-edit
-                                                return `
-                                                <a data-toggle="modal" data-target="#addtionalInfoModal" >${data}</a>
-                                                <div class="modal fade" id="addtionalInfoModal" tabindex="-1" role="dialog" aria-labelledby="addtionalInfoModalTitle" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="addtionalInfoModalLongTitle">Additional Information</h5>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                        <div class="modal-body">
-                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum odit,<br>
-                                                            id fuga sapiente expedita consequuntur, placeat nihil, nesciunt facilis<br> 
-                                                            quisquam non accusamus nulla laudantium? Nam ullam maxime et tenetur alias!<br>
-                                                        </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addtionalInfoModal">ok</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                
-                                                `
-                                            }
-                                        },
-                                        { title: "status" },
-                                        {
-                                            title: "Action",
-                                            "mRender": function (data, type, row) {
-                                                // return `<button >${data}</button>`; 
-                                                // TODO   fas fa-edit
-                                                return `<a onClick="accept(event)" class="Accept"  title="Accept">
-                                                                        <i class="fa fa-check"></i>
-                                                                    </a> 
-                                                                    <a onClick="reject(event)"  class="Reject"  title="Reject">
-                                                                        <i class="fa fa-times"></i>
-                                                                    </a>
-                                                                    <a onClick="edit(event)" class="Accept" style="color:purple;" title="Accept">
-                                                                        <i class="fa fa-edit"></i>
-                                                                    </a>  `
-                                            }
-                                        }
-                                    ]
-                                });
-                            });
-
-                        </script>
-                        <!-- TODO ********************************************** -->
-
-                        <!-- <style>
-                                table{
-                                    margin: 0 auto;
-                                    width: 150%;
-                                    clear: both;
-                                    border-collapse: collapse;
-                                    table-layout: fixed; 
-                                    word-wrap:break-word; 
-                                    }
-                            </style> -->
-                        <table id="example" class="display" style="width: 100%;"></table>
+                        <div id="accept-alert" class="alert  alert-dismissible fade " role="alert">
+                            <strong></strong> 
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+    
+                       
+                        <table id="requestTable" class="display" style="width: 100%;"></table>
 
                     </div>
 
@@ -471,6 +359,46 @@
 
     </div>
 
+    
+      <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Is the Appointment successfull?</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-success" data-dismiss="modal" id="success-btn">Success</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Delete Appointment</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal" id="delete-btn">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">

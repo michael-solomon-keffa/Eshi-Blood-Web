@@ -19,7 +19,11 @@ export class RequestController {
   }
 
   async getAdminRequestPageStat() {
-    const totalRequestsCount = await db.request.count();
+    const totalRequestsCount = await db.request
+      .filter((req) => {
+        return req.is_deleted == false;
+      })
+      .count();
     const totalActiveRequestCount = await db.request
       .filter((req) => {
         return req.status == "active";
@@ -98,21 +102,25 @@ export class RequestController {
   }
 
   async getRequest(id) {
-    const request = await db.request.get(id);
+    const request = await db.request.get(parseInt(id));
     return request;
   }
 
   async updateRequest(id, request) {
-    const update = await db.request.update(id, { request }).then((update) => {
-      return update;
-    });
+    const update = await db.request.update(parseInt(id), { request });
+
+    return update;
+  }
+
+  async updateStatus(id, status) {
+    const update = await db.request.update(parseInt(id), { status: status });
 
     return update;
   }
 
   async deleteRequest(id) {
     const update = await db.request
-      .update(id, { is_deleted: "true", updatedAt: new Date() })
+      .update(parseInt(id), { is_deleted: true, updatedAt: new Date() })
       .then((update) => {
         return update;
       });

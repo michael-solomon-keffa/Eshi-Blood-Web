@@ -35,40 +35,9 @@ const successAptsView = document.getElementById("successApts");
 
 const table = document.getElementById("aptTable");
 
+let appointmentToBChange = 0;
+
 document.addEventListener("DOMContentLoaded", () => {
-  function reject(e) {
-    let appointmentId;
-    // traverse to the eventid element in the dom
-    if (e.target.classList.contains("reject")) {
-      appointmentId =
-        e.target.parentElement.parentElement.children[0].innerText;
-      // let userId = e.target.parentElement.parentElement.parentElement.children[1].innerText
-      console.log(appointmentId);
-    }
-    if (e.target.classList.contains("reject-inner")) {
-      console.log(e.target.parentElement.parentElement.parentElement);
-      appointmentId =
-        e.target.parentElement.parentElement.parentElement.children[0]
-          .innerText;
-      // let userId = e.target.parentElement.parentElement.parentElement.children[1].innerText
-      console.log(appointmentId);
-    }
-  }
-
-  function accept(e) {
-    // traverse to the eventid element in the dom
-    let appointmentId =
-      e.target.parentElement.parentElement.children[0].innerText;
-    // let userId = e.target.parentElement.parentElement.parentElement.children[1].innerText
-    console.log(appointmentId);
-  }
-
-  // table.addEventListener("click", buttonFunctions);
-
-  // function buttonFunctions(e) {
-  //   reject(e);
-  //   accept(e);
-  // }
   populateCardData();
   getData();
 });
@@ -98,6 +67,12 @@ const getData = (cb) => {
       data.push(innerData);
     });
     renderTable(data);
+    const btns = document.querySelectorAll(".btn");
+    btns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        appointmentToBChange = btn.classList[0];
+      });
+    });
   });
 };
 
@@ -121,7 +96,7 @@ const renderTable = function (data) {
         title: "status",
       },
       {
-        title: "donor Id",
+        title: "donors id",
       },
       {
         title: "donation center",
@@ -130,16 +105,14 @@ const renderTable = function (data) {
       {
         title: "Action",
         mRender: function (data, type, row) {
-          // return `<button >${data}</button>`;
-          // TODO   fas fa-edit
-          return `<button onclick="accept(e)" class="btn btn-success accept ml-3" data-toggle="modal" data-target="#acceptModal"  title="Accept">
+          return `<button  class="${row[0]} btn btn-warning accept" data-toggle="modal" data-target="#acceptModal"  title="Accept">
                     <i class="fa fa-check text-light accept"></i>
-                </button> 
-                <button   class="btn btn-warning reject" data-toggle="modal" data-target="#rejectModal"  title="Reject">
-                    <i class="fa fa-times text-light reject-inner"></i>
+                    </button>
+                <button  class="${row[0]} btn btn-success reject" data-toggle="modal" data-target="#rejectModal"  title="Success">
+                    <i class="fa fa-check-circle text-light reject-inner"></i>
                 </button>
-                <button   class="btn btn-danger delete" data-toggle="modal" data-target="#deleteModal" title="Delete">
-                    <i class=" text-light delete-inner"></i>
+                <button  class=" ${row[0]} btn btn-danger delete" data-toggle="modal" data-target="#deleteModal" title="Delete">
+                    <i class="fa fa-trash text-light text-light delete-inner"></i>
                 </button>
                     `;
         },
@@ -147,3 +120,46 @@ const renderTable = function (data) {
     ],
   });
 };
+
+document.getElementById("accept-btn").addEventListener("click", acceptApt);
+document.getElementById("success-btn").addEventListener("click", successApt);
+document.getElementById("delete-btn").addEventListener("click", deleteApt);
+
+function acceptApt() {
+  const alertView = document.getElementById("accept-alert");
+  appointmentController
+    .updateStatus(appointmentToBChange, "accepted")
+    .then(() => {
+      alertView.firstElementChild.innerText = "Appointment Accepted";
+      alertView.classList.toggle("alert-warning");
+      alertView.classList.toggle("show");
+      setTimeout(window.location.reload(), 2000);
+    });
+}
+
+function successApt() {
+  const alertView = document.getElementById("accept-alert");
+  appointmentController
+    .updateStatus(appointmentToBChange, "success")
+    .then(() => {
+      alertView.firstElementChild.innerText = "Appointment Successfully!";
+      alertView.classList.toggle("alert-success");
+      alertView.classList.toggle("show");
+      setTimeout(window.location.reload(), 2000);
+    });
+}
+
+function deleteApt() {
+  const alertView = document.getElementById("accept-alert");
+  appointmentController
+    .deleteAppointment(appointmentToBChange)
+    .then((deleted) => {
+      console.log(deleted);
+      alertView.firstElementChild.innerText = "Appointment Deleted";
+      alertView.classList.toggle("alert-danger");
+      alertView.classList.toggle("show");
+      setTimeout(window.location.reload(), 2000);
+    });
+}
+
+// const acceptAppointment = function()
