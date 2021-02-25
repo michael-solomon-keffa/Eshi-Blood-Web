@@ -21,9 +21,15 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
         integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous">
     </script>
+    <script src="./assets/js/utils/dexie.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+
+    <script src="./assets/js/utils/cookiesCDN.js"></script>
+
+    <script type="module" src="./assets/js/admin-view-controller/dashboard-view.js"></script>
 </head>
 
-<body>
+<body  style="display: none;">
     <div class="wrapper">
         <!-- Sidebar Navigation-->
         <nav id="sidebar">
@@ -46,7 +52,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="add-request.html">
+                    <a href="request-admin.html">
                         <i class="fas fa-image"></i>
                         <span>&nbsp;Make Request</span>
                     </a>
@@ -113,8 +119,8 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
-                                        <h5 class="card-title text-uppercase text-muted mb-0">Donations</h5>
-                                        <span class="h2 font-weight-bold mb-0">100k</span>
+                                        <h5 class="card-title text-uppercase text-muted mb-0">Total Donors</h5>
+                                        <span class="h2 font-weight-bold mb-0" id="totalDonorsView">0</span>
                                     </div>
                                     <div class="col-auto">
                                         <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
@@ -123,10 +129,10 @@
                                     </div>
                                 </div>
                                 <p class="mt-3 mb-0 text-sm">
-                                    <span class="text-success mr-2">
-                                        <i class="fa fa-arrow-up"></i> 3.48%
+                                    <span class="text-success mr-2 " id="totalActiveDonorsView">
+                                        <!-- <i class="fa fa-arrow-up"></i>0 -->0
                                     </span>
-                                    <span class="text-nowrap">Since last month</span>
+                                    <span class="text-nowrap">Total Active Donors</span>
                                 </p>
                             </div>
                         </div>
@@ -136,8 +142,8 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
-                                        <h5 class="card-title text-uppercase text-muted mb-0">Donations</h5>
-                                        <span class="h2 font-weight-bold mb-0">100k</span>
+                                        <h5 class="card-title text-uppercase text-muted mb-0">Total Appointment</h5>
+                                        <span class="h2 font-weight-bold mb-0" id="totalAppointmentsView">0</span>
                                     </div>
                                     <div class="col-auto">
                                         <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
@@ -147,9 +153,10 @@
                                 </div>
                                 <p class="mt-3 mb-0 text-sm">
                                     <span class="text-success mr-2">
-                                        <i class="fa fa-arrow-up"></i> 3.48%
+                                        <!-- <i class="fa fa-arrow-up"></i> 3.48% -->
+                                        0
                                     </span>
-                                    <span class="text-nowrap">Since last month</span>
+                                    <span class="text-nowrap">Active Appointment</span>
                                 </p>
                             </div>
                         </div>
@@ -159,8 +166,8 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
-                                        <h5 class="card-title text-uppercase text-muted mb-0">Donations</h5>
-                                        <span class="h2 font-weight-bold mb-0">100k</span>
+                                        <h5 class="card-title text-uppercase text-muted mb-0">Total Requests</h5>
+                                        <span class="h2 font-weight-bold mb-0" id="totalRequestsView">0</span>
                                     </div>
                                     <div class="col-auto">
                                         <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
@@ -170,9 +177,10 @@
                                 </div>
                                 <p class="mt-3 mb-0 text-sm">
                                     <span class="text-success mr-2">
-                                        <i class="fa fa-arrow-up"></i> 3.48%
+                                        <!-- <i class="fa fa-arrow-up"></i> 3.48% -->
+                                        0
                                     </span>
-                                    <span class="text-nowrap">Since last month</span>
+                                    <span class="text-nowrap">Active Requests</span>
                                 </p>
                             </div>
                         </div>
@@ -182,8 +190,8 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
-                                        <h5 class="card-title text-uppercase text-muted mb-0">Donations</h5>
-                                        <span class="h2 font-weight-bold mb-0">100k</span>
+                                        <h5 class="card-title text-uppercase text-muted mb-0">Total Centers</h5>
+                                        <span class="h2 font-weight-bold mb-0" id="totalDonationCentersView">0</span>
                                     </div>
                                     <div class="col-auto">
                                         <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
@@ -193,27 +201,27 @@
                                 </div>
                                 <p class="mt-3 mb-0 text-sm">
                                     <span class="text-success mr-2">
-                                        <i class="fa fa-arrow-up"></i> 3.48%
+                                        <!-- <i class="fa fa-arrow-up"></i> 3.48% -->
+                                        5
                                     </span>
-                                    <span class="text-nowrap">Since last month</span>
+                                    <span class="text-nowrap">Opened Centers</span>
                                 </p>
                             </div>
                         </div>
-                        <div class="col-auto">
-                            <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
-                                <i class="ni ni-active-40"></i>
-                            </div>
-                        </div>
+                        
                     </div>
-                    <p class="mt-3 mb-0 text-sm">
-                        <span class="text-success mr-2">
-                            <i class="fa fa-arrow-up"></i> 3.48%
-                        </span>
-                        <span class="text-nowrap">Since last month</span>
-                    </p>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <canvas  id="myChart"></canvas>
+
+                </div>
+                <div class="col-lg-6"></div>
+            </div>
+
         </div>
+        
     </div>
     </div>
 
@@ -229,6 +237,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
         integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous">
     </script>
+    
+    <!-- chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -238,9 +250,6 @@
         });
     </script>
 
-    <!-- Optional JS -->
-    <script src="assets/vendor/chart.js/dist/Chart.min.js"></script>
-    <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
 
     <script>
         const sidebar = document.getElementById('sidebar')

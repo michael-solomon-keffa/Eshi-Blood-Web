@@ -36,6 +36,11 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
+
+          <!-- crypt and cookies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+
+    <script src="./assets/js/utils/cookiesCDN.js"></script>
     <!-- <script>
         init({
             title: 'Welcome Examples',
@@ -130,11 +135,13 @@
                     </div>
                 </nav>
                 <div class="row align-items-center py-4">
-                    <div class="col-lg-6 col-7">
-                        <h4 class="pl-5 white-text">Dashboard</h4>
-                    </div>
-                    <div class="col-lg-5 col-5 text-right">
-                        <a href="" class="btn btn-sm btn-neutral">Filter</a>
+                    <div class="ml-5 col-lg-2 col-5">
+                        <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                            <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                            <li class="breadcrumb-item "><a href="./dashboard.html">Dashboards</a></li>
+                            <li class="breadcrumb-item active"><a href="./event-admin.html">Events</a></li>
+
+                        </ol>
                     </div>
                 </div>
             </div>
@@ -147,8 +154,8 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
-                                        <h5 class="card-title text-uppercase text-muted mb-0">Donations</h5>
-                                        <span class="h2 font-weight-bold mb-0">100k</span>
+                                        <h5 class="card-title text-uppercase text-muted mb-0">Total Events</h5>
+                                        <span class="h2 font-weight-bold mb-0 total-events">100k</span>
                                     </div>
                                     <div class="col-auto">
                                         <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
@@ -170,8 +177,8 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
-                                        <h5 class="card-title text-uppercase text-muted mb-0">Donations</h5>
-                                        <span class="h2 font-weight-bold mb-0">100k</span>
+                                        <h5 class="card-title text-uppercase text-muted mb-0">Total Active events</h5>
+                                        <span class="h2 font-weight-bold mb-0 total-active">100k</span>
                                     </div>
                                     <div class="col-auto">
                                         <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
@@ -193,8 +200,8 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
-                                        <h5 class="card-title text-uppercase text-muted mb-0">Donations</h5>
-                                        <span class="h2 font-weight-bold mb-0">100k</span>
+                                        <h5 class="card-title text-uppercase text-muted mb-0">Events In this month</h5>
+                                        <span class="h2 font-weight-bold mb-0 total-events-month">100k</span>
                                     </div>
                                     <div class="col-auto">
                                         <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
@@ -216,8 +223,8 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
-                                        <h5 class="card-title text-uppercase text-muted mb-0">Donations</h5>
-                                        <span class="h2 font-weight-bold mb-0">100k</span>
+                                        <h5 class="card-title text-uppercase text-muted mb-0">Total Success Events</h5>
+                                        <span class="h2 font-weight-bold mb-0 total-success">100k</span>
                                     </div>
                                     <div class="col-auto">
                                         <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
@@ -273,6 +280,12 @@
                                 <div style="width: 75%; margin:auto" id="addEvent" class="tab-pane fade show active"
                                     role="tabpanel" aria-labelledby="addEvent">
                                     <div class="container-fluid mt-4">
+                                        <div id="submitAlert" class="alert alert-success alert-dismissible fade" role="alert">
+                                            <strong></strong>
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                              <span aria-hidden="true">&times;</span>
+                                            </button>
+                                          </div>
                                         <div class="row">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 edit-form-container">
                                                 <div class="card">
@@ -287,14 +300,16 @@
                                                                     <div class="form-group">
                                                                         <input type="text" id="event_title"
                                                                             class="form-control"
-                                                                            placeholder="Event Title" />
+                                                                            placeholder="Event Title"
+                                                                            name="event_title" />
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                                                     <div class="form-group">
                                                                         <input type="text" id="event_location"
                                                                             class="form-control"
-                                                                            placeholder="Event Location" />
+                                                                            placeholder="Event Location" 
+                                                                            name="event_location"/>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -304,14 +319,16 @@
                                                                     <div class="form-group">
                                                                         <input type="text" id="organizer_number"
                                                                             class="form-control"
-                                                                            placeholder="Phone Number" />
+                                                                            placeholder="Phone Number"
+                                                                            name="organizer_number" />
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                                                     <div class="form-group">
-                                                                        <input type="text" id="organizer_goal"
+                                                                        <input type="text" id="event_goal"
                                                                             class="form-control"
-                                                                            placeholder="Organizer Goal (in Blood Kits)" />
+                                                                            placeholder="Organizer Goal (in Blood Kits)"
+                                                                            name="event_goal" />
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -321,44 +338,42 @@
                                                                     <div class="form-group">
                                                                         <input type="text" id="organizer_address"
                                                                             class="form-control"
-                                                                            placeholder="Organizer Address " />
+                                                                            placeholder="Organizer Address " 
+                                                                            name="organizer_address"/>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                                                     <div class="form-group">
-                                                                        <input type="text" id="organizer_name"
+                                                                        <input type="text" id="organizer_name" name="organizer_name"
                                                                             class="form-control"
                                                                             placeholder="Organizer Name" />
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <h6 class="text-muted mb-4">Duration</h6>
+                                                            <div class="row">
 
-                                                            <div class="row" style="margin-bottom: 30px;">
-                                                                <div class="col-xl-6 col-lg-6 col-md-6">
-                                                                    <div class="input-append date form_datetime"
-                                                                        id="startDate">
-                                                                        <input size="16" type="text" value=""
-                                                                            readonly />
-                                                                        <span class="add-on"><i
-                                                                                class="icon-th"></i></span>
-                                                                    </div>
+                                                                <!--Grid column-->
+                                                                <div class="col-md-6 mb-4">
+                                          
+                                                                  <div class="md-form">
+                                                                    <!--The "from" Date Picker -->
+                                                                    <input placeholder="Selected starting date" type="text" id="picker" name="start_date"
+                                                                      class="form-control datepicker">
+                                                                  </div>
+                                          
                                                                 </div>
-                                                                <div class="col-xl-6 col-lg-6 col-md-6">
-                                                                    <div class="input-append date form_datetime">
-                                                                        <input size="16" type="text" value=""
-                                                                            readonly />
-                                                                        <span class="add-on"><i
-                                                                                class="icon-th"></i></span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                          
+                                                                
+                                                                <!--Grid column-->
+                                                              </div>
+                                                            
 
                                                             <div class="row">
                                                                 <div class="container-fluid col-lg-12 col-xl-12">
                                                                     <textarea rows="10" class="form-control" id=""
                                                                         placeholder="Additional Information"
-                                                                        name="additional_info"></textarea>
+                                                                        name="add_info"></textarea>
                                                                 </div>
                                                             </div>
                                                             <div class="row form-group mt-3">
@@ -379,99 +394,7 @@
                                 <div id="viewEvents" class="tab-pane fade " role="tabpanel"
                                     aria-labelledby="viewEvents">
 
-                                    <script>
-
-                                        let dataSet = [
-                                            //  userId  location    organizer   event_goal  startDate endDate    additional_info  status    createdAt  action  
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            ["eventId123","uid1234", "6kilo", "abrham", "60", "1/2/3", "7/2/3", "bla bla", "1", "1/2/3", "1"],
-                                            
-                                        ]
-                                        function reject(e){
-                                            // traverse to the eventid element in the dom
-                                            let eventId = e.target.parentElement.parentElement.parentElement.children[0].innerText
-                                            // let userId = e.target.parentElement.parentElement.parentElement.children[1].innerText
-                                            console.log(eventId)
-                                        }
-                                        function accept(e){
-                                            // traverse to the eventid element in the dom
-                                            let eventId = e.target.parentElement.parentElement.parentElement.children[0].innerText
-                                            // let userId = e.target.parentElement.parentElement.parentElement.children[1].innerText
-                                            console.log(eventId)
-                                        }
-                                        function edit(e){
-                                            // traverse to the eventid element in the dom
-                                            let eventId = e.target.parentElement.parentElement.parentElement.children[0].innerText
-                                            // let userId = e.target.parentElement.parentElement.parentElement.children[1].innerText
-                                            console.log(eventId)
-                                        }
-                                        
-                                        $(document).ready(function () {
-                                            $('#example').DataTable({
-                                                data: dataSet,
-                                                columns: [
-                                                    { title: "eventId" },
-                                                    { title: "userId" },
-                                                    { title: "location" },
-                                                    { title: "organizer" },
-                                                    { title: "event_goal" },
-                                                    { title: "startDate" },
-                                                    { title: "endDate" },
-                                                    { title: "additional_info" },
-                                                    { title: "status" },
-                                                    { title: "created at" },
-                                                    {
-                                                        title: "Action",
-                                                        "mRender": function (data, type, row) {
-                                                            // return `<button >${data}</button>`; 
-                                                            // TODO   fas fa-edit
-                                                            return `<a onClick="accept(event)" class="Accept"  title="Accept">
-                                                                        <i class="fa fa-check"></i>
-                                                                    </a> 
-                                                                    <a onClick="reject(event)"  class="Reject"  title="Reject">
-                                                                        <i class="fa fa-times"></i>
-                                                                    </a>
-                                                                    <a onClick="edit(event)" class="Accept" style="color:purple;" title="Accept">
-                                                                        <i class="fa fa-edit"></i>
-                                                                    </a>  `
-                                                        }
-                                                    }
-                                                ]
-                                            });
-                                        });
-
-                                    </script>
-                                    <!-- TODO ********************************************** -->
-                                    
-                                    <!-- <style>
-                                table{
-                                    margin: 0 auto;
-                                    width: 150%;
-                                    clear: both;
-                                    border-collapse: collapse;
-                                    table-layout: fixed; 
-                                    word-wrap:break-word; 
-                                    }
-                            </style> -->
-                                    <table id="example" class="display" style="width: 100vw;"></table>
+                                    <table id="eventTabl" class="display" style="width: 100vw;"></table>
                                 </div>
 
                             </div>
@@ -482,10 +405,10 @@
         </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
     <!-- jQuery CDN - Slim version (=without AJAX) -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
+    
     <!-- Popper.JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
         integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous">
@@ -494,6 +417,29 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
         integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous">
     </script>
+
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+    <!-- duration -->
+    <script>
+        $('#picker').daterangepicker({
+          opens: "left",
+        }, function (start, end, label) {
+            document.getElementById("start_date").setAttribute("value", start.format('YYYY-MM-DD'))
+            document.getElementById("end_date").setAttribute("value", end.format('YYYY-MM-DD'))
+            console.log(document.getElementById("start_date"));
+            $('#start_date').val(start.format('YYYY-MM-DD'))
+            $('#end_date').val(end.format("YYYY-MM-DD"))
+        })
+    </script>
+
+    <script src="./assets/js/utils/dexie.js"></script>
+    <script type="module" src="./assets/js/validation/register-event.js"></script>
+    <script type="module" src="./assets/js/admin-view-controller/event-detail-view.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -542,6 +488,17 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
  integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
  crossorigin="anonymous"></script>
+<script>
+ if (innerWidth < 768) {
+     if (sidebar.classList.contains('active')) {
+         main.style.marginLeft = "0px"
+     } else {
+         main.style.marginLeft = "110px"
+     }
+ };
+</script>
+
+
 <script>
  if (innerWidth < 768) {
      if (sidebar.classList.contains('active')) {

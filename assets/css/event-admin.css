@@ -1,42 +1,36 @@
-.pending{
-    width: 10px;
-    height: 10px;
-    border-radius: 5px;
-    margin-right:10px ;
-    
-    background-color:yellow;
-    
+.pending {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  margin-right: 10px;
+
+  background-color: yellow;
 }
 
-.accepted{
-    width: 10px;
-    height: 10px;
-    border-radius: 5px;
-    margin-right:10px ;
-    
-    background-color: green;
+.accepted {
+  cursor: not-allowed;
 }
 
-.rejected{
-    width: 10px;
-    height: 10px;
-    border-radius: 5px;
-    margin-right:10px ;
-    background-color: red;
+.rejected {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  margin-right: 10px;
+  background-color: red;
 }
 
-.fa-check{
-    color: green;
+.fa-check {
+  color: green;
 }
-.fa-times{
-    color: red;
+.fa-times {
+  color: red;
 }
 
-@media screen and (max-width: 600px){
-    body{
-        font-size: 0.8rem;
-    }
-    .table td{
-        padding: .5rem;
-    }
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 0.8rem;
+  }
+  .table td {
+    padding: 0.5rem;
+  }
 }

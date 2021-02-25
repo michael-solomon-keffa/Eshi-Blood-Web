@@ -20,10 +20,15 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <!-- Fonts and Material Icons -->
+
   <link rel="stylesheet" as="font"
     href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700|Material+Icons" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<!-- cookies-->
+  <script src="./assets/js/utils/dexie.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
 
+  <script src="../assets/js/utils/cookiesCDN.js"></script>
 
 
 
@@ -445,6 +450,7 @@
                         </div>
                       </li>         
                       <li class="col-6-12 left">
+                        <form action=""></form>
                         <ul class="accordion">
                           <li class="accordion-item">
                             <input id="s1" class="hide" type="checkbox">
@@ -526,477 +532,10 @@
                     <ul class="flex reverse verticalCenter">
                       <li class="col-12 cell-26">
                         <section id="horizontal-scroll">
-                          <div class="cards-wrapper">
-                            <div class="card card-block px-2">
-                              <img src="https://static.pexels.com/photos/7096/people-woman-coffee-meeting.jpg"
-                                alt="Photo of sunset" class="blood-type">
-                              <h5 class="card-title mt-3 mb-3">Zekarias Alemu</h5><br>
-                              <div class="row" style="font-size: 16px;">
-                                <div class="col-sm-6">
-                                  <div class="row">
-                                    <div class="col-12">
-                                      <span>
-                                        Location
-                                      </span>
-                                    </div>
-                                    <div class="col-12">
-                                      <span>
-                                        Condition
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-sm-6">
-                                  <div class="row">
-                                    <div class="col-12">
-                                      <span>
-                                        Addis Ababa
-                                      </span>
-                                    </div>
-                                    <div class="col-12">
-                                      <span>
-                                        Severe
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <br>
-                              <div class="row share-accept-btn">
-                                <div class="col-sm-6">
-                                  <button type="button" style="font-size: 18px;"
-                                    class="btn accept-btn btn-outline-primary">Accept</button>
-                                </div>
-                                <div class="col-sm-6">
-                                  <button type="button" style="font-size: 18px;"
-                                    class="btn accept-btn btn-outline-secondary">Share</button>
-                                </div>
-                              </div>
-
-                            </div>
-                            <div class="card card-block px-2">
-                              <img src="https://static.pexels.com/photos/7096/people-woman-coffee-meeting.jpg"
-                                alt="Photo of sunset" class="blood-type">
-                              <h5 class="card-title mt-3 mb-3">Zekarias Alemu</h5><br>
-                              <div class="row" style="font-size: 16px;">
-                                <div class="col-sm-6">
-                                  <div class="row">
-                                    <div class="col-12">
-                                      <span>
-                                        Location
-                                      </span>
-                                    </div>
-                                    <div class="col-12">
-                                      <span>
-                                        Condition
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-sm-6">
-                                  <div class="row">
-                                    <div class="col-12">
-                                      <span>
-                                        Addis Ababa
-                                      </span>
-                                    </div>
-                                    <div class="col-12">
-                                      <span>
-                                        Severe
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <br>
-                              <div class="row share-accept-btn">
-                                <div class="col-sm-6">
-                                  <button type="button" style="font-size: 18px;"
-                                    class="btn accept-btn btn-outline-primary">Accept</button>
-                                </div>
-                                <div class="col-sm-6">
-                                  <button type="button" style="font-size: 18px;"
-                                    class="btn accept-btn btn-outline-secondary">Share</button>
-                                </div>
-                              </div>
-
-                            </div>
-                            <div class="card card-block px-2">
-                              <img src="https://static.pexels.com/photos/7096/people-woman-coffee-meeting.jpg"
-                                alt="Photo of sunset" class="blood-type">
-                              <h5 class="card-title mt-3 mb-3">Zekarias Alemu</h5><br>
-                              <div class="row" style="font-size: 16px;">
-                                <div class="col-sm-6">
-                                  <div class="row">
-                                    <div class="col-12">
-                                      <span>
-                                        Location
-                                      </span>
-                                    </div>
-                                    <div class="col-12">
-                                      <span>
-                                        Condition
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-sm-6">
-                                  <div class="row">
-                                    <div class="col-12">
-                                      <span>
-                                        Addis Ababa
-                                      </span>
-                                    </div>
-                                    <div class="col-12">
-                                      <span>
-                                        Severe
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <br>
-                              <div class="row share-accept-btn">
-                                <div class="col-sm-6">
-                                  <button type="button" style="font-size: 18px;"
-                                    class="btn accept-btn btn-outline-primary">Accept</button>
-                                </div>
-                                <div class="col-sm-6">
-                                  <button type="button" style="font-size: 18px;"
-                                    class="btn accept-btn btn-outline-secondary">Share</button>
-                                </div>
-                              </div>
-
-                            </div>
-                            <div class="card card-block px-2">
-                              <img src="https://static.pexels.com/photos/7096/people-woman-coffee-meeting.jpg"
-                                alt="Photo of sunset" class="blood-type">
-                              <h5 class="card-title mt-3 mb-3">Zekarias Alemu</h5><br>
-                              <div class="row" style="font-size: 16px;">
-                                <div class="col-sm-6">
-                                  <div class="row">
-                                    <div class="col-12">
-                                      <span>
-                                        Location
-                                      </span>
-                                    </div>
-                                    <div class="col-12">
-                                      <span>
-                                        Condition
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-sm-6">
-                                  <div class="row">
-                                    <div class="col-12">
-                                      <span>
-                                        Addis Ababa
-                                      </span>
-                                    </div>
-                                    <div class="col-12">
-                                      <span>
-                                        Severe
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <br>
-                              <div class="row share-accept-btn">
-                                <div class="col-sm-6">
-                                  <button type="button" style="font-size: 18px;"
-                                    class="btn accept-btn btn-outline-primary">Accept</button>
-                                </div>
-                                <div class="col-sm-6">
-                                  <button type="button" style="font-size: 18px;"
-                                    class="btn accept-btn btn-outline-secondary">Share</button>
-                                </div>
-                              </div>
-
-                            </div>
-                            <div class="card card-block px-2">
-                              <img src="https://static.pexels.com/photos/7096/people-woman-coffee-meeting.jpg"
-                                alt="Photo of sunset" class="blood-type">
-                              <h5 class="card-title mt-3 mb-3">Zekarias Alemu</h5><br>
-                              <div class="row" style="font-size: 16px;">
-                                <div class="col-sm-6">
-                                  <div class="row">
-                                    <div class="col-12">
-                                      <span>
-                                        Location
-                                      </span>
-                                    </div>
-                                    <div class="col-12">
-                                      <span>
-                                        Condition
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-sm-6">
-                                  <div class="row">
-                                    <div class="col-12">
-                                      <span>
-                                        Addis Ababa
-                                      </span>
-                                    </div>
-                                    <div class="col-12">
-                                      <span>
-                                        Severe
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <br>
-                              <div class="row share-accept-btn">
-                                <div class="col-sm-6">
-                                  <button type="button" style="font-size: 18px;"
-                                    class="btn accept-btn btn-outline-primary">Accept</button>
-                                </div>
-                                <div class="col-sm-6">
-                                  <button type="button" style="font-size: 18px;"
-                                    class="btn accept-btn btn-outline-secondary">Share</button>
-                                </div>
-                              </div>
-
-                            </div>
-                            <div class="card card-block px-2">
-                              <img src="https://static.pexels.com/photos/7096/people-woman-coffee-meeting.jpg"
-                                alt="Photo of sunset" class="blood-type">
-                              <h5 class="card-title mt-3 mb-3">Zekarias Alemu</h5><br>
-                              <div class="row" style="font-size: 16px;">
-                                <div class="col-sm-6">
-                                  <div class="row">
-                                    <div class="col-12">
-                                      <span>
-                                        Location
-                                      </span>
-                                    </div>
-                                    <div class="col-12">
-                                      <span>
-                                        Condition
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-sm-6">
-                                  <div class="row">
-                                    <div class="col-12">
-                                      <span>
-                                        Addis Ababa
-                                      </span>
-                                    </div>
-                                    <div class="col-12">
-                                      <span>
-                                        Severe
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <br>
-                              <div class="row share-accept-btn">
-                                <div class="col-sm-6">
-                                  <button type="button" style="font-size: 18px;"
-                                    class="btn accept-btn btn-outline-primary">Accept</button>
-                                </div>
-                                <div class="col-sm-6">
-                                  <button type="button" style="font-size: 18px;"
-                                    class="btn accept-btn btn-outline-secondary">Share</button>
-                                </div>
-                              </div>
-
-                            </div>
-                            <div class="card card-block px-2">
-                              <img src="https://static.pexels.com/photos/7096/people-woman-coffee-meeting.jpg"
-                                alt="Photo of sunset" class="blood-type">
-                              <h5 class="card-title mt-3 mb-3">Zekarias Alemu</h5><br>
-                              <div class="row" style="font-size: 16px;">
-                                <div class="col-sm-6">
-                                  <div class="row">
-                                    <div class="col-12">
-                                      <span>
-                                        Location
-                                      </span>
-                                    </div>
-                                    <div class="col-12">
-                                      <span>
-                                        Condition
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-sm-6">
-                                  <div class="row">
-                                    <div class="col-12">
-                                      <span>
-                                        Addis Ababa
-                                      </span>
-                                    </div>
-                                    <div class="col-12">
-                                      <span>
-                                        Severe
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <br>
-                              <div class="row share-accept-btn">
-                                <div class="col-sm-6">
-                                  <button type="button" style="font-size: 18px;"
-                                    class="btn accept-btn btn-outline-primary">Accept</button>
-                                </div>
-                                <div class="col-sm-6">
-                                  <button type="button" style="font-size: 18px;"
-                                    class="btn accept-btn btn-outline-secondary">Share</button>
-                                </div>
-                              </div>
-
-                            </div>
-                            <div class="card card-block px-2">
-                              <img src="https://static.pexels.com/photos/7096/people-woman-coffee-meeting.jpg"
-                                alt="Photo of sunset" class="blood-type">
-                              <h5 class="card-title mt-3 mb-3">Zekarias Alemu</h5><br>
-                              <div class="row" style="font-size: 16px;">
-                                <div class="col-sm-6">
-                                  <div class="row">
-                                    <div class="col-12">
-                                      <span>
-                                        Location
-                                      </span>
-                                    </div>
-                                    <div class="col-12">
-                                      <span>
-                                        Condition
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-sm-6">
-                                  <div class="row">
-                                    <div class="col-12">
-                                      <span>
-                                        Addis Ababa
-                                      </span>
-                                    </div>
-                                    <div class="col-12">
-                                      <span>
-                                        Severe
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <br>
-                              <div class="row share-accept-btn">
-                                <div class="col-sm-6">
-                                  <button type="button" style="font-size: 18px;"
-                                    class="btn accept-btn btn-outline-primary">Accept</button>
-                                </div>
-                                <div class="col-sm-6">
-                                  <button type="button" style="font-size: 18px;"
-                                    class="btn accept-btn btn-outline-secondary">Share</button>
-                                </div>
-                              </div>
-
-                            </div>
-                            <div class="card card-block px-2">
-                              <img src="https://static.pexels.com/photos/7096/people-woman-coffee-meeting.jpg"
-                                alt="Photo of sunset" class="blood-type">
-                              <h5 class="card-title mt-3 mb-3">Zekarias Alemu</h5><br>
-                              <div class="row" style="font-size: 16px;">
-                                <div class="col-sm-6">
-                                  <div class="row">
-                                    <div class="col-12">
-                                      <span>
-                                        Location
-                                      </span>
-                                    </div>
-                                    <div class="col-12">
-                                      <span>
-                                        Condition
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-sm-6">
-                                  <div class="row">
-                                    <div class="col-12">
-                                      <span>
-                                        Addis Ababa
-                                      </span>
-                                    </div>
-                                    <div class="col-12">
-                                      <span>
-                                        Severe
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <br>
-                              <div class="row share-accept-btn">
-                                <div class="col-sm-6">
-                                  <button type="button" style="font-size: 18px;"
-                                    class="btn accept-btn btn-outline-primary">Accept</button>
-                                </div>
-                                <div class="col-sm-6">
-                                  <button type="button" style="font-size: 18px;"
-                                    class="btn accept-btn btn-outline-secondary">Share</button>
-                                </div>
-                              </div>
-
-                            </div>
-                            <div class="card card-block px-2">
-                              <img src="https://static.pexels.com/photos/7096/people-woman-coffee-meeting.jpg"
-                                alt="Photo of sunset" class="blood-type">
-                              <h5 class="card-title mt-3 mb-3">Zekarias Alemu</h5><br>
-                              <div class="row" style="font-size: 16px;">
-                                <div class="col-sm-6">
-                                  <div class="row">
-                                    <div class="col-12">
-                                      <span>
-                                        Location
-                                      </span>
-                                    </div>
-                                    <div class="col-12">
-                                      <span>
-                                        Condition
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-sm-6">
-                                  <div class="row">
-                                    <div class="col-12">
-                                      <span>
-                                        Addis Ababa
-                                      </span>
-                                    </div>
-                                    <div class="col-12">
-                                      <span>
-                                        Severe
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <br>
-                              <div class="row share-accept-btn">
-                                <div class="col-sm-6">
-                                  <button type="button" style="font-size: 18px;"
-                                    class="btn accept-btn btn-outline-primary">Accept</button>
-                                </div>
-                                <div class="col-sm-6">
-                                  <button type="button" style="font-size: 18px;"
-                                    class="btn accept-btn btn-outline-secondary">Share</button>
-                                </div>
-                              </div>
-
-                            </div>
+                        
+                          <div class="cards-wrapper" id="request-list">
+                            
+                            
                           </div>
                         </section>
 
@@ -1026,7 +565,7 @@
 
                   <div class="fix-12-12 toCenter">
                     <div class="fix-7-12">
-                      <p class="margin-bottom-2 ae-1 events">Events</p>
+                      <p class="margin-bottom-1 ae-1 events">Events</p>
                       <h1 class="profile-content">Individual we are one drop, together we are an ocean</h1>
                     </div>
                     <ul class="grid fixedSpaces left margin-top-10 articles">
@@ -1100,166 +639,8 @@
                     <div class="">
                       <h1 class="text-center profile mb-4">Profile</h1>
                     </div>
-                    <div class="card-detail">
-                      <div class="row">
-                        <div class="col-sm-5 text-center">
-
-                          <div class="">
-                            <div class="d-flex flex-column">
-                              <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin"
-                                class="rounded-circle mx-auto" width="120px">
-                            </div>
-                            <div class="mt-3">
-                              <h3 class="profile-content">John Doe</h3>
-                              <p>Full Stack
-                                Developer</p>
-                              <p>Addis Ababa, Ethiopia</p>
-                            </div>
-                          </div>
-
-                          <div class="row pl-2">
-                            <div class="col-12">
-                              <!-- <div class="wrap">
-                                <div class="countdown">
-                                  <div class="bloc-time hours" data-init-value="24">
-                                    <span class="count-title">Hours</span>
-
-                                    <div class="figure hours hours-1">
-                                      <span class="top">2</span>
-                                      <span class="top-back">
-                                        <span>2</span>
-                                      </span>
-                                      <span class="bottom">2</span>
-                                      <span class="bottom-back">
-                                        <span>2</span>
-                                      </span>
-                                    </div>
-
-                                    <div class="figure hours hours-2">
-                                      <span class="top">4</span>
-                                      <span class="top-back">
-                                        <span>4</span>
-                                      </span>
-                                      <span class="bottom">4</span>
-                                      <span class="bottom-back">
-                                        <span>4</span>
-                                      </span>
-                                    </div>
-                                  </div>
-
-                                  <div class="bloc-time min" data-init-value="0">
-                                    <span class="count-title">Minutes</span>
-
-                                    <div class="figure min min-1">
-                                      <span class="top">0</span>
-                                      <span class="top-back">
-                                        <span>0</span>
-                                      </span>
-                                      <span class="bottom">0</span>
-                                      <span class="bottom-back">
-                                        <span>0</span>
-                                      </span>
-                                    </div>
-
-                                    <div class="figure min min-2">
-                                      <span class="top">0</span>
-                                      <span class="top-back">
-                                        <span>0</span>
-                                      </span>
-                                      <span class="bottom">0</span>
-                                      <span class="bottom-back">
-                                        <span>0</span>
-                                      </span>
-                                    </div>
-                                  </div>
-
-                                  <div class="bloc-time sec" data-init-value="0">
-                                    <span class="count-title">Seconds</span>
-
-                                    <div class="figure sec sec-1">
-                                      <span class="top">0</span>
-                                      <span class="top-back">
-                                        <span>0</span>
-                                      </span>
-                                      <span class="bottom">0</span>
-                                      <span class="bottom-back">
-                                        <span>0</span>
-                                      </span>
-                                    </div>
-
-                                    <div class="figure sec sec-2">
-                                      <span class="top">0</span>
-                                      <span class="top-back">
-                                        <span>0</span>
-                                      </span>
-                                      <span class="bottom">0</span>
-                                      <span class="bottom-back">
-                                        <span>0</span>
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div> -->
-                            </div>
-                          </div>
-                        </div>
-
-
-                        <div class="col-sm-7">
-                          <div class="row">
-                            <div class="col-12">
-                              <p>Basic Information</p>
-                            </div>
-                          </div>
-                          <div class="row info">
-                            <div class="col-5">
-                              <span class="fullName">Full Name</span>
-                            </div>
-                            <div class="col-7">
-                              <span>Michael Solomon</span>
-                            </div>
-                          </div>
-
-                          <div class="row">
-                            <div class="col-5">
-                              <span class="email">Email</span>
-                            </div>
-                            <div class="col-7">
-                              <span>se.michael.solomon@gmail.com</span>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="col-5">
-                              <span class="phone">Phone</span>
-                            </div>
-                            <div class="col-7">
-                              <span>+2519-66-30-30-09</span>
-                            </div>
-                          </div>
-                          <div class="row mb-2">
-                            <div class="col-5">
-                              <span class="adderss">Address</span>
-                            </div>
-                            <div class="col-7">
-                              <span>Addis Ababa, Ethiopia</span>
-                            </div>
-                          </div>
-
-                          <div class="row">
-                            <div class="col-12 mt-2">
-                              <p>Donation History</p>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="col-6">
-                              <p>Donation Event Name</p>
-                            </div>
-                            <div class="col-6">
-                              <p>Event Date</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                    <div class="card-detail" id="user-profile">
+                      
                     </div>
                   </div>
                 </div>
@@ -1344,6 +725,10 @@
           <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
           </script>
+          <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+          <!-- momenet -->
+          <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+
           <!-- Popper.JS -->
           <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
             integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous">
@@ -1352,14 +737,37 @@
           <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
             integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous">
           </script>
-          <script src="../assets/js/jquery.datetimepicker.js"></script>
+          <!-- bootstrap datepicker -->
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
 
-          <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-          <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js">
-          </script>
+           <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+           <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+       
+           
+           <script>
+              $('.datepicker').datepicker({
+                format: 'mm/dd/yyyy',
+                startDate: '-3d'
+              });
+            $('#picker').daterangepicker({
+              opens: "left",
+            }, function (start, end, label) {
+                document.getElementById("start_date").setAttribute("value", start.format('YYYY-MM-DD'))
+                document.getElementById("end_date").setAttribute("value", end.format('YYYY-MM-DD'))
+                console.log(document.getElementById("start_date"));
+                $('#start_date').val(start.format('YYYY-MM-DD'))
+                $('#end_date').val(end.format("YYYY-MM-DD"))
+            })
+        </script>
+
           <link rel="stylesheet" type="text/css"
             href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
+          <!-- registers -->
+          <script src="../assets/js/utils/dexie.js"></script>
+          <script type="module" src="../assets/js/validation/register-user-event.js"></script>
+          <script type="module"src="../assets/js/user-view-controller/user-view-controller.js"></script>
 
 
           <!-- Compressed Scripts -->
