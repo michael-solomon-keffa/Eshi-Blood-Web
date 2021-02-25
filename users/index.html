@@ -432,14 +432,18 @@
                           <p class="opacity-8">It's is easy, fill the form on the right to make an appointment using our
                             online scheduling tool.</p>
                         </div>
-                        <div class="relative">
-                          <input type="text" class="ae-3 fromRight">
-                          <input type="button" class="ae-3 fromRight" value="GO!">
-                          <div class="ae-5 fromRight">
-                            <p class="tiny opacity-6">Use an Event Code</p>
+                        <div class="row">
+                          <div class="col-sm-8">
+                            <input type="text" placeholder="Enter event code" class="form-group-edited ae-3 fromRight">
+                          </div>
+                          <div class="col-sm-4">
+                            <input type="button" class="form-group-edited mr-2 btn btn-outline-success ae-3 fromRight" value="GO!">
                           </div>
                         </div>
-                      </li>
+                        <div class="ae-5 fromRight">
+                          <p class="tiny opacity-6">Use an Event Code</p>
+                        </div>
+                      </li>         
                       <li class="col-6-12 left">
                         <ul class="accordion">
                           <li class="accordion-item">
@@ -449,7 +453,7 @@
                               <li>
                                 <!--The "from" Date Picker -->
                                 <label for="picker">Date & Time</label><br>
-                                <input placeholder="Selected starting date" type="text" id="picker" class="datepicker"
+                                <input placeholder="Selected starting date" type="text" id="picker" class="datepicker input-edited"
                                   name="datetimes">
                               </li>
                               <br>
@@ -457,16 +461,16 @@
                                 <!--The "from" Date Picker -->
                                 <label for="picker">Location</label><br>
                                 <select class="form-control select2">
-                                  <option>Select</option>
-                                  <option>Car</option>
-                                  <option>Bike</option>
-                                  <option>Scooter</option>
-                                  <option>Cycle</option>
-                                  <option>Horse</option>
+                                  <option class="options">Select</option>
+                                  <option class="options">Car</option>
+                                  <option class="options">Bike</option>
+                                  <option class="options">Scooter</option>
+                                  <option class="options">Cycle</option>
+                                  <option class="options">Horse</option>
                                 </select>
                               </li>
                               <li style="margin-top: 20px;">
-                                <button type="button" class="btn btn-outline-primary">Confirm</button>
+                                <button type="button" class="btn btn-outline-primary btn-edited">Confirm</button>
                               </li>
                             </ul>
                           </li>

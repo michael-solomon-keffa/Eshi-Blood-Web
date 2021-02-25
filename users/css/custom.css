@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Quicksand:wght@300&display=swap');
 
+body {
+    font-size: 16px;
+}
+
 .no-decor:hover {
     text-decoration: none;
 }
@@ -186,3 +190,15 @@
     margin: -40px 0 0 -40px;
 }
 
+.form-group-edited{
+    width: 100%;
+    font-size: 16px;
+}
+
+.btn-edited, .input-edited, .select-edited{
+    font-size: 16px;
+}
+
+.accordion,  .options{
+    font-size: 16px;
+}
