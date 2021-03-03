@@ -3,12 +3,14 @@ import { RequestController } from "../controllers/request-controller.js";
 import { DonorController } from "../controllers/donor-controller.js";
 
 import { crypt } from "../utils/crypt.js";
+import { db } from "../database/db.js";
 
 window.onload = () => {
-  const check = checkSession();
-  if (check) {
-    document.body.style.removeProperty("display");
-  }
+  checkSession().then((check) => {
+    if (check) {
+      document.body.style.removeProperty("display");
+    }
+  });
 };
 
 const donorController = new DonorController();
@@ -17,32 +19,65 @@ let donorID;
 let donor;
 
 async function checkSession() {
+  const requestedUrl = window.location.toString();
   if (Cookies.get("_emeshi")) {
-    donorID = crypt.decrypt(Cookies.get("_emeshi"));
-    donor = await donorController.getDonor(parseInt(donorID));
-    populateProfile(donor[0]);
-    console.log(donor);
-    if (Cookies.get("is_admin")) {
-      window.location.replace(requestedUrl);
+    if (Cookies.get("_adeshi") == "true") {
+      window.location.replace("http://127.0.0.1:5502/dashboard.html");
+      return false;
+    } else {
+      donorID = crypt.decrypt(Cookies.get("_emeshi"));
+      donor = await donorController.getDonor(parseInt(donorID));
+      populateProfile(donor[0]);
+      checkDonorStatus();
+      return true;
     }
-    console.log(Cookies.get("_emeshi"));
-    return true;
   } else {
     window.location.replace("http://127.0.0.1:5502/index.html");
     return false;
   }
 }
 
-// eveents
+let disabled = "";
+
+async function checkDonorStatus() {
+  const apts = await donor[0].appointments;
+  for (const apt of apts) {
+    if (apt.status == "active") {
+      disabled = "disabled";
+      await donorController.updateCanDonate(donorID, false);
+    }
+    // } else {
+    //   disabled = "";
+    //   await donorController.updateCanDonate(donorID, true);
+    // }
+  }
+}
+
+// logout
+const logout = function () {
+  Cookies.remove("_emeshi");
+  Cookies.remove("_adeshi");
+  window.location.replace("http://127.0.0.1:5502/index.html");
+};
+
+document.getElementById("logout").addEventListener("click", logout);
+
+// events
 
 const eventController = new EventController();
-const populateEvents = function () {};
+const eventListView = document.getElementById("eventCodeList");
+const populateEvents = function () {
+  eventController.getActiveEvents().then((_events) => {
+    
+  });
+};
+
+// window.onload =
 
 // request
 
 const requestController = new RequestController();
 const requestListView = document.getElementById("request-list");
-
 const populateRequestList = function () {
   requestController.getRequestByBloodType("O+").then((requests) => {
     if (requests.length === 0) {
@@ -56,7 +91,7 @@ const populateRequestList = function () {
         let element = `
               <img src="../assets/images/blood-types/${request.blood_type}.webp"
                 alt="Photo of sunset" class="blood-type">
-              <h5 class="card-title mt-3 mb-3">${request.unit_needed} blood kits needed</h5><br>
+              <h5 class="card-title mt-3 mb-3">${request.units_needed} blood kits needed</h5><br>
               <div class="row" style="font-size: 16px;">
                 <div class="col-sm-6">
                   <div class="row">
@@ -129,7 +164,7 @@ populateRequestList();
 
 // profile page
 
-const userProfilView = document.getElementById("user-profile");
+const userProfileView = document.getElementById("user-profile");
 
 const populateProfile = function (donor) {
   const element = `
@@ -213,5 +248,5 @@ const populateProfile = function (donor) {
   const wrapper = document.createElement("div");
   wrapper.className = "row";
   wrapper.innerHTML = element;
-  userProfilView.append(wrapper);
+  userProfileView.append(wrapper);
 };

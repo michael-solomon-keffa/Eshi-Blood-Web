@@ -10,29 +10,36 @@ let user;
 let email;
 let password;
 const isFromSignUp = urlParams.get("registered");
-console.log(isFromSignUp);
 let alertView = document.getElementById("alert");
 
 const requestedUrl = document.location.href;
 window.onload = () => {
   if (fromSignUp()) {
-    document.body.style.removeProperty("display");
+    if (checkSession()) {
+    } else {
+      document.body.style.removeProperty("display");
+    }
   } else if (checkSession()) {
+    document.body.style.setProperty("display", "none");
+  } else {
     document.body.style.removeProperty("display");
   }
 };
 
 function checkSession() {
   if (Cookies.get("_emeshi")) {
-    console.log(Cookies.get("_emeshi"));
-    window.location.replace("http://127.0.0.1:5502/dashboard.html");
-    return false;
-  } else {
-    email = Cookies.get("_emeshi");
-    if (Cookies.get("is_admin")) {
-      window.location.replace(requestedUrl);
+    if (Cookies.get("_adeshi") == "true") {
+      window.location.replace("http://127.0.0.1:5502/dashboard.html");
+    } else {
+      window.location.replace("http://127.0.0.1:5502/users/index.html");
     }
     return true;
+  } else {
+    email = Cookies.get("_emeshi");
+    if (Cookies.get("_adeshi")) {
+      window.location.replace(requestedUrl);
+    }
+    return false;
   }
 }
 
@@ -61,7 +68,20 @@ function login(e) {
         Cookies.set("_emeshi", crypt.encrypt(user.id_donor.toString()), {
           expires: 3,
         });
-        window.location.replace("http://127.0.0.1:5502/dashboard.html");
+        Cookies.set("_adeshi", user.is_admin, {
+          expires: 3,
+        });
+
+        Cookies.set("_id", user.id, {
+          expires: 3,
+        });
+
+        if (user.is_admin == true) {
+          console.log("here");
+          window.location.replace("http://127.0.0.1:5502/dashboard.html");
+        } else if (user.is_admin == false) {
+          window.location.replace("http://127.0.0.1:5502/users/index.html");
+        }
       });
     } else {
       console.log("error");

@@ -175,6 +175,7 @@ function registerUser(e) {
             ...userInfo,
             password: password,
             id_donor: id_donor,
+            is_admin: false,
           });
         });
     });

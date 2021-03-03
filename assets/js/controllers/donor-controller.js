@@ -110,7 +110,7 @@ export class DonorController {
 
   async deleteDonor(id) {
     const update = await db.donors
-      .update(id, { is_deleted: "true", updatedAt: new Date() })
+      .update(parseInt(id), { is_deleted: "true", updatedAt: new Date() })
       .then((update) => {
         return update;
       });
@@ -119,7 +119,7 @@ export class DonorController {
   }
 
   async updateDonor(id, donor) {
-    await db.donor.update(id, { donor }).then((update) => {
+    await db.donor.update(parseInt(id), { donor }).then((update) => {
       return update;
     });
   }
@@ -131,5 +131,13 @@ export class DonorController {
         return update;
       });
     return update;
+  }
+
+  async updateCanDonate(id, can_donate) {
+    await db.donor
+      .update(parseInt(id), { can_donate: can_donate })
+      .then((update) => {
+        return update;
+      });
   }
 }

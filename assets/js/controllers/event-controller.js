@@ -4,7 +4,7 @@ export class EventController {
   save(event) {
     return db.event.add({
       ...event,
-      status: "pending",
+      status: "active",
       createdAt: new Date(),
       updateAt: new Date(),
       id_donors: [],
@@ -31,7 +31,7 @@ export class EventController {
         const startDate = new Date(eve.start_date);
         const currentDate = new Date();
         console.log(currentDate);
-        if (endDate.getMonth() == currentDate.getMonth() + 1) {
+        if (endDate.getMonth() == currentDate.getMonth()) {
           return eve;
         }
       })
@@ -63,6 +63,15 @@ export class EventController {
     const events = await db.event
       .filter((event) => {
         return event.is_deleted == false;
+      })
+      .toArray();
+    return events;
+  }
+
+  async getActiveEventsId() {
+    const events = await db.event
+      .filter((_event) => {
+        return _event.is_deleted == false && _event.status == "active";
       })
       .toArray();
     return events;

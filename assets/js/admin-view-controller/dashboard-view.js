@@ -7,7 +7,7 @@ const dashboardController = new DashboardController();
 // checking whether signed in or not
 window.onload = () => {
   checkSession();
-  if (checkSession()) {
+  if (checkSession) {
     document.body.style.removeProperty("display");
   }
 };
@@ -15,19 +15,29 @@ window.onload = () => {
 let email;
 
 function checkSession() {
-  console.log("running");
+  const requestedUrl = window.location.toString();
+  console.log(requestedUrl);
   if (Cookies.get("_emeshi")) {
-    email = crypt.decrypt(Cookies.get("_emeshi"));
-    if (Cookies.get("is_admin")) {
-      window.location.replace(requestedUrl);
+    if (Cookies.get("_adeshi") == "true") {
+      //window.location.replace(requestedUrl);
+    } else {
+      window.location.replace("http://127.0.0.1:5502/users/index.html");
     }
-    console.log(Cookies.get("_emeshi"));
     return true;
   } else {
     window.location.replace("http://127.0.0.1:5502/index.html");
     return false;
   }
 }
+
+// logout
+const logout = function () {
+  Cookies.remove("_emeshi");
+  Cookies.remove("_adeshi");
+  window.location.replace("http://127.0.0.1:5502/index.html");
+};
+
+document.getElementById("logout").addEventListener("click", logout);
 
 const totalDonorsView = document.getElementById("totalDonorsView");
 const totalActiveDonorsView = document.getElementById("totalActiveDonorsView");

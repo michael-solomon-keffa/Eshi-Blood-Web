@@ -14,13 +14,46 @@ function registerUser(e) {
   e.preventDefault();
 
   const eventCode = document.getElementById("eventcode").value;
-  const userId = 78;
+  const userId = parseInt(Cookies.get("_id"));
 
-  eventController
-    .registerUserToEvent(userId, parseInt(eventCode))
-    .then((isRegistered) => {
-      console.log(isRegistered);
-    });
+  const activeEvents = eventController.getActiveEventsId().then((_idList) => {
+    console.log(_idList);
+    const x = _idList.map((e) => e.id);
+    return x;
+  });
+
+  activeEvents.then((_activeEvents) => {
+    console.log(_activeEvents);
+    if (_activeEvents.includes(parseInt(eventCode))) {
+      eventController
+        .registerUserToEvent(userId, parseInt(eventCode))
+        .then((isRegistered) => {
+          if (!isRegistered) {
+            $("#eventcode").after(
+              '<span class="text-warning error">Already registered</span> '
+            );
+            setTimeout(function () {
+              $(".error").remove();
+            }, 2350);
+          } else {
+            $("#eventcode").after(
+              '<span class="text-success error">Registered</span> '
+            );
+            setTimeout(function () {
+              $(".error").remove();
+            }, 2350);
+          }
+        });
+    } else {
+      $("#eventcode").after(
+        '<span class="text-warning error">Sorry! No event exist with this ID.</span> '
+      );
+      setTimeout(function () {
+        $(".error").remove();
+      }, 2350);
+      console.log("no event");
+    }
+  });
 
   console.log("here");
 }
