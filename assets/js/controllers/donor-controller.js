@@ -56,8 +56,8 @@ export class DonorController {
     await Promise.all(
       donors.map(async (donor) => {
         [donor.donations, donor.appointments] = await Promise.all([
-          db.donation.where("id_donor").anyOf(donor.id.toString()).toArray(),
-          db.appointment.where("id_donor").anyOf(donor.id.toString()).toArray(),
+          db.donation.where("id_donor").anyOf(donor.id).toArray(),
+          db.appointment.where("id_donor").anyOf(donor.id).toArray(),
         ]);
       })
     );
@@ -72,8 +72,8 @@ export class DonorController {
     await Promise.all(
       donors.map(async (donor) => {
         [donor.donations, donor.appointments] = await Promise.all([
-          db.donation.where("id_donor").anyOf(donor.id.toString()).toArray(),
-          db.appointment.where("id_donor").anyOf(donor.id.toString()).toArray(),
+          db.donation.where("id_donor").anyOf(donor.id).toArray(),
+          db.appointment.where("id_donor").anyOf(donor.id).toArray(),
         ]);
       })
     );

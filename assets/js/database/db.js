@@ -180,153 +180,153 @@ db.on("populate", function () {
     id_donor: 7,
   });
 
-  // donor 2
-  db.appointment.add({
-    start_date: "2/11/2021 04:00 PM",
-    end_date: "3/24/2021 12:00 AM",
-    time: "04:00",
-    status: "pending",
-    id_donor: 2,
-    id_donation_center: "",
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    is_deleted: false,
-  });
-  db.appointment.add({
-    start_date: "10/11/2020 04:00 PM",
-    end_date: "10/24/2020 12:00 AM",
-    time: "04:00",
-    status: "success",
-    id_donor: 2,
-    id_donation_center: "",
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    is_deleted: false,
-  });
-  db.donation.add({
-    date: new Date(),
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    id_donor: 2,
-    id_appointment: 2,
-    is_deleted: false,
-  });
-  db.appointment.add({
-    start_date: "5/11/2020 04:00 PM",
-    end_date: "5/24/2020 12:00 AM",
-    time: "04:00",
-    status: "success",
-    id_donor: 2,
-    id_donation_center: "",
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    is_deleted: false,
-  });
-  db.donation.add({
-    date: new Date(),
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    id_donor: 2,
-    id_appointment: 3,
-    is_deleted: false,
-  });
+  // // donor 2
+  // db.appointment.add({
+  //   start_date: "2/11/2021 04:00 PM",
+  //   end_date: "3/24/2021 12:00 AM",
+  //   time: "04:00",
+  //   status: "pending",
+  //   id_donor: 2,
+  //   id_donation_center: "",
+  //   createdAt: new Date(),
+  //   updatedAt: new Date(),
+  //   is_deleted: false,
+  // });
+  // db.appointment.add({
+  //   start_date: "10/11/2020 04:00 PM",
+  //   end_date: "10/24/2020 12:00 AM",
+  //   time: "04:00",
+  //   status: "success",
+  //   id_donor: 2,
+  //   id_donation_center: "",
+  //   createdAt: new Date(),
+  //   updatedAt: new Date(),
+  //   is_deleted: false,
+  // });
+  // db.donation.add({
+  //   date: new Date(),
+  //   createdAt: new Date(),
+  //   updatedAt: new Date(),
+  //   id_donor: 2,
+  //   id_appointment: 2,
+  //   is_deleted: false,
+  // });
+  // db.appointment.add({
+  //   start_date: "5/11/2020 04:00 PM",
+  //   end_date: "5/24/2020 12:00 AM",
+  //   time: "04:00",
+  //   status: "success",
+  //   id_donor: 2,
+  //   id_donation_center: "",
+  //   createdAt: new Date(),
+  //   updatedAt: new Date(),
+  //   is_deleted: false,
+  // });
+  // db.donation.add({
+  //   date: new Date(),
+  //   createdAt: new Date(),
+  //   updatedAt: new Date(),
+  //   id_donor: 2,
+  //   id_appointment: 3,
+  //   is_deleted: false,
+  // });
 
-  //donor 3
-  db.appointment.add({
-    start_date: "2/11/2021 04:00 PM",
-    end_date: "3/24/2021 12:00 AM",
-    time: "04:00",
-    status: "pending",
-    id_donor: 3,
-    id_donation_center: "",
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    is_deleted: false,
-  });
-  db.appointment.add({
-    start_date: "10/11/2020 04:00 PM",
-    end_date: "10/24/2020 12:00 AM",
-    time: "04:00",
-    status: "success",
-    id_donor: 3,
-    id_donation_center: "",
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    is_deleted: false,
-  });
-  db.donation.add({
-    date: new Date(),
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    id_donor: 2,
-    id_appointment: 4,
-    is_deleted: false,
-  });
-  db.appointment.add({
-    start_date: "5/11/2020 04:00 PM",
-    end_date: "5/24/2020 12:00 AM",
-    time: "04:00",
-    status: "success",
-    id_donor: 3,
-    id_donation_center: "",
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    is_deleted: false,
-  });
-  db.donation.add({
-    date: new Date(),
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    id_donor: 2,
-    id_appointment: 5,
-    is_deleted: false,
-  });
+  // //donor 3
+  // db.appointment.add({
+  //   start_date: "2/11/2021 04:00 PM",
+  //   end_date: "3/24/2021 12:00 AM",
+  //   time: "04:00",
+  //   status: "pending",
+  //   id_donor: 3,
+  //   id_donation_center: "",
+  //   createdAt: new Date(),
+  //   updatedAt: new Date(),
+  //   is_deleted: false,
+  // });
+  // db.appointment.add({
+  //   start_date: "10/11/2020 04:00 PM",
+  //   end_date: "10/24/2020 12:00 AM",
+  //   time: "04:00",
+  //   status: "success",
+  //   id_donor: 3,
+  //   id_donation_center: "",
+  //   createdAt: new Date(),
+  //   updatedAt: new Date(),
+  //   is_deleted: false,
+  // });
+  // db.donation.add({
+  //   date: new Date(),
+  //   createdAt: new Date(),
+  //   updatedAt: new Date(),
+  //   id_donor: 2,
+  //   id_appointment: 4,
+  //   is_deleted: false,
+  // });
+  // db.appointment.add({
+  //   start_date: "5/11/2020 04:00 PM",
+  //   end_date: "5/24/2020 12:00 AM",
+  //   time: "04:00",
+  //   status: "success",
+  //   id_donor: 3,
+  //   id_donation_center: "",
+  //   createdAt: new Date(),
+  //   updatedAt: new Date(),
+  //   is_deleted: false,
+  // });
+  // db.donation.add({
+  //   date: new Date(),
+  //   createdAt: new Date(),
+  //   updatedAt: new Date(),
+  //   id_donor: 2,
+  //   id_appointment: 5,
+  //   is_deleted: false,
+  // });
 
-  // donation center
-  db.donation_center.add({
-    center_name: "Addis Ababa",
-    city: "Addis Ababa",
-    woreda: "09",
-    phone_number: "09123456789",
-    add_info: "",
-    is_open: true,
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    is_deleted: false,
-  });
-  db.donation_center.add({
-    center_name: "Addis Ababa",
-    city: "Addis Ababa",
-    woreda: "09",
-    phone_number: "09123456789",
-    add_info: "",
-    is_open: false,
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    is_deleted: false,
-  });
-  db.donation_center.add({
-    center_name: "Addis Ababa",
-    city: "Addis Ababa",
-    woreda: "09",
-    phone_number: "09123456789",
-    add_info: "",
-    is_open: false,
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    is_deleted: false,
-  });
-  db.donation_center.add({
-    center_name: "Addis Ababa",
-    city: "Addis Ababa",
-    woreda: "09",
-    phone_number: "09123456789",
-    add_info: "",
-    is_open: true,
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    is_deleted: false,
-  });
+  // // donation center
+  // db.donation_center.add({
+  //   center_name: "Addis Ababa",
+  //   city: "Addis Ababa",
+  //   woreda: "09",
+  //   phone_number: "09123456789",
+  //   add_info: "",
+  //   is_open: true,
+  //   createdAt: new Date(),
+  //   updatedAt: new Date(),
+  //   is_deleted: false,
+  // });
+  // db.donation_center.add({
+  //   center_name: "Addis Ababa",
+  //   city: "Addis Ababa",
+  //   woreda: "09",
+  //   phone_number: "09123456789",
+  //   add_info: "",
+  //   is_open: false,
+  //   createdAt: new Date(),
+  //   updatedAt: new Date(),
+  //   is_deleted: false,
+  // });
+  // db.donation_center.add({
+  //   center_name: "Addis Ababa",
+  //   city: "Addis Ababa",
+  //   woreda: "09",
+  //   phone_number: "09123456789",
+  //   add_info: "",
+  //   is_open: false,
+  //   createdAt: new Date(),
+  //   updatedAt: new Date(),
+  //   is_deleted: false,
+  // });
+  // db.donation_center.add({
+  //   center_name: "Addis Ababa",
+  //   city: "Addis Ababa",
+  //   woreda: "09",
+  //   phone_number: "09123456789",
+  //   add_info: "",
+  //   is_open: true,
+  //   createdAt: new Date(),
+  //   updatedAt: new Date(),
+  //   is_deleted: false,
+  // });
 });
 
 // db.donation.add({

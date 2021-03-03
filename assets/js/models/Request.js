@@ -28,7 +28,7 @@ export class Request {
   getDonorsLink() {
     let link = "";
     this.id_donors.forEach((donorId) => {
-      link += `<a href="./user-detail.html?id=${this.donorId}" class="btn btn-primary" >ID - ${donorId}</a>`;
+      link += `<a href="./user-detail.html?id=${donorId}" class="btn btn-primary" >ID - ${donorId}</a>`;
     });
     return link;
   }

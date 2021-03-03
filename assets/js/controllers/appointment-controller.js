@@ -28,7 +28,7 @@ export class AppointmentController {
       .count();
     const totalActiveApts = await db.appointment
       .filter((apt) => {
-        return apt.status == "accepted";
+        return apt.status == "pending";
       })
       .count();
 
@@ -41,7 +41,7 @@ export class AppointmentController {
           currentDate.getTime() > startDate.getTime() &&
             currentDate.getTime() < endDate.getTime()
         );
-        if (endDate.getMonth() == currentDate.getMonth()) {
+        if (endDate.getMonth() - 1 == currentDate.getMonth()) {
           return apt;
         }
       })

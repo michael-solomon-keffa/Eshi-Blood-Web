@@ -9,4 +9,12 @@ export class Event {
   logg() {
     console.log(JSON.stringify(this));
   }
+
+  getDonorsLink() {
+    let link = "";
+    this.id_donors.forEach((donorId) => {
+      link += `<a href="./user-detail.html?id=${donorId}" class="btn btn-primary" >ID - ${donorId}</a>`;
+    });
+    return link;
+  }
 }

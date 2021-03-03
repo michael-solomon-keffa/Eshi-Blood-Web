@@ -69,7 +69,7 @@ const getData = (cb) => {
       innerData.push(_event.start_date);
       innerData.push(_event.end_date);
       innerData.push(_event.status);
-      innerData.push(_event.id_donors);
+      innerData.push(_event.getDonorsLink());
       data.push(innerData);
     });
     renderTable(data);
@@ -114,7 +114,7 @@ const renderTable = function (data) {
       {
         title: "Action",
         mRender: function (data, type, row) {
-          return `<button  class="${row[0]} btn btn-warning accept" data-toggle="modal" data-target="#acceptModal"  title="Accept">
+          return `<button  class="${row[0]} btn btn-success accept" data-toggle="modal" data-target="#acceptModal"  title="Success">
                     <i class="fa fa-check text-light accept"></i>
                     </button>
                 <button  class=" ${row[0]} btn btn-danger delete" data-toggle="modal" data-target="#deleteModal" title="Delete">

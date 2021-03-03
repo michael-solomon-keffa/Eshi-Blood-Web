@@ -297,14 +297,16 @@ function submitForm(e) {
   const response = Object.fromEntries(data.entries());
   console.log(response.datetimes);
   let date = response.datetimes.split("-");
-  let startDate = date[0].trim();
-  let endDate = date[1].trim();
+  console.log(date[0]);
+  let startDate = date[0].toString();
+  let endDate = date[1].toString();
   let time = date[0].split(" ")[1];
+  donorID = parseInt(donorID);
   let apt = {
-    startDate,
-    endDate,
-    time,
-    donorID,
+    start_date: startDate,
+    end_date: endDate,
+    time: time,
+    id_donor: donorID,
   };
   appointmentController.save(apt).then((apt) => {
     appointmentController.getApt(parseInt(apt)).then((apt) => {
@@ -316,19 +318,19 @@ function submitForm(e) {
          Appointment Id -  ${apt.id} 
       </div>
       <div>
-         Start Date -  ${apt.startDate} 
+         Start Date -  ${apt.start_date} 
       </div>
 
       <div>
-         End Date -  ${apt.endDate} 
+         End Date -  ${apt.end_date} 
       </div>
 
       <div>
-         Start Time -  ${apt.startDate.split(" ")[1]} 
+         Start Time -  ${apt.start_date.split(" ")[1]} 
       </div>
 
       <div>
-         End Time -  ${apt.endDate.split(" ")[1]} 
+         End Time -  ${apt.end_date.split(" ")[1]} 
       </div>
 
       <div>

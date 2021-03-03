@@ -30,7 +30,9 @@ const logout = function () {
   Cookies.remove("_adeshi");
   window.location.replace("http://127.0.0.1:5502/index.html");
 };
+
 document.getElementById("logout").addEventListener("click", logout);
+
 let donorController = new DonorController();
 const urlParams = new URLSearchParams(window.location.search);
 
