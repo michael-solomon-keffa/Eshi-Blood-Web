@@ -25,7 +25,7 @@ async function checkSession() {
   if (Cookies.get("_emeshi")) {
     if (Cookies.get("_adeshi") == "true") {
       window.location.replace(
-        "https://michael-pi-max.github.io/Eshi-Blood-Web//dashboard.html"
+        "https://michael-pi-max.github.io/Eshi-Blood-Web/dashboard.html"
       );
       return false;
     } else {

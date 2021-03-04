@@ -22,13 +22,13 @@ function checkSession() {
       //window.location.replace(requestedUrl);
     } else {
       window.location.replace(
-        "https://michael-pi-max.github.io/Eshi-Blood-Web//users/index.html"
+        "https://michael-pi-max.github.io/Eshi-Blood-Web/users/index.html"
       );
     }
     return true;
   } else {
     window.location.replace(
-      "https://michael-pi-max.github.io/Eshi-Blood-Web//index.html"
+      "https://michael-pi-max.github.io/Eshi-Blood-Web/index.html"
     );
     return false;
   }
@@ -39,7 +39,7 @@ const logout = function () {
   Cookies.remove("_emeshi");
   Cookies.remove("_adeshi");
   window.location.replace(
-    "https://michael-pi-max.github.io/Eshi-Blood-Web//index.html"
+    "https://michael-pi-max.github.io/Eshi-Blood-Web/index.html"
   );
 };
 
