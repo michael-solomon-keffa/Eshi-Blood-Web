@@ -21,7 +21,9 @@ function checkSession() {
     console.log(Cookies.get("_emeshi"));
     return true;
   } else {
-    window.location = `${window.location.host}/index.html`;
+    window.location.replace(
+      "https://michael-pi-max.github.io/Eshi-Blood-Web/index.html"
+    );
     return false;
   }
 }

@@ -23,7 +23,7 @@ if (Number(urlParams.get("page"))) {
 const logout = function () {
   Cookies.remove("_emeshi");
   Cookies.remove("_adeshi");
-  window.location = `${window.location.host}/index.html`;
+  window.location.replace("https://michael-pi-max.github.io/Eshi-Blood-Web/");
 };
 document.getElementById("logout").addEventListener("click", logout);
 const populateList = async () => {

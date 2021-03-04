@@ -36,7 +36,9 @@ async function checkSession() {
       return true;
     }
   } else {
-    window.location.replace(`${window.location.host}/index.html`);
+    window.location.replace(
+      "https://michael-pi-max.github.io/Eshi-Blood-Web/index.html"
+    );
     return false;
   }
 }
@@ -49,7 +51,9 @@ function checkDonorStatus() {}
 const logout = function () {
   Cookies.remove("_emeshi");
   Cookies.remove("_adeshi");
-  window.location.replace(`${window.location.host}/index.html`);
+  window.location.replace(
+    "https://michael-pi-max.github.io/Eshi-Blood-Web/index.html"
+  );
 };
 
 document.getElementById("logout").addEventListener("click", logout);
