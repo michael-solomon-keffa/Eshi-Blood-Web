@@ -24,7 +24,7 @@
   <link rel="stylesheet" as="font"
     href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700|Material+Icons" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
-<!-- cookies-->
+  <!-- cookies-->
   <script src="./assets/js/utils/dexie.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
 
@@ -49,7 +49,7 @@
   <!--  -->
   <script src="../assets/js/utils/dexie.js"></script>
   <script type="module" src="../assets/js/validation/register-user-event.js"></script>
-  <script type="module"src="../assets/js/user-view-controller/user-view-controller.js"></script>
+  <script type="module" src="../assets/js/user-view-controller/user-view-controller.js"></script>
 
 
 </head>
@@ -252,7 +252,8 @@
         </ul>
       </div>
       <div class="right">
-        <a class="button btn-primary gradient no-decor" id="logout" href="#" >Logout <i class="fa fa-sign-out"></i></a></div>
+        <a class="button btn-primary gradient no-decor" id="logout" href="#">Logout <i class="fa fa-sign-out"></i></a>
+      </div>
     </div>
     <div class="sections compact hidden">
       <div class="left"><a href="#" title="Slides Framework"><svg style="width:82px;height:24px">
@@ -430,6 +431,7 @@
 
 
           <!-- Appointment -->
+
           <section id="appointment" class="slide fade-6 kenBurns">
             <div class="content">
               <div class="container">
@@ -443,56 +445,79 @@
                             online scheduling tool.</p>
                         </div>
                         <div class="row">
-                          <form id="register-user-event">
-                            <div class="col-sm-8">
-                              <input id="eventcode" type="text" placeholder="Enter event code" class="form-group-edited ae-3 fromRight">
-                            </div>
-                            <div class="col-sm-4">
-                              <input type="submit" class="form-group-edited mr-2 btn btn-outline-success ae-3 fromRight" value="GO!">
-                            </div>
-                          </form>
+                          <div class="col-sm-8">
+                            <input type="text" placeholder="Enter event code" class="form-group-edited ae-3 fromRight">
+                          </div>
+                          <div class="col-sm-4">
+                            <input type="button" class="form-group-edited mr-2 btn btn-outline-success ae-3 fromRight"
+                              value="GO!">
+                          </div>
                         </div>
                         <div class="ae-5 fromRight">
                           <p class="tiny opacity-6">Use an Event Code</p>
                         </div>
-                      </li>         
+                      </li>
                       <li class="col-6-12 left">
-                        <form action="" id="apt_form">
-                        <ul class="accordion" >
-                          <li class="accordion-item" id="apt-holder">
+                        <form action=""></form>
+                        <ul class="accordion">
+                          <li class="accordion-item">
                             <input id="s1" class="hide" type="checkbox">
                             <label for="s1" class="accordion-label">Appointment Form</label>
                             <ul class="accordion-child">
                               <li>
                                 <!--The "from" Date Picker -->
                                 <label for="picker">Date & Time</label><br>
-                                <input  placeholder="Selected starting date" type="text" id="picker" class="datepicker input-edited"
-                                  name="datetimes">
+                                <input placeholder="Selected starting date" type="text" id="picker"
+                                  class="datepicker input-edited" name="datetimes">
                               </li>
                               <br>
                               <li>
                                 <!--The "from" Date Picker -->
                                 <label for="picker">Location</label><br>
-                                <select name="location" id="location" class="form-control select2">
-                                  <option value="1" class="options">Addis Ababa</option>
-                                  <option value="2" class="options">Bahir Dar</option>
-                                  <option value="3" class="options">Hawassa</option>
-                                  <option value="4" class="options">Gondar</option>
-                                  <option value="5" class="options">Mekele</option>
-                                  <option value="6" class="options">Jimma</option>
+                                <select class="form-control select2">
+                                  <option class="options">Select</option>
+                                  <option class="options">Car</option>
+                                  <option class="options">Bike</option>
+                                  <option class="options">Scooter</option>
+                                  <option class="options">Cycle</option>
+                                  <option class="options">Horse</option>
                                 </select>
                               </li>
                               <li style="margin-top: 20px;">
-                                <button type="submit" class="btn btn-outline-primary btn-edited">Confirm</button>
+                                <button type="button" class="btn btn-outline-primary btn-edited">Confirm</button>
                               </li>
                             </ul>
-                          
                           </li>
-                          </form>
-                          <li class="accordion-item" id="apt-detail">
+                          <li class="accordion-item">
                             <input id="s2" class="hide" type="checkbox">
                             <label for="s2" class="accordion-label">Appointment Detail</label>
-                          
+                            <ul class="accordion-child">
+                              <li>
+                                <span>Start Date<span>
+                                    <span>Feb 19</span>
+                              </li>
+                              <br>
+                              <li>
+                                <span>Start Date<span>
+                                    <span>Feb 19</span>
+                              </li>
+                              <br>
+                              <li>
+                                <span>Start Date<span>
+                                    <span>Feb 19</span>
+                              </li>
+                              <br>
+                              <li>
+                                <span>Start Date<span>
+                                    <span>Feb 19</span>
+                              </li>
+                              <br>
+                              <li>
+                                <span>Start Date<span>
+                                    <span>Feb 19</span>
+                              </li>
+                              <br>
+                            </ul>
                           </li>
                         </ul>
                       </li>
@@ -515,10 +540,10 @@
                     <ul class="flex reverse verticalCenter">
                       <li class="col-12 cell-26">
                         <section id="horizontal-scroll">
-                        
+
                           <div class="cards-wrapper" id="request-list">
-                            
-                            
+
+
                           </div>
                         </section>
 
@@ -549,11 +574,12 @@
                   <div class="fix-12-12 toCenter">
                     <div class="fix-7-12">
                       <p class="margin-bottom-1 ae-1 events">Events</p>
-                      <h1 class="profile-content">Individual we are one drop, together we are an ocean</h1></br> <h1>Active Events</h1>
+                      <h1 class="profile-content">Individual we are one drop, together we are an ocean</h1></br>
+                      <h1>Active Events</h1>
                       <h1>You can register to any event by appointing using event Code!</h1>
                     </div>
                     <ul id="eventListView" class="grid fixedSpaces left margin-top-10 articles">
-                    
+
                     </ul>
                   </div>
 
@@ -573,7 +599,7 @@
                       <h1 class="text-center profile mb-4">Profile</h1>
                     </div>
                     <div class="card-detail" id="user-profile">
-                      
+
                     </div>
                   </div>
                 </div>
@@ -581,7 +607,7 @@
             </div>
             <div class="background" style="background-image:url(assets/img/background/img-91.jpg)"></div>
           </section>
-         
+
           <!-- Panel Bottom #01 -->
           <nav class="panel bottom forceMobileView">
             <div class="sections desktop">
@@ -630,7 +656,8 @@
           <div class="progress-bar blue"></div>
 
           <!-- modal -->
-          <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -639,7 +666,7 @@
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                
+
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                   <button type="button" class="btn btn-warning" data-dismiss="modal" id="logout-btn">Log Out</button>
@@ -665,34 +692,39 @@
             integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous">
           </script>
           <!-- bootstrap datepicker -->
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
+          <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js">
+          </script>
+          <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
 
-           <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-           <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-       
-           
-           <script>
-              $('.datepicker').datepicker({
-                format: 'mm/dd/yyyy',
-                startDate: '-3d'
-              });
+          <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js">
+          </script>
+          <link rel="stylesheet" type="text/css"
+            href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+
+          <script>
+            $('.datepicker').datepicker({
+              format: 'mm/dd/yyyy',
+              startDate: '-3d'
+            });
             $('#picker').daterangepicker({
               opens: "left",
             }, function (start, end, label) {
-                document.getElementById("start_date").setAttribute("value", start.format('YYYY-MM-DD'))
-                document.getElementById("end_date").setAttribute("value", end.format('YYYY-MM-DD'))
-                console.log(document.getElementById("start_date"));
-                $('#start_date').val(start.format('YYYY-MM-DD'))
-                $('#end_date').val(end.format("YYYY-MM-DD"))
+              document.getElementById("start_date").setAttribute("value", start.format('YYYY-MM-DD'))
+              document.getElementById("end_date").setAttribute("value", end.format('YYYY-MM-DD'))
+              console.log(document.getElementById("start_date"));
+              $('#start_date').val(start.format('YYYY-MM-DD'))
+              $('#end_date').val(end.format("YYYY-MM-DD"))
             })
-        </script>
+          </script>
 
           <link rel="stylesheet" type="text/css"
             href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
           <!-- registers -->
-          
+
 
 
           <!-- Compressed Scripts -->
@@ -710,7 +742,7 @@
                   format: 'M/DD/YYYY hh:mm A'
                 }
               });
-              
+
             });
           </script>
 
