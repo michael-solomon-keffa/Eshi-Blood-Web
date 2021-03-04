@@ -34,7 +34,9 @@ async function checkSession() {
       return true;
     }
   } else {
-    window.location.replace("http://127.0.0.1:5502/index.html");
+    window.location.replace(
+      `${window.location.host}/${window.location.pathname}/index.html`
+    );
     return false;
   }
 }
@@ -47,7 +49,9 @@ function checkDonorStatus() {}
 const logout = function () {
   Cookies.remove("_emeshi");
   Cookies.remove("_adeshi");
-  window.location.replace("http://127.0.0.1:5502/index.html");
+  window.location.replace(
+    `${window.location.host}/${window.location.pathname}/index.html`
+  );
 };
 
 document.getElementById("logout").addEventListener("click", logout);

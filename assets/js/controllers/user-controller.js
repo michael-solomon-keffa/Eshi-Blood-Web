@@ -21,7 +21,9 @@ function checkSession() {
     console.log(Cookies.get("_emeshi"));
     return true;
   } else {
-    window.location.replace("http://127.0.0.1:5502/index.html");
+    window.location.replace(
+      `${window.location.host}/${window.location.pathname}/index.html`
+    );
     return false;
   }
 }
