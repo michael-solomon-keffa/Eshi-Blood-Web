@@ -23,9 +23,7 @@ if (Number(urlParams.get("page"))) {
 const logout = function () {
   Cookies.remove("_emeshi");
   Cookies.remove("_adeshi");
-  window.location.replace(
-    `${window.location.host}/${window.location.pathname}/index.html`
-  );
+  window.location = `${window.location.host}/index.html`;
 };
 document.getElementById("logout").addEventListener("click", logout);
 const populateList = async () => {

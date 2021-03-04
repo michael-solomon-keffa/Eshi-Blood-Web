@@ -31,9 +31,13 @@ window.onload = () => {
 function checkSession() {
   if (Cookies.get("_emeshi")) {
     if (Cookies.get("_adeshi") == "true") {
-      window.location.replace("http://127.0.0.1:5502/dashboard.html");
+      window.location.replace(
+        "https://michael-pi-max.github.io/Eshi-Blood-Web//dashboard.html"
+      );
     } else {
-      window.location.replace("http://127.0.0.1:5502/users/index.html");
+      window.location.replace(
+        "https://michael-pi-max.github.io/Eshi-Blood-Web//users/index.html"
+      );
     }
     return true;
   } else {
@@ -83,9 +87,13 @@ function login(e) {
 
         if (user.is_admin == true) {
           console.log("here");
-          window.location.replace("http://127.0.0.1:5502/dashboard.html");
+          window.location.replace(
+            "https://michael-pi-max.github.io/Eshi-Blood-Web//dashboard.html"
+          );
         } else if (user.is_admin == false) {
-          window.location.replace("http://127.0.0.1:5502/users/index.html");
+          window.location.replace(
+            "https://michael-pi-max.github.io/Eshi-Blood-Web//users/index.html"
+          );
         }
       });
     } else {

@@ -22,9 +22,7 @@ function checkSession() {
     console.log(Cookies.get("_emeshi"));
     return true;
   } else {
-    window.location.replace(
-      `${window.location.host}/${window.location.pathname}/index.html`
-    );
+    window.location = `${window.location.host}/index.html`;
     return false;
   }
 }
@@ -32,9 +30,7 @@ function checkSession() {
 const logout = function () {
   Cookies.remove("_emeshi");
   Cookies.remove("_adeshi");
-  window.location.replace(
-    `${window.location.host}/${window.location.pathname}/index.html`
-  );
+  window.location = `${window.location.host}/index.html`;
 };
 document.getElementById("logout").addEventListener("click", logout);
 

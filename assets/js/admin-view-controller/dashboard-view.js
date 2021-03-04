@@ -21,12 +21,14 @@ function checkSession() {
     if (Cookies.get("_adeshi") == "true") {
       //window.location.replace(requestedUrl);
     } else {
-      window.location.replace("http://127.0.0.1:5502/users/index.html");
+      window.location.replace(
+        "https://michael-pi-max.github.io/Eshi-Blood-Web//users/index.html"
+      );
     }
     return true;
   } else {
     window.location.replace(
-      `${window.location.host}/${window.location.pathname}/index.html`
+      "https://michael-pi-max.github.io/Eshi-Blood-Web//index.html"
     );
     return false;
   }
@@ -37,7 +39,7 @@ const logout = function () {
   Cookies.remove("_emeshi");
   Cookies.remove("_adeshi");
   window.location.replace(
-    `${window.location.host}/${window.location.pathname}/index.html`
+    "https://michael-pi-max.github.io/Eshi-Blood-Web//index.html"
   );
 };
 

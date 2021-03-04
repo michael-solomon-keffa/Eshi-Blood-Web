@@ -24,7 +24,9 @@ async function checkSession() {
   const requestedUrl = window.location.toString();
   if (Cookies.get("_emeshi")) {
     if (Cookies.get("_adeshi") == "true") {
-      window.location.replace("http://127.0.0.1:5502/dashboard.html");
+      window.location.replace(
+        "https://michael-pi-max.github.io/Eshi-Blood-Web//dashboard.html"
+      );
       return false;
     } else {
       donorID = crypt.decrypt(Cookies.get("_emeshi"));
@@ -34,9 +36,7 @@ async function checkSession() {
       return true;
     }
   } else {
-    window.location.replace(
-      `${window.location.host}/${window.location.pathname}/index.html`
-    );
+    window.location.replace(`${window.location.host}/index.html`);
     return false;
   }
 }
@@ -49,9 +49,7 @@ function checkDonorStatus() {}
 const logout = function () {
   Cookies.remove("_emeshi");
   Cookies.remove("_adeshi");
-  window.location.replace(
-    `${window.location.host}/${window.location.pathname}/index.html`
-  );
+  window.location.replace(`${window.location.host}/index.html`);
 };
 
 document.getElementById("logout").addEventListener("click", logout);
