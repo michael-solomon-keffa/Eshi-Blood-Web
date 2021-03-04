@@ -84,7 +84,7 @@ const populateData = () => {
           <div class="card-profile-image">
             <a href="">
               <img
-                src="/assets/images/blood-types/${donor.blood_type}.webp"
+                src="./assets/images/blood-types/${donor.blood_type}.webp"
                 class="rounded-circle"
                 alt=""
                 width="150px"

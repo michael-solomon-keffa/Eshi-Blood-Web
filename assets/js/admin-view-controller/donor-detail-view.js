@@ -45,7 +45,7 @@ const populateList = async () => {
         <div class="content">
           <div class="face-front z-depth-2">
           <img
-          src="/assets/images/blood-types/${donor.blood_type}.webp"
+          src="./assets/images/blood-types/${donor.blood_type}.webp"
           class="rounded-circle"
           alt=""
           width="150px"
